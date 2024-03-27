@@ -18,7 +18,7 @@ def task5():
     """Function that represents console ui for task 4"""
     while True:
         try:
-            size = int(input("Enter list size"))
+            size = int(input("Enter list size\n"))
             if size <= 0:
                 print("Size cannot be less than 1, try again")
                 continue
@@ -27,7 +27,7 @@ def task5():
             print("Not an integer value, try again")
     lst = list()
     while True:
-        param = input("Enter \n1)Enter list by yourself\n2)Generate list")
+        param = input("Enter \n1)Enter list by yourself\n2)Generate list\n")
         if param == "1":
             get_list_console(lst, size)
             break

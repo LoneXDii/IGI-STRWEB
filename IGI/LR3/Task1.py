@@ -32,6 +32,8 @@ def task1():
             print("Incorrect input, try again")
 
     answ, n, true_answ = exp_taylor(x, eps)
-    print("Math function answer: ", true_answ)
-    print("Taylor answer: ", answ)
+    print("X: ", x)
     print("Count of operations", n)
+    print("Taylor answer: ", answ)
+    print("Math function answer: ", true_answ)
+    print("Accuracy: ", eps)

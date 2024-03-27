@@ -9,7 +9,7 @@ def get_list_console(seq, n):
     for i in range(n):
         while True:
             try:
-                seq.append(float(input("Enter element of list")))
+                seq.append(float(input("Enter element of list\n")))
                 break
             except ValueError:
                 print("Not a float number, try again")
