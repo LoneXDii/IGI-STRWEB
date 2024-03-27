@@ -1,7 +1,12 @@
+"""This module contains functions for task 1 in IGI LR3"""
+
 from math import exp
 
-
 def exp_taylor(x, eps):
+    """Main function of task1
+    x - float value, argument of epx function
+    eps - float value, calculation accuracy
+    return taylor series result, count of operations, value of embedded python function"""
     true_answ = exp(x)
     answ = 1.0
     n = 1
@@ -17,12 +22,13 @@ def exp_taylor(x, eps):
 
 
 def task1():
+    """Function that represents console ui for task 1"""
     while True:
         try:
             x = float(input("Enter argument x:\n"))
             eps = float(input("Enter calculation accuracy eps:\n"))
             break
-        except:
+        except ValueError:
             print("Incorrect input, try again")
 
     answ, n, true_answ = exp_taylor(x, eps)

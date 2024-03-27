@@ -1,21 +1,8 @@
-def get_list():
-    while True:
-        try:
-            size = int(input("Enter size of list"))
-            break
-        except:
-            print("Not an integer number, try again")
-    lst = list()
-    for i in range(size):
-        while True:
-            try:
-                lst.append(float(input("Enter element of list")))
-                break
-            except:
-                print("Not a float number, try again")
-    return lst
+"""This module contains functions for task 4 in IGI LR3"""
+from SequenceInitializer import *
 
 def get_task_sum(lst):
+    """This function get list of floats and return sum of elements that stands after absolute minimal element"""
     min_elem = float('inf')
     for elem in lst:
         if abs(elem) < abs(min_elem):
@@ -28,7 +15,28 @@ def get_task_sum(lst):
 
 
 def task5():
-    lst = get_list()
+    """Function that represents console ui for task 4"""
+    while True:
+        try:
+            size = int(input("Enter list size"))
+            if size <= 0:
+                print("Size cannot be less than 1, try again")
+                continue
+            break
+        except ValueError:
+            print("Not an integer value, try again")
+    lst = list()
+    while True:
+        param = input("Enter \n1)Enter list by yourself\n2)Generate list")
+        if param == "1":
+            get_list_console(lst, size)
+            break
+        elif param == "2":
+            generate_float_list(lst, size)
+            break
+        else:
+            print("No such command, try again")
+
     while True:
         task = input("Enter:\n1)Get count of 0\n2)Get sum of elems after abs min value\n3)Print list\n4)Finish\n")
         if task == "1":
