@@ -2,6 +2,14 @@
 
 from math import exp
 
+
+def decorator_example(func):
+    def wrapper():
+        print("This function is decorated")
+        func()
+        return
+    return wrapper
+
 def exp_taylor(x, eps):
     """Main function of task1
     x - float value, argument of epx function
@@ -20,7 +28,7 @@ def exp_taylor(x, eps):
             break
     return answ, n, true_answ
 
-
+@decorator_example
 def task1():
     """Function that represents console ui for task 1"""
     while True:
