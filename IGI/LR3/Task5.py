@@ -1,4 +1,4 @@
-"""This module contains functions for task 4 in IGI LR3"""
+"""This module contains functions for task 5 in IGI LR3"""
 from SequenceInitializer import *
 
 def get_task_sum(lst):
@@ -32,7 +32,8 @@ def task5():
             get_list_console(lst, size)
             break
         elif param == "2":
-            generate_float_list(lst, size)
+            for i in generate_float_list(size):
+                lst.append(i)
             break
         else:
             print("No such command, try again")
