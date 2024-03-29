@@ -29,7 +29,8 @@ def task5():
     while True:
         param = input("Enter \n1)Enter list by yourself\n2)Generate list\n")
         if param == "1":
-            get_list_console(lst, size)
+            for i in get_list_console(size):
+                lst.append(i)
             break
         elif param == "2":
             for i in generate_float_list(size):
