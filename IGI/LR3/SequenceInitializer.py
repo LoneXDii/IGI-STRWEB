@@ -3,7 +3,6 @@ import random
 
 def get_list_console(n):
     """This function get list of floats from console
-    seq - sequence for initializing
     n - seq size
     return initialized seq"""
     for i in range(n):
@@ -18,6 +17,5 @@ def generate_float_list(n):
     """This function generates list of floats
     n - seq size
     return initialized seq"""
-    gen = (random.random() * random.randint(0, 100) for i in range(n))
     for i in range(n):
-        yield next(gen)
+        yield random.random() * random.randint(0, 100)
