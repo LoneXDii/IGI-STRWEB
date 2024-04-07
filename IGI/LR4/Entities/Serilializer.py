@@ -11,7 +11,7 @@ class Serializer:
             writer = csv.DictWriter(file, fieldnames=columns)
             writer.writeheader()
             for num in data:
-                writer.writerow(num.value)
+                writer.writerow(num.value())
 
     @staticmethod
     def deserialize_csv(file_path):
