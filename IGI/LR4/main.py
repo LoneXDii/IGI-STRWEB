@@ -1,4 +1,4 @@
-from Tasks.Task1 import task1
+from Tasks.Task1 import Task1
 
 
-task1()
+Task1.task1()

@@ -1,6 +1,8 @@
 class RationalNum:
 
     def __init__(self, numerator: int, denominator: int):
+        if denominator == 0:
+            raise ValueError
         self.num = {'numerator': numerator, 'denominator': denominator}
 
     def value(self):

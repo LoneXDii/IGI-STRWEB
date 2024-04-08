@@ -9,14 +9,19 @@ class FractionalGenerator:
         for i in range(n):
             while True:
                 try:
-                    a = int(input("Enter numerator"))
-                    b = int(input("Enter denominator"))
-                    yield RationalNum(a, b)
+                    a = int(input("Enter numerator\n"))
+                    b = int(input("Enter denominator\n"))
+                    rn = RationalNum(a, b)
+                    print(f"You entered number: {rn}\n")
+                    yield rn
                     break
                 except ValueError:
-                    print("Incorrect input, try again")
+                    print("Incorrect input, try again\n")
 
     @staticmethod
     def generate_random(n: int):
         for i in range(n):
-            yield RationalNum(random.randint(-100, 100), random.randint(-100, 100))
+            denominator = random.randint(-100, 100)
+            if denominator == 0:
+                denominator = 1
+            yield RationalNum(random.randint(-100, 100), denominator)
