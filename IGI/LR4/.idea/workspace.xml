@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f8ac9fab-041b-402d-835e-b6e3e800dcfa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/RationalNum.py" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/RationalNum.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/FractionalGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Services/FractionalGenerator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Task1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task1.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/Task1.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tasks/Task1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tasks/Task1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
