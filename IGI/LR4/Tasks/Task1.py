@@ -1,5 +1,5 @@
 from Services.FractionalGenerator import FractionalGenerator
-from Entities.Serilializer import Serializer
+from Services.Serilializer import Serializer
 
 
 class Task1:
@@ -39,6 +39,9 @@ class Task1:
 
         Serializer.serialize_csv("Task1.csv", nums)
         Serializer.serialize_pickle("Task1.pickle", nums)
+        print(f"Your nums:")
+        for num in nums:
+            print(f"{num}\t")
 
         if Task1.__are_equal(nums):
             print("There are equal elements in list")

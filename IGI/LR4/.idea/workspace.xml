@@ -5,15 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8ac9fab-041b-402d-835e-b6e3e800dcfa" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/InputService.py" beforeDir="false" afterPath="$PROJECT_DIR$/Services/InputService.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tasks/Task2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tasks/Task2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/Figures/ShapeColor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Figures/ShapeColor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/Serilializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Serilializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/FractionalGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Services/FractionalGenerator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Task1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task1.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/Task1.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task2archive.zip" beforeDir="false" afterPath="$PROJECT_DIR$/Task2archive.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Task4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tasks/Task1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tasks/Task1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tasks/Task3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tasks/Task3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/answer.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/text.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Task2text.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +55,11 @@
     &quot;last_opened_file_path&quot;: &quot;D:/labs/IGI and STRWEB/253505_PAVLOVICH_15/IGI/LR3&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\labs\IGI and STRWEB\253505_PAVLOVICH_15\IGI\LR4\Services" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

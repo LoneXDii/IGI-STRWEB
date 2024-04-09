@@ -6,10 +6,8 @@ class Task3:
     @staticmethod
     def task3():
         calculator = ExpCalculator()
-        print("Enter argument x:")
-        x = InputService.input_float()
-        print("Enter calculation accuracy eps:")
-        eps = InputService.input_float()
+        x = InputService.input_float("Enter argument x:")
+        eps = InputService.input_float("Enter calculation accuracy eps:")
 
         answ, n, true_answ = calculator.calculate(x, eps)
         print("X: ", x)

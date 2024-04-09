@@ -3,7 +3,6 @@ import random
 
 
 class FractionalGenerator:
-
     @staticmethod
     def get_from_console(n: int):
         for i in range(n):
