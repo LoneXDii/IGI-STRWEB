@@ -1,19 +1,19 @@
 class InputService:
     @staticmethod
-    def input_int():
+    def input_int(text=""):
         while True:
             try:
-                x = int(input())
+                x = int(input(text))
                 break
             except ValueError:
                 print("Incorrect input, try again")
         return x
 
     @staticmethod
-    def input_float():
+    def input_float(text=""):
         while True:
             try:
-                x = float(input())
+                x = float(input(text))
                 break
             except ValueError:
                 print("Incorrect input, try again")

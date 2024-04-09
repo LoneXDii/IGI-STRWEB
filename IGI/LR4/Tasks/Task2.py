@@ -109,9 +109,9 @@ class Task2:
 
     @staticmethod
     def task2():
-        source_path = 'text.txt'
-        dest_path = 'answer.txt'
-        archive_path = 'archive.zip'
+        source_path = 'Task2text.txt'
+        dest_path = 'Task2answer.txt'
+        archive_path = 'Task2archive.zip'
         text = str(FileService.read_from_file(source_path))
         result = Task2.__analyze_text(text)
         FileService.save_to_file(dest_path, result)

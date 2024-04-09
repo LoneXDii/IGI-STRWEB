@@ -25,4 +25,4 @@ class Task3:
         print(f'Dispersion: {calculator.get_dispersion()}')
         print(f'Average square deviation: {calculator.get_average_square_deviation()}')
 
-        calculator.plot(-2, 2, 0.1, 'plot.png')
+        calculator.plot(-2, 2, 0.1, 'Task3plot.png')
