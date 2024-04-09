@@ -1,17 +1,15 @@
 from Entities.ExpCalculator import ExpCalculator
+from Services.InputService import InputService
 
 
 class Task3:
     @staticmethod
     def task3():
         calculator = ExpCalculator()
-        while True:
-            try:
-                x = float(input("Enter argument x:\n"))
-                eps = float(input("Enter calculation accuracy eps:\n"))
-                break
-            except ValueError:
-                print("Incorrect input, try again")
+        print("Enter argument x:")
+        x = InputService.input_float()
+        print("Enter calculation accuracy eps:")
+        eps = InputService.input_float()
 
         answ, n, true_answ = calculator.calculate(x, eps)
         print("X: ", x)
