@@ -1,11 +1,12 @@
 from Entities.Matrix import Matrix
 from Services.InputService import InputService
 import numpy as np
+from Tasks.Task import Task
 
 
-class Task5:
+class Task5(Task):
     @staticmethod
-    def task5():
+    def solve():
         print("Enter n, m - size of matrix:")
         while True:
             try:

@@ -1,10 +1,11 @@
 from Entities.Figures.InscribedSquare import InscribedSquare
 from Entities.Figures.ShapeColor import ShapeColor
+from Tasks.Task import Task
 
 
-class Task4:
+class Task4(Task):
     @staticmethod
-    def task4():
+    def solve():
         while True:
             try:
                 r = int(input("Enter R\n"))

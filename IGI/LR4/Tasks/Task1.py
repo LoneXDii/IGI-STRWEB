@@ -1,8 +1,8 @@
 from Services.FractionalGenerator import FractionalGenerator
 from Services.Serilializer import Serializer
+from Tasks.Task import Task
 
-
-class Task1:
+class Task1(Task):
     @staticmethod
     def __are_equal(nums):
         i = 0
@@ -22,7 +22,7 @@ class Task1:
         return max_num
 
     @staticmethod
-    def task1():
+    def solve():
         nums = list()
         while True:
             param = input("Enter:\n1.Enter 10 nums from keyboard\n2.Generate 10 nums\n")

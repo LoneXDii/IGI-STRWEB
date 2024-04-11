@@ -1,10 +1,11 @@
 from Entities.ExpCalculator import ExpCalculator
 from Services.InputService import InputService
+from Tasks.Task import Task
 
 
-class Task3:
+class Task3(Task):
     @staticmethod
-    def task3():
+    def solve():
         calculator = ExpCalculator()
         x = InputService.input_float("Enter argument x:")
         eps = InputService.input_float("Enter calculation accuracy eps:")

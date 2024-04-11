@@ -1,7 +1,9 @@
 import re
 from Services.FileService import FileService
+from Tasks.Task import Task
 
-class Task2:
+
+class Task2(Task):
     @staticmethod
     def __analyze_sentences_types(text):
         pobud = len(re.findall(r"\!(\s|$)", text))
@@ -108,7 +110,7 @@ class Task2:
         return result
 
     @staticmethod
-    def task2():
+    def solve():
         source_path = 'Task2text.txt'
         dest_path = 'Task2answer.txt'
         archive_path = 'Task2archive.zip'
