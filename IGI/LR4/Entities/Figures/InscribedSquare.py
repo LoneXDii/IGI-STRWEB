@@ -22,7 +22,9 @@ class InscribedSquare(Shape):
     def draw(self):
         image = Image.new('RGB', (2 * (self.__r + 10), 2 * (self.__r + 10)), 'white')
         draw = ImageDraw.Draw(image)
-        font = ImageFont.truetype('OpenSans-Regular.ttf', size=14)
+        font = None
+        if __name__ != "__main__":
+            font = ImageFont.truetype('OpenSans-Regular.ttf', size=14)
 
         draw.ellipse((10, 10, 2 * self.__r + 10, 2 * self.__r + 10), fill="white", outline='black', width=5)
         center = self.__r + 10
@@ -36,3 +38,9 @@ class InscribedSquare(Shape):
 
     def save(self):
         self.__image.save('Task4.jpg')
+
+
+if __name__ == "__main__":
+    color = ShapeColor("red")
+    square = InscribedSquare(200, color, "tested")
+    square.draw()
