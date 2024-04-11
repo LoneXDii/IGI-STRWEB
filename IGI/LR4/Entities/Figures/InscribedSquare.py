@@ -41,6 +41,6 @@ class InscribedSquare(Shape):
 
 
 if __name__ == "__main__":
-    color = ShapeColor("red")
-    square = InscribedSquare(200, color, "tested")
+    test_color = ShapeColor("red")
+    square = InscribedSquare(200, test_color, "tested")
     square.draw()
