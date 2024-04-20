@@ -5,7 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8ac9fab-041b-402d-835e-b6e3e800dcfa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Entities/Figures/InscribedSquare.py" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Figures/InscribedSquare.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/ExpCalculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tasks/Task3/ExpCalculator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/Figures/InscribedSquare.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tasks/Task4/Figures/InscribedSquare.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/Figures/Shape.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tasks/Task4/Figures/Shape.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/Figures/ShapeColor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tasks/Task4/Figures/ShapeColor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/Matrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tasks/Task5/Matrix.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/RationalNum.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tasks/Task1/RationalNum.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/FileService.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tasks/Task2/FileService.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/FractionalGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tasks/Task1/FractionalGenerator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/InputService.py" beforeDir="false" afterPath="$PROJECT_DIR$/Services/InputService.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/Serilializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tasks/Task1/Serilializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Task1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task1.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/Task1.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task2answer.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Task2answer.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task2archive.zip" beforeDir="false" afterPath="$PROJECT_DIR$/Task2archive.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tasks/Task1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tasks/Task1/Task1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tasks/Task2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tasks/Task2/Task2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tasks/Task3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tasks/Task3/Task3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tasks/Task4.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tasks/Task4/Task4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tasks/Task5.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tasks/Task5/Task5.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +44,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -46,7 +69,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\labs\IGI and STRWEB\253505_PAVLOVICH_15\IGI\LR4\Services" />
+      <recent name="D:\labs\IGI and STRWEB\253505_PAVLOVICH_15\IGI\LR4\Tasks\Task5" />
+      <recent name="D:\labs\IGI and STRWEB\253505_PAVLOVICH_15\IGI\LR4\Tasks\Task4" />
+      <recent name="D:\labs\IGI and STRWEB\253505_PAVLOVICH_15\IGI\LR4\Tasks\Task3" />
+      <recent name="D:\labs\IGI and STRWEB\253505_PAVLOVICH_15\IGI\LR4\Tasks\Task1" />
+      <recent name="D:\labs\IGI and STRWEB\253505_PAVLOVICH_15\IGI\LR4\Tasks\Task2" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -59,5 +86,16 @@
       <updated>1712510454042</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

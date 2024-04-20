@@ -6,7 +6,7 @@ class InputService:
                 x = int(input(text))
                 break
             except ValueError:
-                print("Incorrect input, try again")
+                print("Incorrect input, not int")
         return x
 
     @staticmethod
@@ -16,5 +16,5 @@ class InputService:
                 x = float(input(text))
                 break
             except ValueError:
-                print("Incorrect input, try again")
+                print("Incorrect input, not float")
         return x
