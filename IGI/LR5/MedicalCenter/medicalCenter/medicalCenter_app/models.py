@@ -10,6 +10,7 @@ class Client(models.Model):
     date = models.DateField(validators=[MaxValueValidator(datetime.date.today() - datetime.timedelta(days=18 * 365))])
     adress = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=13)
+    image = models.ImageField(upload_to='avatars', default='default_avatar.png')
 
 
 class DoctorSpecialization(models.Model):
@@ -29,6 +30,7 @@ class Doctor(models.Model):
     date = models.DateField(validators=[MaxValueValidator(datetime.date.today() - datetime.timedelta(days=18 * 365))])
     adress = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=13)
+    image = models.ImageField(upload_to='avatars', default='default_avatar.png')
     specialization = models.ForeignKey(DoctorSpecialization, on_delete=models.CASCADE)
 
 
@@ -45,4 +47,43 @@ class Diagnosis(models.Model):
     setting_date = models.DateField()
     status = models.CharField(max_length=10)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
-    clients = models.ManyToManyField(Client)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE, null=True)
+
+
+
+class About(models.Model):
+    text = models.CharField(max_length=1000)
+
+class News(models.Model):
+    header = models.CharField(max_length=30)
+    content = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='avatars', default='default_avatar.png')
+
+class Term(models.Model):
+    term = models.CharField(max_length=30)
+    description = models.CharField(max_length=200)
+
+class Contacts(models.Model):
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
+    email = models.EmailField()
+
+class Vacancy(models.Model):
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=1000)
+    requirements = models.CharField(max_length=200)
+    salary = models.FloatField(validators=[MinValueValidator(0)])
+
+class Review(models.Model):
+    sender = models.CharField(max_length=30)
+    text = models.CharField(max_length=1000)
+    mark = models.IntegerField(validators=[MaxValueValidator(5), MinValueValidator(1)])
+    date = models.DateField()
+
+class Coupons(models.Model):
+    coupon = models.CharField(max_length=10)
+    status = models.BooleanField()
+    description = models.CharField(max_length=100)
+    #services
+    discount = models.IntegerField(validators=[MaxValueValidator(50), MinValueValidator(10)])
+
+
