@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medical center</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <ul>
+        <li>Профиль</li>
+        <a href="{% url 'about' %}"><li>О компании</li></a>
+        <a href="{% url 'news' %}"><li>Новости</li></a>
+        <a href="{% url 'terms' %}"><li>Термины и понятия</li></a>
+        <a href="{% url 'contacts' %}"><li>Контакты</li></a>
+        <a href="{% url 'privacy' %}"><li>Политика конфиденциальности</li></a>
+        <a href="{% url 'vacancies' %}"><li>Вакансии</li></a>
+        <a href="{% url 'reviews' %}"><li>Отзывы</li></a>
+        <a href="{% url 'coupons' %}"><li>Купоны</li></a>
+    </ul>
+</body>
+</html>
