@@ -31,4 +31,5 @@ urlpatterns = [
     path('reviews/', views.reviews, name='reviews'),
     path('terms/', views.terms_and_defs, name='terms'),
     path('vacancies/', views.vacancies, name='vacancies'),
+    path('register', views.register, name='register')
 ]

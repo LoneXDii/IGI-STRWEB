@@ -1,13 +1,16 @@
+from tkinter import CASCADE
+from django.contrib.auth.models import User
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 import datetime
 
 
 class Client(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
     second_name = models.CharField(max_length=30)
-    date = models.DateField(validators=[MaxValueValidator(datetime.date.today() - datetime.timedelta(days=18 * 365))])
+    birth_date = models.DateField(validators=[MaxValueValidator(datetime.date.today() - datetime.timedelta(days=18 * 365))], null=True)
     adress = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=13)
     image = models.ImageField(upload_to='avatars', default='default_avatar.png')
@@ -24,10 +27,11 @@ class Service(models.Model):
 
 
 class Doctor(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
     second_name = models.CharField(max_length=30)
-    date = models.DateField(validators=[MaxValueValidator(datetime.date.today() - datetime.timedelta(days=18 * 365))])
+    birth_date = models.DateField(validators=[MaxValueValidator(datetime.date.today() - datetime.timedelta(days=18 * 365))], null=True)
     adress = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=13)
     image = models.ImageField(upload_to='avatars', default='default_avatar.png')
