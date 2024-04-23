@@ -3,8 +3,22 @@
 <head>
     <title>Новости</title>
     <meta charset="utf-8" />
+    <style>
+        .leftimg {
+            float:left;
+            margin: 7px 7px 7px 0;
+           }
+    </style>
 </head>
 <body>
-    <h2>Новости</h2>
+        {% for n in news %}
+                <h2>{{n.header}}</h2>
+                <table width = "100%">
+                    <tr>
+                        <p><img src = "{{n.image.url}}" height = "182" width = "325" class="leftimg">
+                            {{n.content}}</p>
+                    </tr>
+                </table>
+        {% endfor %}
 </body>
 </html>

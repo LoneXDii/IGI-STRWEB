@@ -15,7 +15,7 @@ class Client(models.Model):
     birth_date = models.DateField(validators=[MaxValueValidator(datetime.date.today() - datetime.timedelta(days=18 * 365))], null=True)
     adress = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=13)
-    image = models.ImageField(upload_to='avatars', default='default_avatar.png')
+    image = models.ImageField(upload_to='imgs/avatars', default='default_avatar.png')
 
 
 class DoctorSpecialization(models.Model):
@@ -36,7 +36,7 @@ class Doctor(models.Model):
     birth_date = models.DateField(validators=[MaxValueValidator(datetime.date.today() - datetime.timedelta(days=18 * 365))], null=True)
     adress = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=13)
-    image = models.ImageField(upload_to='avatars', default='default_avatar.png')
+    image = models.ImageField(upload_to='imgs/avatars', default='default_avatar.png')
     specialization = models.ForeignKey(DoctorSpecialization, on_delete=models.CASCADE)
 
 
@@ -61,9 +61,9 @@ class About(models.Model):
     text = models.CharField(max_length=1000)
 
 class News(models.Model):
-    header = models.CharField(max_length=30)
-    content = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='avatars', default='default_avatar.png')
+    header = models.CharField(max_length=300)
+    content = models.CharField(max_length=1000)
+    image = models.ImageField(upload_to='imgs/news_imgs', default='no_img.png')
 
 class Term(models.Model):
     term = models.CharField(max_length=30)

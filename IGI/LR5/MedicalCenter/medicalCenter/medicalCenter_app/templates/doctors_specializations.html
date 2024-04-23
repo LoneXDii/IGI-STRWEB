@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Специализации докторов</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <ul>
+        {% for s in specializations %}
+            <a href="{% url 'service_details' id=s.pk %}">
+                <li><label>{{s.name}}</label></li>
+            </a>
+        {% endfor %}
+    </ul>
+</body>
+</html>

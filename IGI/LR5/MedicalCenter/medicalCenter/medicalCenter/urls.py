@@ -15,22 +15,26 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 import django
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 import django.contrib.auth.urls
-from django.urls import include, path
+from django.urls import include, path, re_path
 from medicalCenter_app import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    re_path(r'^admin', admin.site.urls),
     path('', views.index),
-    path('about/', views.about, name='about'),
-    path('contacts/', views.contacts, name='contacts'),
-    path('coupons/', views.coupons, name='coupons'),
-    path('news/', views.news, name='news'),
-    path('privacy/', views.privacy, name='privacy'),
-    path('reviews/', views.reviews, name='reviews'),
-    path('terms/', views.terms_and_defs, name='terms'),
-    path('vacancies/', views.vacancies, name='vacancies'),
-    path('register/', views.register, name='register'),
-    path('accounts/', include('django.contrib.auth.urls')),
-]
+    re_path(r'^about', views.about, name='about'),
+    re_path(r'^contacts', views.contacts, name='contacts'),
+    re_path(r'^coupons', views.coupons, name='coupons'),
+    re_path(r'^news', views.news, name='news'),
+    re_path(r'^privacy', views.privacy, name='privacy'),
+    re_path(r'^reviews', views.reviews, name='reviews'),
+    re_path(r'^terms', views.terms_and_defs, name='terms'),
+    re_path(r'^vacancies', views.vacancies, name='vacancies'),
+    re_path(r'^register', views.register, name='register'),
+    path('services/<int:id>/', views.services_details, name='service_details'),
+    path('services/', views.services, name='services'),
+    re_path(r'^accounts', include('django.contrib.auth.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
