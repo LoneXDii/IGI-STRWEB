@@ -3,8 +3,9 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
-from medicalCenter_app.models import Client
+from medicalCenter_app.models import Client, Review
 
+#todo redo user model
 
 def about(request):
     return render(request, 'about.html')
@@ -25,7 +26,9 @@ def privacy(request):
     return render(request, 'privacy.html')
 
 def reviews(request):
-    return render(request, 'reviews.html')
+    review_data = Review.objects.all()
+    data = {'reviews': review_data}
+    return render(request, 'reviews.html', context=data)
 
 def terms_and_defs(request):
     return render(request, 'termsAndDefs.html')
