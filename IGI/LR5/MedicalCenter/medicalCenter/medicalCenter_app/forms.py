@@ -17,3 +17,7 @@ class ProfileRegistrationForm(django.forms.ModelForm):
         model = Client
         fields = ('name', 'surname', 'second_name', 'birth_date', 'adress', 'phone_number')
         widgets = {'birth_date': django.forms.DateInput(attrs={'class':'form-control', 'type':'date'}),}
+
+class LoginForm(django.forms.Form):
+    username = django.forms.CharField()
+    password = django.forms.CharField(widget=django.forms.PasswordInput)

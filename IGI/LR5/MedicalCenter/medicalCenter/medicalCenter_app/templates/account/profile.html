@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+    <ul>
+        <li>
+            <label>Фамилия:</label>
+            <label>{{profile.surname}}</label>
+        </li>
+        <li>
+            <label>Имя:</label>
+            <label>{{profile.name}}</label>
+        </li>
+        <li>
+            <label>Отчество:</label>
+            <label>{{profile.second_name}}</label>
+        </li>
+        <li>
+            <label>Адрес:</label>
+            <label>{{profile.adress}}</label>
+        </li>
+        <li>
+            <label>Номер телефона:</label>
+            <label>{{profile.phone_number}}</label>
+        </li>
+        <li>
+            <label>Дата рождения:</label>
+            <time datetime="{{profile.birth_date}}">{{profile.birth_date}}</time>
+        </li>
+    </ul>
+    <a href="{% url 'logout'%}">Выйти из аккаунта</a>
+</body>
+</html>
