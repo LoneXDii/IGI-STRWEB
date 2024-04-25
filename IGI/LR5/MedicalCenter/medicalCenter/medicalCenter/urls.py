@@ -23,7 +23,7 @@ from django.urls import include, path, re_path
 from medicalCenter_app import views
 
 urlpatterns = [
-    re_path(r'^admin', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('', views.index),
     re_path(r'^about', views.about, name='about'),
     re_path(r'^contacts', views.contacts, name='contacts'),
