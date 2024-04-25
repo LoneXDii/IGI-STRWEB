@@ -74,6 +74,8 @@ def register(request):
             profile.save()
             dj_login(request, user)
             return HttpResponseRedirect(reverse('profile'))
+        else:
+            return render(request, 'account/register.html', {'user_form': user_form, 'profile_form': profile_form})
     else:
         user_form = UserRegistrationForm()
         profile_form = ProfileRegistrationForm()

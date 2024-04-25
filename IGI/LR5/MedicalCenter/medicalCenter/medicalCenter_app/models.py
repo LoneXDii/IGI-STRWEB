@@ -1,8 +1,7 @@
 from tkinter import CASCADE
-from django.contrib.auth.forms import UsernameField
 from django.contrib.auth.models import User
 from django.db import models
-from django.core.validators import MaxValueValidator, MinValueValidator
+from django.core.validators import MaxValueValidator, MinValueValidator, RegexValidator
 import datetime
 
 #todo redo user model
@@ -13,11 +12,15 @@ class Client(models.Model):
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
     second_name = models.CharField(max_length=30)
-    birth_date = models.DateField(validators=[MaxValueValidator(datetime.date.today() - datetime.timedelta(days=18 * 365))], null=True)
+    birth_date = models.DateField(validators=[MaxValueValidator(datetime.date.today() - datetime.timedelta(days=18 * 365),
+                                                             message="Вам должно быть не менее 18 лет для регистрации")], null=True)
     adress = models.CharField(max_length=100)
-    phone_number = models.CharField(max_length=13)
+    phone_number = models.CharField(max_length=13,
+                                    validators=[RegexValidator(
+                                        regex=r'^\+375(44|29)\d{7}$',
+                                        message='Некорректный номер телефона'
+                                    )])
     image = models.ImageField(upload_to='imgs/avatars', default='default_avatar.png')
-    USERNAME_FIELD = 'name'
 
 
 class DoctorSpecialization(models.Model):
@@ -35,9 +38,14 @@ class Doctor(models.Model):
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
     second_name = models.CharField(max_length=30)
-    birth_date = models.DateField(validators=[MaxValueValidator(datetime.date.today() - datetime.timedelta(days=18 * 365))], null=True)
+    birth_date = models.DateField(validators=[MaxValueValidator(datetime.date.today() - datetime.timedelta(days=18 * 365),
+                                                             message="Вам должно быть не менее 18 лет для регистрации")], null=True)
     adress = models.CharField(max_length=100)
-    phone_number = models.CharField(max_length=13)
+    phone_number = models.CharField(max_length=13,
+                                    validators=[RegexValidator(
+                                        regex=r'^\+375(44|29)\d{7}$',
+                                        message='Некорректный номер телефона'
+                                    )])
     image = models.ImageField(upload_to='imgs/avatars', default='default_avatar.png')
     specialization = models.ForeignKey(DoctorSpecialization, on_delete=models.CASCADE)
 
