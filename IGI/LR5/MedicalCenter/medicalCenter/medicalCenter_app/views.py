@@ -8,7 +8,7 @@ from django.http import HttpResponse, HttpResponsePermanentRedirect, HttpRespons
 from django.shortcuts import render
 from django.urls import reverse
 
-from medicalCenter_app.forms import LoginForm, ProfileRegistrationForm, UserRegistrationForm
+from medicalCenter_app.forms import LoginForm, ProfileRegistrationForm, ServiceAppointmentForm, UserRegistrationForm
 from medicalCenter_app.models import Client, DoctorSpecialization, News, Review, Service
 
 #todo redo user model
@@ -44,6 +44,7 @@ def terms_and_defs(request):
 def vacancies(request):
     return render(request, 'vacancies.html')
 
+
 def login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -61,6 +62,7 @@ def login(request):
     else:
         form = LoginForm()
     return render(request, 'account/login.html', {'form': form})
+
 
 def register(request):
     if request.method == 'POST':
@@ -81,6 +83,7 @@ def register(request):
         profile_form = ProfileRegistrationForm()
         return render(request, 'account/register.html', {'user_form': user_form, 'profile_form': profile_form})
 
+
 @login_required
 def profile(request):
     user = request.user
@@ -96,18 +99,48 @@ def profile(request):
             profile = None
     return render(request, 'account/profile.html', {'profile': profile})    
 
+
 @login_required
 def logout(request):
     dj_logout(request)
     return HttpResponseRedirect(reverse('login'))
 
+
 def services(request):
     specalizations = DoctorSpecialization.objects.all()
-    data = {'specializations': specalizations}
-    return render(request, 'doctors_specializations.html', context=data)
+    user = request.user
+    data = {'specializations': specalizations, 'user': user}
+    return render(request, 'services/doctors_specializations.html', context=data)
+
 
 def services_details(request, id):
-    spec = DoctorSpecialization.objects.get(pk=id)
-    data_obj = spec.service_set.all()
-    data= {'services': data_obj}
-    return render(request, 'doctor_services.html', context=data)
+    if request.method == 'POST':
+        service_id = request.POST.get('appointment')
+        return HttpResponseRedirect(reverse(f'services/appointment/{service_id}'))
+    else:
+        spec = DoctorSpecialization.objects.get(pk=id)
+        data_obj = spec.service_set.all()
+        data= {'services': data_obj}
+        return render(request, 'services/doctor_services.html', context=data)
+    
+
+@login_required 
+def service_appointment(request, service_id):
+    if request.method == 'POST':
+        form = ServiceAppointmentForm(request.POST)
+        if form.is_valid():
+            appointment = form.save()
+            a = request.user.client
+            appointment.client = request.user.client
+            appointment.service = Service.objects.get(pk=service_id)
+            appointment.save()
+            return HttpResponse("ZAEBIS")
+        else:
+            service = Service.objects.get(pk=service_id)
+            data = {'form': form, 'service': service}
+            return render(request, 'services/service_appointment.html', data)
+    else:
+        form = ServiceAppointmentForm()
+        service = Service.objects.get(pk=service_id)
+        data = {'form': form, 'service': service}
+        return render(request, 'services/service_appointment.html', data)

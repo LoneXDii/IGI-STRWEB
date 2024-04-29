@@ -4,8 +4,6 @@ from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator, RegexValidator
 import datetime
 
-#todo redo user model
-
 
 class Client(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
@@ -53,9 +51,10 @@ class Doctor(models.Model):
 class Appointment(models.Model):
     description = models.CharField(max_length=200)
     date = models.DateField(validators=[MinValueValidator(datetime.date.today)])
+    time = models.CharField(max_length=5, default="")
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
-    client = models.ForeignKey(Client, on_delete=models.CASCADE)
-    services = models.ManyToManyField(Service)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE, null=True)
+    service = models.ForeignKey(Service, on_delete=models.CASCADE, null=True)
 
 
 class Diagnosis(models.Model):
