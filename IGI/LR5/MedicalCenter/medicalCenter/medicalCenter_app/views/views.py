@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from medicalCenter_app.models import  News, Review
+from medicalCenter_app.models import  Client, Doctor, News, Review
 
 
 def about(request):
@@ -32,3 +32,11 @@ def terms_and_defs(request):
 
 def vacancies(request):
     return render(request, 'vacancies.html')
+
+def doctor_info(request, id):
+    doctor = Doctor.objects.get(pk=id)
+    return render(request, 'doctor_info.html', {'doctor': doctor})
+
+def client_info(request, id):
+    client = Client.objects.get(pk=id)
+    return render(request, 'client_info.html', {'client': client})

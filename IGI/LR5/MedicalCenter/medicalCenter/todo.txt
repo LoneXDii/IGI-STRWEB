@@ -1,2 +1,3 @@
-add appointment deliting by client
-add profile editing and deleting
+01.05.2024
+add diagnosis
+add images to registration and profile editing

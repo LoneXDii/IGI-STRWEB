@@ -1,7 +1,10 @@
-from django.contrib.auth import login as dj_login
+from django.contrib import messages
+from django.contrib.auth import login as dj_login, update_session_auth_hash
 from django.contrib.auth import logout as dj_logout
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth.views import PasswordChangeView
 from medicalCenter_app.forms import LoginForm, ProfileRegistrationForm, ServiceAppointmentForm, UserRegistrationForm
 from django.http import Http404, HttpResponse, HttpResponsePermanentRedirect, HttpResponseRedirect
 from django.shortcuts import render
@@ -69,6 +72,41 @@ def profile(request):
 
 
 @login_required
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            messages.success(request, "Password changed.")
+            return HttpResponseRedirect(reverse('profile'))
+    else:
+        form = PasswordChangeForm(request.user)
+        data = {'form': form}
+        return render(request, "account/change_password.html", data) 
+
+
+@login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        profile = request.user.client
+        form = ProfileRegistrationForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Профиль успешно обновлен')
+            return HttpResponseRedirect(reverse('profile'))
+        else:
+            return render(request, 'account/edit_profile.html', {'form': form})
+    else:
+        try:
+            profile = request.user.client
+        except:
+            return HttpResponse('Для изменения профиля обратитесь к администратору')
+        form = ProfileRegistrationForm(instance=profile)
+        return render(request, 'account/edit_profile.html', {'form': form})
+
+
+@login_required
 def logout(request):
     dj_logout(request)
     return HttpResponseRedirect(reverse('login'))
@@ -76,21 +114,31 @@ def logout(request):
 
 @login_required
 def user_appointments(request):
-    user = request.user
-    try:
-        profile = user.doctor
-        appointments = Appointment.objects.filter(doctor=profile)
-        is_doctor = True
-        data = {'appointments' : appointments, 'doctor': is_doctor}
-        return render(request, 'account/appointments.html', data)
-    except:
-        profile = None
-
-    try:
+    if request.method == 'POST':
+        appointment_id = int(request.POST.get('del_button'))
+        Appointment.objects.get(pk=appointment_id).delete()
+        user = request.user
         profile = user.client
         appointments = Appointment.objects.filter(client=profile)
         is_doctor = False
         data = {'appointments' : appointments, 'doctor': is_doctor}
         return render(request, 'account/appointments.html', data)
-    except:
-        return Http404()
+    else:
+        user = request.user
+        try:
+            profile = user.doctor
+            appointments = Appointment.objects.filter(doctor=profile)
+            is_doctor = True
+            data = {'appointments' : appointments, 'doctor': is_doctor}
+            return render(request, 'account/appointments.html', data)
+        except:
+            profile = None
+
+        try:
+            profile = user.client
+            appointments = Appointment.objects.filter(client=profile)
+            is_doctor = False
+            data = {'appointments' : appointments, 'doctor': is_doctor}
+            return render(request, 'account/appointments.html', data)
+        except:
+            return Http404()

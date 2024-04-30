@@ -16,10 +16,14 @@
                     <label>{{a.service.name}}</label>
                     <label>{{a.service.price}}</label>
                     {% if doctor %}
-                        <label>Пациент</label> <!-- Make ref to client info page -->
+                        <a href="{% url 'client_info' id=a.client.pk %}">
+                            <label>Пациент</label>
+                        </a>
                     {% else %}
-                        <label>Доктор<label> <!-- Make ref to doctor info page -->
-                        <button type="submit">Отменить запись</button>
+                        <a href="{% url 'doctor_info' id=a.doctor.pk %}">
+                            <label>Доктор<label>
+                        </a>
+                        <button type="submit" name="del_button" value="{{a.pk}}">Отменить запись</button>
                     {% endif %}
                 </li>       
             {% endfor %}
