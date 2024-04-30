@@ -3,9 +3,11 @@ from django.contrib.auth import logout as dj_logout
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from medicalCenter_app.forms import LoginForm, ProfileRegistrationForm, ServiceAppointmentForm, UserRegistrationForm
-from django.http import HttpResponse, HttpResponsePermanentRedirect, HttpResponseRedirect
+from django.http import Http404, HttpResponse, HttpResponsePermanentRedirect, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
+
+from medicalCenter_app.models import Appointment
 
 
 def login(request):
@@ -50,6 +52,7 @@ def register(request):
 @login_required
 def profile(request):
     user = request.user
+    is_doctor = False
     try:
         profile = user.client
     except:
@@ -58,12 +61,36 @@ def profile(request):
     if profile is None:
         try:    
             profile = user.doctor
+            is_doctor = True
         except:
             profile = None
-    return render(request, 'account/profile.html', {'profile': profile})    
+    data = {'profile': profile, 'is_doctor': is_doctor}
+    return render(request, 'account/profile.html', data)    
 
 
 @login_required
 def logout(request):
     dj_logout(request)
     return HttpResponseRedirect(reverse('login'))
+
+
+@login_required
+def user_appointments(request):
+    user = request.user
+    try:
+        profile = user.doctor
+        appointments = Appointment.objects.filter(doctor=profile)
+        is_doctor = True
+        data = {'appointments' : appointments, 'doctor': is_doctor}
+        return render(request, 'account/appointments.html', data)
+    except:
+        profile = None
+
+    try:
+        profile = user.client
+        appointments = Appointment.objects.filter(client=profile)
+        is_doctor = False
+        data = {'appointments' : appointments, 'doctor': is_doctor}
+        return render(request, 'account/appointments.html', data)
+    except:
+        return Http404()

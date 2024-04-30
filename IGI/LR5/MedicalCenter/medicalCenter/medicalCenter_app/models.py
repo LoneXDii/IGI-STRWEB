@@ -46,6 +46,7 @@ class Doctor(models.Model):
                                     )])
     image = models.ImageField(upload_to='imgs/avatars', default='default_avatar.png')
     specialization = models.ForeignKey(DoctorSpecialization, on_delete=models.CASCADE)
+    clients = models.ManyToManyField(Client)
 
 
 class Appointment(models.Model):

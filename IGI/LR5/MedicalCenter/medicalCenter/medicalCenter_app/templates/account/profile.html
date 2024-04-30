@@ -33,6 +33,7 @@
             <label>Дата рождения:</label>
             <time datetime="{{profile.birth_date}}">{{profile.birth_date}}</time>
         </li>
+        <a href="{% url 'user_appointments' %}">Посмотреть записи</a>
     </ul>
     <a href="{% url 'logout'%}">Выйти из аккаунта</a>
 </body>

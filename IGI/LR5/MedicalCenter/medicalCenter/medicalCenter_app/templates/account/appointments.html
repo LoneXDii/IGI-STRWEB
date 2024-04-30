@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Новости</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <ul>
+            {% for a in appointments %}
+                <li>
+                    <label>{{a.description}}</label>
+                    <label>{{a.date}}</label>
+                    <label>{{a.time}}</label>
+                    <label>{{a.service.name}}</label>
+                    <label>{{a.service.price}}</label>
+                    {% if doctor %}
+                        <label>Пациент</label> <!-- Make ref to client info page -->
+                    {% else %}
+                        <label>Доктор<label> <!-- Make ref to doctor info page -->
+                        <button type="submit">Отменить запись</button>
+                    {% endif %}
+                </li>       
+            {% endfor %}
+        </ul>
+    </form>
+</body>
+</html>

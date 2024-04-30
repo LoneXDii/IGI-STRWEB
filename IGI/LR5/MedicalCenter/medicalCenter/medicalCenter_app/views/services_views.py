@@ -34,7 +34,8 @@ def service_appointment(request, service_id):
             appointment.client = request.user.client
             appointment.service = Service.objects.get(pk=service_id)
             appointment.save()
-            return HttpResponse("ZAEBIS")
+            appointment.doctor.clients.add(appointment.client)
+            return HttpResponseRedirect(reverse('services'))
         else:
             service = Service.objects.get(pk=service_id)
             data = {'form': form, 'service': service}

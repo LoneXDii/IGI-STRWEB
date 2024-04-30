@@ -1,0 +1,2 @@
+add appointment deliting by client
+add profile editing and deleting

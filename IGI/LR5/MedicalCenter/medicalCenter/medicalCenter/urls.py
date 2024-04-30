@@ -43,4 +43,5 @@ urlpatterns = [
     path('accounts/profile/', account_views.profile, name='profile'),
     path('accounts/login/', account_views.login, name='login'),
     path('accounts/logout/', account_views.logout, name='logout'),
+    path('accounts/appointments/', account_views.user_appointments, name='user_appointments'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
