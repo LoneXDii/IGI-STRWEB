@@ -19,8 +19,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 import django.contrib.auth.urls
-from django.urls import include, path, re_path
-from medicalCenter_app import views
+from django.urls import path, re_path
+from medicalCenter_app.views import views
+from medicalCenter_app.views import account_views
+from medicalCenter_app.views import services_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,11 +36,11 @@ urlpatterns = [
     path('reviews/', views.reviews, name='reviews'),
     path('terms/', views.terms_and_defs, name='terms'),
     path('vacancies/', views.vacancies, name='vacancies'),
-    path('services/appointment/<int:service_id>/', views.service_appointment, name='appointment'),
-    path('services/<int:id>/', views.services_details, name='service_details'),
-    path('services/', views.services, name='services'),
-    path('accounts/register/', views.register, name='register'),
-    path('accounts/profile/', views.profile, name='profile'),
-    path('accounts/login/', views.login, name='login'),
-    path('accounts/logout/', views.logout, name='logout'),
+    path('services/appointment/<int:service_id>/', services_views.service_appointment, name='appointment'),
+    path('services/<int:id>/', services_views.services_details, name='service_details'),
+    path('services/', services_views.services, name='services'),
+    path('accounts/register/', account_views.register, name='register'),
+    path('accounts/profile/', account_views.profile, name='profile'),
+    path('accounts/login/', account_views.login, name='login'),
+    path('accounts/logout/', account_views.logout, name='logout'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
