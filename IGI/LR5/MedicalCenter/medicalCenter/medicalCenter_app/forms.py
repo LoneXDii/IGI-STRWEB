@@ -4,7 +4,7 @@ from django.contrib.auth import forms
 from django.contrib.auth.models import User
 from django.forms import widgets
 import django.forms
-from medicalCenter_app.models import Appointment, Client, Review
+from medicalCenter_app.models import Appointment, Client, Doctor, Review
 
 
 class UserRegistrationForm(forms.UserCreationForm):
@@ -18,7 +18,7 @@ class ProfileRegistrationForm(django.forms.ModelForm):
         model = Client
         fields = ('name', 'surname', 'second_name', 'email', 'birth_date', 'adress', 'phone_number', 'image')
         widgets = {'birth_date': django.forms.DateInput(attrs={'class':'form-control', 'type':'date'}),
-                   'iamge': django.forms.ImageField(required=False),}
+                   'image': django.forms.ImageField(required=False),}
 
 class LoginForm(django.forms.Form):
     username = django.forms.CharField()

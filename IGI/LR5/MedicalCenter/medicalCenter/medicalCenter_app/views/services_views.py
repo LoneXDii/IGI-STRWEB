@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from medicalCenter_app.forms import ServiceAppointmentForm
-from medicalCenter_app.models import DoctorSpecialization, Service
+from medicalCenter_app.models import Doctor, DoctorSpecialization, Service
 
 
 def services(request):
@@ -41,7 +41,8 @@ def service_appointment(request, service_id):
             data = {'form': form, 'service': service}
             return render(request, 'services/service_appointment.html', data)
     else:
-        form = ServiceAppointmentForm()
         service = Service.objects.get(pk=service_id)
+        form = ServiceAppointmentForm()
+        form.fields['doctor'].queryset = Doctor.objects.filter(specialization=service.specialization_required)
         data = {'form': form, 'service': service}
         return render(request, 'services/service_appointment.html', data)

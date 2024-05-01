@@ -56,6 +56,9 @@ class Doctor(models.Model):
     specialization = models.ForeignKey(DoctorSpecialization, on_delete=models.CASCADE)
     clients = models.ManyToManyField(Client)
 
+    def __str__(self):
+        return f"{self.surname} {self.name} {self.second_name}"
+
 
 class Appointment(models.Model):
     description = models.CharField(max_length=200)
