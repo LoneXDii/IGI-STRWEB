@@ -1,10 +1,9 @@
 01.05.2024
-add reviews
-add diagnosis
-
-
-add coupons
 add statistics
+
+
+add diagnosis
+add coupons
 fix time (no users to one time) in appointmets
 complete base functionality (tasks for all variants)
 add tests
