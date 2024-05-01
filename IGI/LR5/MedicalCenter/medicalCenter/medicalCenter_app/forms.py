@@ -4,7 +4,7 @@ from django.contrib.auth import forms
 from django.contrib.auth.models import User
 from django.forms import widgets
 import django.forms
-from medicalCenter_app.models import Appointment, Client, Doctor, Review
+from medicalCenter_app.models import Appointment, Client, Diagnosis, Doctor, Review
 
 
 class UserRegistrationForm(forms.UserCreationForm):
@@ -36,3 +36,9 @@ class ReviewForm(django.forms.ModelForm):
     class Meta:
         model = Review
         fields = ('text', 'mark')
+
+
+class DiagnosisForm(django.forms.ModelForm):
+    class Meta:
+        model = Diagnosis
+        fields = ('name',)

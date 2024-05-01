@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
@@ -16,7 +16,7 @@ def services(request):
 def services_details(request, id):
     if request.method == 'POST':
         service_id = request.POST.get('appointment')
-        return HttpResponseRedirect(reverse(f'services/appointment/{service_id}'))
+        return redirect(service_appointment, service_id=service_id)
     else:
         spec = DoctorSpecialization.objects.get(pk=id)
         data_obj = spec.service_set.all()

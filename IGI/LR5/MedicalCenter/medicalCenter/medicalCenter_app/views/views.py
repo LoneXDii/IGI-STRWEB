@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from medicalCenter_app.forms import ReviewForm
-from medicalCenter_app.models import  Appointment, Client, Doctor, News, Review
+from medicalCenter_app.models import  Appointment, Client, Diagnosis, Doctor, News, Review
 
 
 def about(request):
@@ -59,4 +59,5 @@ def doctor_info(request, id):
 
 def client_info(request, id):
     client = Client.objects.get(pk=id)
-    return render(request, 'client_info.html', {'client': client})
+    diagnosises = Diagnosis.objects.filter(client=client)
+    return render(request, 'client_info.html', {'client': client, 'diagnosises': diagnosises})

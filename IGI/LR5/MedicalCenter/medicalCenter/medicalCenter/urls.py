@@ -48,6 +48,7 @@ urlpatterns = [
     re_path(r'^accounts/changePassword/$', account_views.change_password, name='change_password'),
     re_path(r'^accounts/editProfile/$', account_views.edit_profile, name='edit_profile'),
     re_path(r'^accounts/appointments/$', account_views.user_appointments, name='user_appointments'),
+    re_path(r'^accounts/diagnosis/(?P<client_id>\d+)/$', account_views.set_diagnosis, name='diagnosis_set'),
     re_path(r'^doctorInfo/(?P<id>\d+)/$', views.doctor_info, name='doctor_info'),
     re_path(r'^clientInfo/(?P<id>\d+)/$', views.client_info, name='client_info'),
     re_path(r'^statistics/$', statistics_views.statistics, name='statistics'),

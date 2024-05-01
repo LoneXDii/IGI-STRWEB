@@ -72,9 +72,8 @@ class Appointment(models.Model):
 
 class Diagnosis(models.Model):
     name = models.CharField(max_length=40)
-    setting_date = models.DateField()
-    status = models.CharField(max_length=10)
-    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
+    setting_date = models.DateField(null=True)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True)
     client = models.ForeignKey(Client, on_delete=models.CASCADE, null=True)
 
 

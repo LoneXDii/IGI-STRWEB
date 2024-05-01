@@ -1,17 +1,16 @@
-from xml.dom import Node
+import datetime
 from django.contrib import messages
 from django.contrib.auth import login as dj_login, update_session_auth_hash
 from django.contrib.auth import logout as dj_logout
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
-from django.contrib.auth.views import PasswordChangeView
-from medicalCenter_app.forms import LoginForm, ProfileRegistrationForm, ServiceAppointmentForm, UserRegistrationForm
-from django.http import Http404, HttpResponse, HttpResponsePermanentRedirect, HttpResponseRedirect
-from django.shortcuts import render
+from medicalCenter_app.forms import DiagnosisForm, LoginForm, ProfileRegistrationForm, UserRegistrationForm
+from django.http import Http404, HttpResponse, HttpResponseRedirect
+from django.shortcuts import redirect, render
 from django.urls import reverse
 
-from medicalCenter_app.models import Appointment
+from medicalCenter_app.models import Appointment, Client, Diagnosis
 
 
 def login(request):
@@ -57,8 +56,10 @@ def register(request):
 def profile(request):
     user = request.user
     is_doctor = False
+    diagnosises = None
     try:
         profile = user.client
+        diagnosises = Diagnosis.objects.filter(client=profile)
     except:
         profile = None
 
@@ -68,7 +69,7 @@ def profile(request):
             is_doctor = True
         except:
             profile = None
-    data = {'profile': profile, 'is_doctor': is_doctor}
+    data = {'profile': profile, 'is_doctor': is_doctor, 'diagnosises': diagnosises}
     return render(request, 'account/profile.html', data)    
 
 
@@ -114,6 +115,26 @@ def logout(request):
 
 
 @login_required
+def set_diagnosis(request, client_id):
+    if request.method == 'POST':
+        form = DiagnosisForm(request.POST)
+        if form.is_valid():
+            diagnosis = form.save()
+            diagnosis.client = Client.objects.get(pk=client_id)
+            diagnosis.doctor = request.user.doctor
+            diagnosis.setting_date = datetime.date.today()
+            diagnosis.save()
+            return redirect(user_appointments)
+    else:
+        try:
+            doctor = request.user.doctor
+        except:
+            return Http404()
+        form = DiagnosisForm()
+        return render(request, 'account/set_diagnosis.html', {'form': form})
+
+
+@login_required
 def user_appointments(request):
     if request.method == 'POST':
         appointment_id_close = request.POST.get('close')
@@ -125,6 +146,7 @@ def user_appointments(request):
             appointments = Appointment.objects.filter(client=profile)
             is_doctor = False
             data = {'appointments' : appointments, 'doctor': is_doctor}
+            return render(request, 'account/appointments.html', data)
         else:
             appointment = Appointment.objects.get(pk=int(appointment_id_close))
             appointment.is_active = False
@@ -134,7 +156,7 @@ def user_appointments(request):
             appointments = Appointment.objects.filter(doctor=profile)
             is_doctor = True
             data = {'appointments' : appointments, 'doctor': is_doctor}
-        return render(request, 'account/appointments.html', data)
+            return redirect(set_diagnosis, client_id=appointment.client.pk)
     else:
         user = request.user
         try:
@@ -154,3 +176,5 @@ def user_appointments(request):
             return render(request, 'account/appointments.html', data)
         except:
             return Http404()
+        
+

@@ -37,7 +37,20 @@
             <label>Дата рождения:</label>
             <time datetime="{{client.birth_date}}">{{client.birth_date}}</time>
         </li>
-        <!--Диагнозы-->
+        <li>Диагнозы:</li>
+        <li><ul>
+        {% for d in diagnosises%}
+            <li><label>{{d.name}}</label></li>
+            <li>
+                <label>Поставлен:</label>
+                <time datetime="{{d.setting_date}}">{{d.setting_date}}</time>
+            <li>
+            <a href="{% url 'doctor_info' id=d.doctor.pk %}">
+                <label>Поставил: {{d.doctor.surname}} {{d.doctor.name}} {{d.doctor.second_name}}</label>
+            </a>
+            <li></li>
+        {% endfor %}
+        </ul></li>
     </ul>
 </body>
 </html>

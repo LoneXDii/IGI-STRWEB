@@ -13,9 +13,7 @@
                         <label>{{s.name}}</label>
                         <label>{{s.price}} BYN</label>
                         {% if user.is_authenticated %}
-                            <a href="{% url 'appointment' service_id=s.pk %}">
-                                <button type="button" name="appointment" value="{{s.pk}}">Записаться</label>
-                            </a>
+                            <button type="submit" name="appointment" value="{{s.pk}}">Записаться</label>
                         {% endif %}
                     </li>
             {% endfor %}
