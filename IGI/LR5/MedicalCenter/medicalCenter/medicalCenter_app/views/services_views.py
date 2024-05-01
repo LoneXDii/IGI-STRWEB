@@ -38,6 +38,7 @@ def service_appointment(request, service_id):
             return HttpResponseRedirect(reverse('services'))
         else:
             service = Service.objects.get(pk=service_id)
+            form.fields['doctor'].queryset = Doctor.objects.filter(specialization=service.specialization_required)
             data = {'form': form, 'service': service}
             return render(request, 'services/service_appointment.html', data)
     else:

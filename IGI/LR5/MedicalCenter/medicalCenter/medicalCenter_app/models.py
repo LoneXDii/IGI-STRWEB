@@ -78,7 +78,6 @@ class Diagnosis(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE, null=True)
 
 
-
 class About(models.Model):
     text = models.CharField(max_length=1000)
 

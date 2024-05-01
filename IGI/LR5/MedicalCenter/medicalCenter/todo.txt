@@ -1,9 +1,9 @@
 01.05.2024
-add statistics
-
-
 add diagnosis
+
+
 add coupons
 fix time (no users to one time) in appointmets
 complete base functionality (tasks for all variants)
 add tests
+remake to re_path in urls
