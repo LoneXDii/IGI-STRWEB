@@ -17,7 +17,8 @@
         <a href="{% url 'reviews' %}"><li>Отзывы</li></a>
         <a href="{% url 'coupons' %}"><li>Купоны</li></a>
         {% if request.user.is_superuser %}
-            <li>Статистика</li>
+            <a href="{% url 'statistics' %}"><li>Статистика</li></a>
+            <a href="{% url 'admin:index' %}"><li>Админка</li></a>
         {% endif %}
     </ul>
 </body>

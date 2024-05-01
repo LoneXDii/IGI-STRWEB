@@ -23,6 +23,7 @@ from django.urls import path, re_path
 from medicalCenter_app.views import views
 from medicalCenter_app.views import account_views
 from medicalCenter_app.views import services_views
+from medicalCenter_app.views import statistics_views
 
 
 urlpatterns = [
@@ -49,4 +50,6 @@ urlpatterns = [
     path('accounts/appointments/', account_views.user_appointments, name='user_appointments'),
     path('doctorInfo/<int:id>', views.doctor_info, name='doctor_info'),
     path('clientInfo/<int:id>', views.client_info, name='client_info'),
+    path('statistics/', statistics_views.statistics, name='statistics'),
+    path('statistics/ageStats', statistics_views.age_statistics, name='age_statistics'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -18,6 +18,7 @@ class Client(models.Model):
     email = models.EmailField(max_length=30, default='baseemail@mail.ru')
     birth_date = models.DateField(validators=[MaxValueValidator(datetime.date.today() - datetime.timedelta(days=18 * 365),
                                                              message="Вам должно быть не менее 18 лет для регистрации")], null=True)
+    age = models.IntegerField(default=0)
     adress = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=13,
                                     validators=[RegexValidator(

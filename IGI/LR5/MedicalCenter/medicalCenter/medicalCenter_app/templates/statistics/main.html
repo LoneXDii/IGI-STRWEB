@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Статистика</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h2>Статистика</h2>
+    <ul>
+        <li>Заработано: {{recieved}} BYN</li>
+        <li>Общая цена невыполненных записей: {{not_recieved}} BYN</li>
+        <li>Итоговая выручка: {{total}} BYN</li>
+        <a href="{% url 'age_statistics' %}"><li>Статистика пользователей по возрастам</li></a>
+    </ul>
+</body>
+</html>
