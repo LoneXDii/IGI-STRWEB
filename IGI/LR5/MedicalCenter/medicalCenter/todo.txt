@@ -1,3 +1,10 @@
 01.05.2024
+add reviews
 add diagnosis
-add images to registration and profile editing
+
+
+add coupons
+add statistics
+fix time (no users to one time) in appointmets
+complete base functionality (tasks for all variants)
+add tests

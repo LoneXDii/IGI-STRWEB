@@ -1,7 +1,12 @@
+from http import client
+import django
 from django.contrib.auth.models import User
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator, RegexValidator
 import datetime
+
+import django.utils
+import django.utils.timezone
 
 #look for help_text in model fields if needed
 
@@ -10,6 +15,7 @@ class Client(models.Model):
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
     second_name = models.CharField(max_length=30)
+    email = models.EmailField(max_length=30, default='baseemail@mail.ru')
     birth_date = models.DateField(validators=[MaxValueValidator(datetime.date.today() - datetime.timedelta(days=18 * 365),
                                                              message="Вам должно быть не менее 18 лет для регистрации")], null=True)
     adress = models.CharField(max_length=100)
@@ -36,6 +42,7 @@ class Doctor(models.Model):
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
     second_name = models.CharField(max_length=30)
+    email = models.EmailField(max_length=30, default='baseemail@mail.ru')
     birth_date = models.DateField(validators=[MaxValueValidator(datetime.date.today() - datetime.timedelta(days=18 * 365),
                                                              message="Вам должно быть не менее 18 лет для регистрации")], null=True)
     adress = models.CharField(max_length=100)
@@ -56,6 +63,7 @@ class Appointment(models.Model):
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     client = models.ForeignKey(Client, on_delete=models.CASCADE, null=True)
     service = models.ForeignKey(Service, on_delete=models.CASCADE, null=True)
+    is_active = models.BooleanField(default=True)
 
 
 class Diagnosis(models.Model):
@@ -90,10 +98,10 @@ class Vacancy(models.Model):
     salary = models.FloatField(validators=[MinValueValidator(0)])
 
 class Review(models.Model):
-    sender = models.CharField(max_length=30)
+    sender = models.ForeignKey(Client, on_delete=models.CASCADE, null=True)
     text = models.CharField(max_length=1000)
-    mark = models.IntegerField(validators=[MaxValueValidator(5), MinValueValidator(1)])
-    date = models.DateField()
+    mark = models.IntegerField(validators=[MaxValueValidator(5, message='Значение должно быть от 1 до 5'), MinValueValidator(1, message='Значение должно быть от 1 до 5')])
+    date = models.DateField(null=True)
 
 class Coupons(models.Model):
     coupon = models.CharField(max_length=10)

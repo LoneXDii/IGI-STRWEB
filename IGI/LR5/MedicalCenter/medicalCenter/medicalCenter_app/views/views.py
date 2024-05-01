@@ -1,4 +1,8 @@
+from datetime import datetime
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
+from medicalCenter_app.forms import ReviewForm
 from medicalCenter_app.models import  Client, Doctor, News, Review
 
 
@@ -24,8 +28,24 @@ def privacy(request):
 
 def reviews(request):
     review_data = Review.objects.all()
-    data = {'reviews': review_data}
+    authorized = request.user.is_authenticated
+    data = {'reviews': review_data, 'authorized': authorized}
     return render(request, 'reviews.html', context=data)
+
+def add_review(request):
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save()
+            review.sender = request.user.client
+            review.date = datetime.today()
+            review.save()
+            return HttpResponseRedirect(reverse('reviews'))
+        else:
+            return render(request, 'addReview.html', {'form': form}) 
+    else:
+      form = ReviewForm()
+      return render(request, 'addReview.html', {'form': form}) 
 
 def terms_and_defs(request):
     return render(request, 'termsAndDefs.html')

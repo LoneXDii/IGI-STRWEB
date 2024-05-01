@@ -34,6 +34,7 @@ urlpatterns = [
     path('news/', views.news, name='news'),
     path('privacy/', views.privacy, name='privacy'),
     path('reviews/', views.reviews, name='reviews'),
+    path('reviews/add/', views.add_review, name='add_review'),
     path('terms/', views.terms_and_defs, name='terms'),
     path('vacancies/', views.vacancies, name='vacancies'),
     path('services/appointment/<int:service_id>/', services_views.service_appointment, name='appointment'),

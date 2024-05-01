@@ -9,23 +9,26 @@
         {% csrf_token %}
         <ul>
             {% for a in appointments %}
-                <li>
-                    <label>{{a.description}}</label>
-                    <label>{{a.date}}</label>
-                    <label>{{a.time}}</label>
-                    <label>{{a.service.name}}</label>
-                    <label>{{a.service.price}}</label>
-                    {% if doctor %}
-                        <a href="{% url 'client_info' id=a.client.pk %}">
-                            <label>Пациент</label>
-                        </a>
-                    {% else %}
-                        <a href="{% url 'doctor_info' id=a.doctor.pk %}">
-                            <label>Доктор<label>
-                        </a>
-                        <button type="submit" name="del_button" value="{{a.pk}}">Отменить запись</button>
-                    {% endif %}
-                </li>       
+                {% if a.is_active %}
+                    <li>
+                        <label>{{a.description}}</label>
+                        <label>{{a.date}}</label>
+                        <label>{{a.time}}</label>
+                        <label>{{a.service.name}}</label>
+                        <label>{{a.service.price}}</label>
+                        {% if doctor %}
+                            <a href="{% url 'client_info' id=a.client.pk %}">
+                                <label>Пациент</label>
+                            </a>
+                            <button type="submit" name="close" value="{{a.pk}}">Закрыть запись</a>
+                        {% else %}
+                            <a href="{% url 'doctor_info' id=a.doctor.pk %}">
+                                <label>Доктор<label>
+                            </a>
+                            <button type="submit" name="del_button" value="{{a.pk}}">Отменить запись</button>
+                        {% endif %}
+                    </li>
+                {% endif %}       
             {% endfor %}
         </ul>
     </form>

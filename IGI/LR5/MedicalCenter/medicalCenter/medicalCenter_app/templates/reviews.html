@@ -5,12 +5,19 @@
     <meta charset="utf-8" />
 </head>
 <body>
+    {% if authorized %}
+        <a href="{% url 'add_review'%}">Добавить отзыв</a>
+    {% endif %}
     <ul>
         {% for review in reviews %}
             <li>
                 <ul>
                     <li> 
-                        <label>{{review.sender}}</label>
+                        <label>{{review.sender.surname}}</label>
+                        <label>{{review.sender.name}}</label>
+                        <label>{{review.sender.second_name}}</label>
+                    </li>
+                    <li>
                         <label>{{review.mark}} stars</label>
                         <label>{{review.date}}</label>
                     </li>

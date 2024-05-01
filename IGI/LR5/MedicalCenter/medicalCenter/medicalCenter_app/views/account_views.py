@@ -1,3 +1,4 @@
+from xml.dom import Node
 from django.contrib import messages
 from django.contrib.auth import login as dj_login, update_session_auth_hash
 from django.contrib.auth import logout as dj_logout
@@ -115,13 +116,24 @@ def logout(request):
 @login_required
 def user_appointments(request):
     if request.method == 'POST':
-        appointment_id = int(request.POST.get('del_button'))
-        Appointment.objects.get(pk=appointment_id).delete()
-        user = request.user
-        profile = user.client
-        appointments = Appointment.objects.filter(client=profile)
-        is_doctor = False
-        data = {'appointments' : appointments, 'doctor': is_doctor}
+        appointment_id_close = request.POST.get('close')
+        appointment_id_del = request.POST.get('del_button')
+        if appointment_id_close is None:
+            Appointment.objects.get(pk=int(appointment_id_del)).delete()
+            user = request.user
+            profile = user.client
+            appointments = Appointment.objects.filter(client=profile)
+            is_doctor = False
+            data = {'appointments' : appointments, 'doctor': is_doctor}
+        else:
+            appointment = Appointment.objects.get(pk=int(appointment_id_close))
+            appointment.is_active = False
+            appointment.save()
+            user = request.user
+            profile = user.doctor
+            appointments = Appointment.objects.filter(doctor=profile)
+            is_doctor = True
+            data = {'appointments' : appointments, 'doctor': is_doctor}
         return render(request, 'account/appointments.html', data)
     else:
         user = request.user
