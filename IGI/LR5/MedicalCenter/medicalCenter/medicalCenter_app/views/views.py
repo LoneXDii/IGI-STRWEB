@@ -1,10 +1,12 @@
+from calendar import LocaleHTMLCalendar
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
+from django.utils import dateformat, timezone
 from medicalCenter_app.forms import ReviewForm
-from medicalCenter_app.models import  About, Appointment, Client, Diagnosis, Doctor, News, Review, Term
+from medicalCenter_app.models import  About, Client, Coupons, Diagnosis, Doctor, Review, Term, Vacancy
 
 
 def about(request):
@@ -19,10 +21,18 @@ def contacts(request):
     return render(request, 'contacts.html', context=data)
 
 def coupons(request):
-    return render(request, 'coupons.html')
+    actual = Coupons.objects.filter(status=True)
+    archive = Coupons.objects.filter(status=False)
+    data = {'actual': actual, 'archive': archive}
+    return render(request, 'coupons.html', context=data)
 
 def index(request):
-    return render(request, 'index.html')
+    time = timezone.datetime.now()
+    date = dateformat.format(time, 'd/m/Y')
+    calendar = LocaleHTMLCalendar(locale='Russian_Russia')
+    calendar = calendar.formatyear(time.year, width=4)
+    data = {'date': date, 'calendar': calendar}
+    return render(request, 'index.html', context=data)
 
 def privacy(request):
     return render(request, 'privacy.html')
@@ -54,7 +64,9 @@ def terms_and_defs(request):
     return render(request, 'termsAndDefs.html', context=data)
 
 def vacancies(request):
-    return render(request, 'vacancies.html')
+    vacancies = Vacancy.objects.all()
+    data = {'vacancies': vacancies}
+    return render(request, 'vacancies.html', context=data)
 
 def doctor_info(request, id):
     doctor = Doctor.objects.get(pk=id)

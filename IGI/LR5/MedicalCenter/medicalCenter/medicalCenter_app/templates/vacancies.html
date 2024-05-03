@@ -5,6 +5,16 @@
     <meta charset="utf-8" />
 </head>
 <body>
-    <h2>Вакансии</h2>
+    <ul>
+        {% for v in vacancies %}
+            <li>
+                <h2>{{v.name}}</h2>
+                <p>{{v.description}}</p>
+                <h3>Требования:</h3>
+                <p>{{v.requirements}}</p>
+                <p>Зарплата: {{v.salary}}BYN</p>
+            </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

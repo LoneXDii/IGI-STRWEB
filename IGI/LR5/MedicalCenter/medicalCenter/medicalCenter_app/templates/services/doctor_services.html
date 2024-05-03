@@ -5,6 +5,13 @@
     <meta charset="utf-8" />
 </head>
 <body>
+    <form method="GET" action="">
+        <select name="sort_by">
+            <option value="name" {% if request.GET.sort_by == 'name' %}selected{% endif %}>По имени</option>
+            <option value="price" {% if request.GET.sort_by == 'price' %}selected{% endif %}>По цене</option>
+        </select>
+        <button type="submit">Sort</button>
+    </form>
     <form method="post">
         {% csrf_token %}
         <ul>

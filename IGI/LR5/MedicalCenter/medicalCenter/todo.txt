@@ -1,6 +1,6 @@
 01.05.2024
 
-complete base functionality (tasks for all variants)
+complete base functionality (tasks for all variants) (coupons and vacancies)
 add filtration
 
 fix time (no users to one time) in appointmets

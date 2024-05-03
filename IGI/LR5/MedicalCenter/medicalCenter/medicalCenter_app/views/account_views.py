@@ -5,13 +5,12 @@ from django.contrib.auth import logout as dj_logout
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
-from django.views.defaults import page_not_found
 from medicalCenter_app.forms import DiagnosisForm, LoginForm, ProfileRegistrationForm, UserRegistrationForm
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
-from medicalCenter_app.models import Appointment, Client, Diagnosis, Doctor
+from medicalCenter_app.models import Appointment, Client, Diagnosis
 
 
 def login(request):

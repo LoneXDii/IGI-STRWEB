@@ -1,5 +1,3 @@
-import tempfile
-from django.core import files
 from django.shortcuts import render
 import requests
 from medicalCenter_app.models import News

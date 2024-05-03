@@ -1,14 +1,10 @@
-from http import client
 import os
 from tempfile import NamedTemporaryFile
-from urllib.request import urlopen
-import django
 from django.contrib.auth.models import User
 from django.core.files import File
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator, RegexValidator
 import datetime
-import django.utils
 import django.utils.timezone
 import requests
 
@@ -31,15 +27,23 @@ class Client(models.Model):
                                     )])
     image = models.ImageField(upload_to='imgs/avatars', default='default_avatar.png')
 
+    def __str__(self):
+        return f"{self.surname} {self.name} {self.second_name}"
 
 class DoctorSpecialization(models.Model):
     name = models.CharField(max_length=40)
+
+    def __str__(self):
+        return self.name
 
 
 class Service(models.Model):
     name = models.CharField(max_length=40)
     price = models.FloatField(validators=[MinValueValidator(0)])
-    specialization_required = models.ForeignKey(DoctorSpecialization, on_delete=models.CASCADE)    
+    specialization_required = models.ForeignKey(DoctorSpecialization, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.name} ({self.specialization_required.name})"    
 
 
 class Doctor(models.Model):
@@ -85,10 +89,12 @@ class Advantage(models.Model):
     header = models.CharField(max_length=100)
     text = models.CharField(max_length=1000)
 
+
 class About(models.Model):
     start = models.CharField(max_length=1000, default='')
     advantages = models.ManyToManyField(Advantage)
     end = models.CharField(max_length=1000, default='')
+
 
 class News(models.Model):
     title = models.CharField(max_length=1000, default='')
@@ -115,13 +121,14 @@ class News(models.Model):
         else:
             return False
 
+
 class Term(models.Model):
     term = models.CharField(max_length=30)
     description = models.CharField(max_length=200)
 
-class Contacts(models.Model):
-    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
-    email = models.EmailField()
+    def __str__(self):
+        return self.term
+
 
 class Vacancy(models.Model):
     name = models.CharField(max_length=50)
@@ -129,17 +136,23 @@ class Vacancy(models.Model):
     requirements = models.CharField(max_length=200)
     salary = models.FloatField(validators=[MinValueValidator(0)])
 
+    def __str__(self):
+        return self.name
+    
+
 class Review(models.Model):
     sender = models.ForeignKey(Client, on_delete=models.CASCADE, null=True)
     text = models.CharField(max_length=1000)
     mark = models.IntegerField(validators=[MaxValueValidator(5, message='Значение должно быть от 1 до 5'), MinValueValidator(1, message='Значение должно быть от 1 до 5')])
     date = models.DateField(null=True)
 
+
 class Coupons(models.Model):
-    coupon = models.CharField(max_length=10)
+    name = models.CharField(max_length=50, default='')
+    coupon = models.CharField(max_length=10, default='')
     status = models.BooleanField()
-    description = models.CharField(max_length=100)
-    #services
     discount = models.IntegerField(validators=[MaxValueValidator(50), MinValueValidator(10)])
 
+    def __str__(self):
+        return self.name
 

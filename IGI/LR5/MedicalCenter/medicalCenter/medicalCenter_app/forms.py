@@ -1,10 +1,8 @@
-import datetime
 import django
 from django.contrib.auth import forms
 from django.contrib.auth.models import User
-from django.forms import widgets
 import django.forms
-from medicalCenter_app.models import Appointment, Client, Diagnosis, Doctor, Review
+from medicalCenter_app.models import Appointment, Client, Diagnosis, Review
 
 
 class UserRegistrationForm(forms.UserCreationForm):

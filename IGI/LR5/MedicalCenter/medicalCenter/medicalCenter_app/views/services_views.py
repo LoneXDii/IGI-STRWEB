@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from medicalCenter_app.forms import ServiceAppointmentForm
 from medicalCenter_app.models import Doctor, DoctorSpecialization, Service
 
@@ -20,6 +20,13 @@ def services_details(request, id):
     else:
         spec = DoctorSpecialization.objects.get(pk=id)
         data_obj = spec.service_set.all()
+
+        sort_param = request.GET.get('sort_by')
+        if sort_param == 'name':
+            data_obj = list(data_obj.order_by('name'))
+        elif sort_param == 'price':
+            data_obj = list(data_obj.order_by('price'))
+
         try:
             doctor = request.user.doctor
             is_doctor = True

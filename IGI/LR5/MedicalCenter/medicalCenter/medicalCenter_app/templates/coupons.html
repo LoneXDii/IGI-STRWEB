@@ -6,5 +6,13 @@
 </head>
 <body>
     <h2>Купоны</h2>
+    <h3>Актуальные купоны:</h3>
+    {% for a in actual %}
+        <p>{{a.coupon}} - {{a.name}}</p>
+    {% endfor %}
+    <h3>Архив:</h3>
+    {% for a in archive %}
+        <p>{{a.coupon}} - {{a.name}}</p>
+    {% endfor %}
 </body>
 </html>

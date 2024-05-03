@@ -1,5 +1,4 @@
 import datetime
-from django.contrib.auth.decorators import login_required
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
 from medicalCenter_app.models import Appointment, Client

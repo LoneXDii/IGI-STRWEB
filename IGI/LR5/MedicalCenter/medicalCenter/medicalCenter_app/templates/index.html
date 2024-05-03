@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
 </head>
 <body>
+    <h2>{{date}}</h2>
     <ul>
         <a href="{% url 'profile'%}"<li>Профиль</li></a>
         <a href="{% url 'services'%}"><li>Услуги</li></a>
@@ -22,5 +23,6 @@
             <a href="{% url 'admin:index' %}"><li>Админка</li></a>
         {% endif %}
     </ul>
+    {{calendar|safe}}
 </body>
 </html>
