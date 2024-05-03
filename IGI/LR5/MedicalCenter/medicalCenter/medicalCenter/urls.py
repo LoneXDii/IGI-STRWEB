@@ -19,9 +19,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, re_path
 from medicalCenter_app.views import views
-from medicalCenter_app.views import account_views
-from medicalCenter_app.views import services_views
-from medicalCenter_app.views import statistics_views
+from medicalCenter_app.views import account_views, services_views, statistics_views, api_views
 
 
 urlpatterns = [
@@ -30,7 +28,7 @@ urlpatterns = [
     re_path(r'^about/$', views.about, name='about'),
     re_path(r'^contacts/$', views.contacts, name='contacts'),
     re_path(r'^coupons/$', views.coupons, name='coupons'),
-    re_path(r'^news/$', views.news, name='news'),
+    re_path(r'^news/$', api_views.news, name='news'),
     re_path(r'^privacy/$', views.privacy, name='privacy'),
     re_path(r'^reviews/$', views.reviews, name='reviews'),
     re_path(r'^reviews/add/$', views.add_review, name='add_review'),
@@ -52,4 +50,5 @@ urlpatterns = [
     re_path(r'^clientInfo/diagnosises/(?P<client_id>\d+)/$', account_views.diagnosises, name='client_diagnosises'),
     re_path(r'^statistics/$', statistics_views.statistics, name='statistics'),
     re_path(r'^statistics/ageStats/$', statistics_views.age_statistics, name='age_statistics'),
+    re_path(r'^jokes/$', api_views.jokes, name='jokes')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

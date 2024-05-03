@@ -16,6 +16,7 @@
         <a href="{% url 'vacancies' %}"><li>Вакансии</li></a>
         <a href="{% url 'reviews' %}"><li>Отзывы</li></a>
         <a href="{% url 'coupons' %}"><li>Купоны</li></a>
+        <a href="{% url 'jokes' %}"><li>Анекдоты</li></a>
         {% if request.user.is_superuser %}
             <a href="{% url 'statistics' %}"><li>Статистика</li></a>
             <a href="{% url 'admin:index' %}"><li>Админка</li></a>

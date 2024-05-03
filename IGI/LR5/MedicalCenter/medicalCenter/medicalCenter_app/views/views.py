@@ -19,11 +19,6 @@ def coupons(request):
 def index(request):
     return render(request, 'index.html')
 
-def news(request):
-    news_data = News.objects.all()
-    data = {'news': news_data}
-    return render(request, 'news.html', context=data)
-
 def privacy(request):
     return render(request, 'privacy.html')
 

@@ -1,13 +1,13 @@
 01.05.2024
 
-diagnosises to new page
-add doctor pacients
+
 add coupons
 fix time (no users to one time) in appointmets
 complete base functionality (tasks for all variants)
 add filtration
 add tests
 
+?add doctor pacients
 
 
 fix pages titles and imports in all files

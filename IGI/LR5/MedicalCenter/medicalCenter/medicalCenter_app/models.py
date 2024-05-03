@@ -1,12 +1,16 @@
 from http import client
+import os
+from tempfile import NamedTemporaryFile
+from urllib.request import urlopen
 import django
 from django.contrib.auth.models import User
+from django.core.files import File
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator, RegexValidator
 import datetime
-
 import django.utils
 import django.utils.timezone
+import requests
 
 #look for help_text in model fields if needed
 
@@ -81,9 +85,29 @@ class About(models.Model):
     text = models.CharField(max_length=1000)
 
 class News(models.Model):
-    header = models.CharField(max_length=300)
-    content = models.CharField(max_length=1000)
+    title = models.CharField(max_length=1000, default='')
+    description = models.CharField(max_length=1000, default='')
+    url = models.URLField(max_length=1000, default='')
     image = models.ImageField(upload_to='imgs/news_imgs', default='no_img.png')
+    image_url = models.URLField(max_length=1000, null=True)
+
+    def save_image_from_url(self):
+        if self.image_url is None:
+            return False
+        r = requests.get(self.image_url)
+        if r.status_code == 200:
+            img_temp = NamedTemporaryFile(delete=True)
+            img_temp.write(r.content)
+            img_temp.flush()
+            try:
+                self.image.save(os.path.basename(self.image_url), File(img_temp), save=True)
+            except:
+                print("Failed downloading image from ", self.image_url)
+                return False
+            else:
+                return True
+        else:
+            return False
 
 class Term(models.Model):
     term = models.CharField(max_length=30)

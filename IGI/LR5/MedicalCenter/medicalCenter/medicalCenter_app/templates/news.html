@@ -12,11 +12,12 @@
 </head>
 <body>
         {% for n in news %}
-                <h2>{{n.header}}</h2>
+                <h2>{{n.title}}</h2>
                 <table width = "100%">
                     <tr>
                         <p><img src = "{{n.image.url}}" height = "182" width = "325" class="leftimg">
-                            {{n.content}}</p>
+                            {{n.description}}</p>
+                        <p>Читать далее</p>
                     </tr>
                 </table>
         {% endfor %}

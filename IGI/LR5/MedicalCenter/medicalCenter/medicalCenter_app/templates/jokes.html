@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Анекдоты</title>
+</head>
+<body>
+    <ul>
+        {% for j in jokes %}
+            <li>
+                <p>{{j.setup}}</p>
+                <p>{{j.punchline}}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
