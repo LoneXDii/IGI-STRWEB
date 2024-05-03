@@ -60,7 +60,7 @@ def download_image_from_url(url):
 
 
 def update_news():
-    responce = requests.get('https://newsapi.org/v2/everything?language=ru&q=medicine&apiKey=50aff5d34e9d484a828144e8ca7edf79')
+    responce = requests.get('https://newsapi.org/v2/everything?language=ru&q=medicine&excludeDomains=mail.ru&apiKey=50aff5d34e9d484a828144e8ca7edf79')
     responce = responce.json()
     articles = responce['articles']
     for article in articles:
