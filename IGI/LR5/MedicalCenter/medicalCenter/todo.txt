@@ -1,13 +1,12 @@
 01.05.2024
 
 complete base functionality (tasks for all variants)
+add filtration
 
 fix time (no users to one time) in appointmets
 
-add filtration
+
 add tests
 
-?add doctor pacients
 
-
-fix pages titles and imports in all files
+fix and imports in all files

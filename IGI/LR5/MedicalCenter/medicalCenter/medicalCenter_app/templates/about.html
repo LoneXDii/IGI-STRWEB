@@ -5,6 +5,13 @@
     <meta charset="utf-8" />
 </head>
 <body>
-    <h2>Информация о компании</h2>
+    <h2>О нас</h2>
+    <p>{{about.start}}</p>
+    <h3>Наши преимущества</h3>
+    {% for a in advantages %}
+        <h4>{{a.header}}</h4>
+        <p>{{a.text}}</p>
+    {% endfor %}
+    <p>{{about.end}}</p>
 </body>
 </html>

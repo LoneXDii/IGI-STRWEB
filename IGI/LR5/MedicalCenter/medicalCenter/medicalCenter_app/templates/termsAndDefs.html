@@ -6,5 +6,10 @@
 </head>
 <body>
     <h2>Термины и понятия</h2>
+    <ul>
+        {% for t in terms %}
+            <li>{{t.term}} - {{t.description}}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

@@ -4,14 +4,19 @@ from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from medicalCenter_app.forms import ReviewForm
-from medicalCenter_app.models import  Appointment, Client, Diagnosis, Doctor, News, Review
+from medicalCenter_app.models import  About, Appointment, Client, Diagnosis, Doctor, News, Review, Term
 
 
 def about(request):
-    return render(request, 'about.html')
+    about = About.objects.get(pk=1)
+    advantages = about.advantages.all()
+    data = {'about': about, 'advantages': advantages}
+    return render(request, 'about.html', context=data)
 
 def contacts(request):
-    return render(request, 'contacts.html')
+    doctors = Doctor.objects.all()
+    data = {'doctors': doctors}
+    return render(request, 'contacts.html', context=data)
 
 def coupons(request):
     return render(request, 'coupons.html')
@@ -44,7 +49,9 @@ def add_review(request):
       return render(request, 'addReview.html', {'form': form}) 
 
 def terms_and_defs(request):
-    return render(request, 'termsAndDefs.html')
+    terms = Term.objects.all()
+    data = {'terms': terms}
+    return render(request, 'termsAndDefs.html', context=data)
 
 def vacancies(request):
     return render(request, 'vacancies.html')
@@ -52,6 +59,7 @@ def vacancies(request):
 def doctor_info(request, id):
     doctor = Doctor.objects.get(pk=id)
     return render(request, 'doctor_info.html', {'doctor': doctor})
+
 
 @login_required
 def client_info(request, id):

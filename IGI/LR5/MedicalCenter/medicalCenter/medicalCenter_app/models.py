@@ -58,7 +58,7 @@ class Doctor(models.Model):
                                     )])
     image = models.ImageField(upload_to='imgs/avatars', default='default_avatar.png')
     specialization = models.ForeignKey(DoctorSpecialization, on_delete=models.CASCADE)
-    clients = models.ManyToManyField(Client)
+    clients = models.ManyToManyField(Client, blank=True)
 
     def __str__(self):
         return f"{self.surname} {self.name} {self.second_name}"
@@ -81,8 +81,14 @@ class Diagnosis(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE, null=True)
 
 
-class About(models.Model):
+class Advantage(models.Model):
+    header = models.CharField(max_length=100)
     text = models.CharField(max_length=1000)
+
+class About(models.Model):
+    start = models.CharField(max_length=1000, default='')
+    advantages = models.ManyToManyField(Advantage)
+    end = models.CharField(max_length=1000, default='')
 
 class News(models.Model):
     title = models.CharField(max_length=1000, default='')

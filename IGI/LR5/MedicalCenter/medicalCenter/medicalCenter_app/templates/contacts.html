@@ -3,8 +3,25 @@
 <head>
     <title>Контакты</title>
     <meta charset="utf-8" />
+    <style>
+        .leftimg {
+            float:left;
+            margin: 7px 7px 7px 0;
+           }
+    </style>
 </head>
 <body>
-    <h2>Контакты</h2>
+    {% for d in doctors %}
+        <h2>{{d.surname}} {{d.name}} {{d.second_name}}</h2>
+        <table width = "100%">
+            <tr>
+                <img src = "{{d.image.url}}" height = "200" width = "150" class="leftimg">
+                <p>Дата рождения: {{d.birth_date}}</p>
+                <p>Телефон: {{d.phone_number}}</p>
+                <p>Элекронная почта: {{d.email}}</p>
+                <p>Специальность: {{d.specialization.name}}</p>
+            </tr>
+        </table>
+    {% endfor %}
 </body>
 </html>
