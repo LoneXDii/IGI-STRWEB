@@ -20,7 +20,12 @@ def services_details(request, id):
     else:
         spec = DoctorSpecialization.objects.get(pk=id)
         data_obj = spec.service_set.all()
-        data= {'services': data_obj}
+        try:
+            doctor = request.user.doctor
+            is_doctor = True
+        except:
+            is_doctor = False
+        data= {'services': data_obj, 'doctor': is_doctor}
         return render(request, 'services/doctor_services.html', context=data)
     
 

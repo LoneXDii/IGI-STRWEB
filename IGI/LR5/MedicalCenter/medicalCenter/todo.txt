@@ -1,9 +1,9 @@
 01.05.2024
 
-
-add coupons
-fix time (no users to one time) in appointmets
 complete base functionality (tasks for all variants)
+
+fix time (no users to one time) in appointmets
+
 add filtration
 add tests
 

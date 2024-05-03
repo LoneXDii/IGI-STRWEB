@@ -36,7 +36,7 @@ def login(request):
 def register(request):
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
-        profile_form = ProfileRegistrationForm(request.POST)
+        profile_form = ProfileRegistrationForm(request.POST, request.FILES)
         if user_form.is_valid() and profile_form.is_valid():
             user = user_form.save()
             profile = profile_form.save()
@@ -95,7 +95,7 @@ def change_password(request):
 def edit_profile(request):
     if request.method == 'POST':
         profile = request.user.client
-        form = ProfileRegistrationForm(request.POST, instance=profile)
+        form = ProfileRegistrationForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
             messages.success(request, 'Профиль успешно обновлен')

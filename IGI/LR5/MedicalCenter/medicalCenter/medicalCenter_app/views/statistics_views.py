@@ -1,11 +1,15 @@
 import datetime
-from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.http import Http404, HttpResponse
 from django.shortcuts import render
 from medicalCenter_app.models import Appointment, Client
 import plotly.graph_objs as go
 
 
 def statistics(request):
+    if not request.user.is_superuser:
+        raise Http404()
+
     appointments = Appointment.objects.all()
     total_sum = 0
     get_sum = 0
@@ -22,6 +26,9 @@ def statistics(request):
 
 
 def age_statistics(request):
+    if not request.user.is_superuser:
+        raise Http404()
+
     age_groups = [
         (19, 35),  # Молодежь
         (36, 60),  # Взрослые

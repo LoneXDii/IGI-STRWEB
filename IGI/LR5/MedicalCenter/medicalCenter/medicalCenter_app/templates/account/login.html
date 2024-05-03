@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Registration</title>
+    <title>Вход</title>
 </head>
 <body>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Log-in</button>
+        <button type="submit">Войти</button>
         <a href="{% url 'register'%}">Зарегистрироваться</a>
       </form>
 </body>

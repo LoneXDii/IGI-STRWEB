@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Registration</title>
+    <title>Регистрация</title>
 </head>
 <body>
-    <form method="post">
+    <form method="post" enctype='multipart/form-data'>
         {% csrf_token %}
         {{ user_form.as_p }}
         {{ profile_form.as_p }}
-        <button type="submit">Register</button>
+        <button type="submit">Зарегистрироваться</button>
       </form>
 </body>
 </html>

@@ -1,10 +1,7 @@
-import os
 import tempfile
 from django.core import files
-from django.http import HttpResponse
 from django.shortcuts import render
 import requests
-
 from medicalCenter_app.models import News
 
 
@@ -29,6 +26,7 @@ class Joke():
     def punchline(self, value):
         self._punchline = value
 
+
 def jokes(request):
     responce = requests.get('https://official-joke-api.appspot.com/jokes/general/ten')
     responce = responce.json()
@@ -39,24 +37,6 @@ def jokes(request):
         joke.punchline = r_part['punchline']
         jokes.append(joke)
     return render(request, 'jokes.html', {'jokes': jokes})
-
-
-def download_image_from_url(url):
-    try:
-        request = requests.get(url, stream=True)
-    except requests.exceptions.RequestException as e:
-        return None
-
-    if request.status_code != requests.codes.ok:
-        return None
-
-    lf = tempfile.NamedTemporaryFile()
-
-    for block in request.iter_content(1024 * 8):
-        if not block:
-            break
-        lf.write(block)
-    return files.File(lf)
 
 
 def update_news():
