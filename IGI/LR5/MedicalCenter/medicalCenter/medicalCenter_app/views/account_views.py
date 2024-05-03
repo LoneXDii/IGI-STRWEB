@@ -5,12 +5,13 @@ from django.contrib.auth import logout as dj_logout
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
+from django.views.defaults import page_not_found
 from medicalCenter_app.forms import DiagnosisForm, LoginForm, ProfileRegistrationForm, UserRegistrationForm
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
-from medicalCenter_app.models import Appointment, Client, Diagnosis
+from medicalCenter_app.models import Appointment, Client, Diagnosis, Doctor
 
 
 def login(request):
@@ -56,10 +57,8 @@ def register(request):
 def profile(request):
     user = request.user
     is_doctor = False
-    diagnosises = None
     try:
         profile = user.client
-        diagnosises = Diagnosis.objects.filter(client=profile)
     except:
         profile = None
 
@@ -69,7 +68,11 @@ def profile(request):
             is_doctor = True
         except:
             profile = None
-    data = {'profile': profile, 'is_doctor': is_doctor, 'diagnosises': diagnosises}
+
+    if request.user.is_superuser:
+        is_doctor = True
+
+    data = {'profile': profile, 'is_doctor': is_doctor}
     return render(request, 'account/profile.html', data)    
 
 
@@ -129,7 +132,7 @@ def set_diagnosis(request, client_id):
         try:
             doctor = request.user.doctor
         except:
-            return Http404()
+            raise Http404()
         form = DiagnosisForm()
         return render(request, 'account/set_diagnosis.html', {'form': form})
 
@@ -175,6 +178,28 @@ def user_appointments(request):
             data = {'appointments' : appointments, 'doctor': is_doctor}
             return render(request, 'account/appointments.html', data)
         except:
-            return Http404()
+            raise Http404()
         
 
+
+@login_required
+def diagnosises(request, client_id):
+    user = 1
+    client_id = int(client_id)
+    try:
+        client = request.user.client
+        if client.id != client_id:
+            raise Http404()
+    except:
+        user = None
+    
+    if user is None:
+        try:
+            doctor = request.user.doctor
+        except:
+            raise Http404()
+        
+    client = Client.objects.get(pk=client_id)
+    diagnosises = Diagnosis.objects.filter(client=client)
+    data = {'client': client, 'diagnosises': diagnosises}
+    return render(request, 'account/diagnosises.html', data)

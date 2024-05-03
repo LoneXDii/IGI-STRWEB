@@ -1,5 +1,6 @@
 from datetime import datetime
-from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from medicalCenter_app.forms import ReviewForm
@@ -57,7 +58,12 @@ def doctor_info(request, id):
     doctor = Doctor.objects.get(pk=id)
     return render(request, 'doctor_info.html', {'doctor': doctor})
 
+@login_required
 def client_info(request, id):
-    client = Client.objects.get(pk=id)
-    diagnosises = Diagnosis.objects.filter(client=client)
-    return render(request, 'client_info.html', {'client': client, 'diagnosises': diagnosises})
+    try:
+        doctor = request.user.doctor
+        client = Client.objects.get(pk=id)
+        diagnosises = Diagnosis.objects.filter(client=client)
+        return render(request, 'client_info.html', {'client': client, 'diagnosises': diagnosises})
+    except:
+        raise Http404()

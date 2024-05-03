@@ -14,11 +14,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-import django
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-import django.contrib.auth.urls
 from django.urls import path, re_path
 from medicalCenter_app.views import views
 from medicalCenter_app.views import account_views
@@ -28,7 +26,7 @@ from medicalCenter_app.views import statistics_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index),
+    path('', views.index, name='home'),
     re_path(r'^about/$', views.about, name='about'),
     re_path(r'^contacts/$', views.contacts, name='contacts'),
     re_path(r'^coupons/$', views.coupons, name='coupons'),
@@ -51,6 +49,7 @@ urlpatterns = [
     re_path(r'^accounts/diagnosis/(?P<client_id>\d+)/$', account_views.set_diagnosis, name='diagnosis_set'),
     re_path(r'^doctorInfo/(?P<id>\d+)/$', views.doctor_info, name='doctor_info'),
     re_path(r'^clientInfo/(?P<id>\d+)/$', views.client_info, name='client_info'),
+    re_path(r'^clientInfo/diagnosises/(?P<client_id>\d+)/$', account_views.diagnosises, name='client_diagnosises'),
     re_path(r'^statistics/$', statistics_views.statistics, name='statistics'),
     re_path(r'^statistics/ageStats/$', statistics_views.age_statistics, name='age_statistics'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

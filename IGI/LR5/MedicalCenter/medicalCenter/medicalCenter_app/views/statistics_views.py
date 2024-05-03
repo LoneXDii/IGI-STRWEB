@@ -21,9 +21,6 @@ def statistics(request):
     return render(request, 'statistics/main.html', data)
 
 
-
-
-
 def age_statistics(request):
     age_groups = [
         (19, 35),  # Молодежь

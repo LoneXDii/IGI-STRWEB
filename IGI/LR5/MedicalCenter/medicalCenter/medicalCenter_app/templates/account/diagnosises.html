@@ -7,9 +7,6 @@
 <body>
     <ul>
         <li>
-            <img src="{{client.image.url}}" height="200" width="150">
-        </li>
-        <li>
             <label>Фамилия:</label>
             <label>{{client.surname}}</label>
         </li>
@@ -22,24 +19,23 @@
             <label>{{client.second_name}}</label>
         </li>
         <li>
-            <label>Элекронная почта:</label>
-            <label>{{client.email}}</label>
-        </li>
-        <li>
-            <label>Адрес:</label>
-            <label>{{client.adress}}</label>
-        </li>
-        <li>
-            <label>Номер телефона:</label>
-            <label>{{client.phone_number}}</label>
-        </li>
-        <li>
             <label>Дата рождения:</label>
             <time datetime="{{client.birth_date}}">{{client.birth_date}}</time>
         </li>
-        <a href="{% url 'client_diagnosises' client_id=client.pk %}">
-            <li>Просмотреть диагнозы</li>
-        </a>
+        <li>Диагнозы:</li>
+        <li><ul>
+        {% for d in diagnosises%}
+            <li><label>{{d.name}}</label></li>
+            <li>
+                <label>Поставлен:</label>
+                <time datetime="{{d.setting_date}}">{{d.setting_date}}</time>
+            <li>
+            <a href="{% url 'doctor_info' id=d.doctor.pk %}">
+                <label>Поставил: {{d.doctor.surname}} {{d.doctor.name}} {{d.doctor.second_name}}</label>
+            </a>
+            <li></li>
+        {% endfor %}
+        </ul></li>
     </ul>
 </body>
 </html>

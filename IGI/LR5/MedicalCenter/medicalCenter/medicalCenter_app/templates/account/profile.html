@@ -37,21 +37,10 @@
             <label>Дата рождения:</label>
             <time datetime="{{profile.birth_date}}">{{profile.birth_date}}</time>
         </li>
-        {% if not is_doctor %}
-        <li>Диагнозы:</li>
-        <li><ul>
-        {% for d in diagnosises%}
-            <li><label>{{d.name}}</label></li>
-            <li>
-                <label>Поставлен:</label>
-                <time datetime="{{d.setting_date}}">{{d.setting_date}}</time>
-            <li>
-            <a href="{% url 'doctor_info' id=d.doctor.pk %}">
-                <label>Поставил: {{d.doctor.surname}} {{d.doctor.name}} {{d.doctor.second_name}}</label>
+        {% if not is_doctor%}
+            <a href="{% url 'client_diagnosises' client_id=profile.pk %}">
+                <li>Просмотреть диагнозы</li>
             </a>
-            <li></li>
-        {% endfor %}
-        </ul></li>
         {% endif %}
         <a href="{% url 'user_appointments' %}">Посмотреть записи</a>
     </ul>
