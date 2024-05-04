@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from medicalCenter_app.forms import ServiceAppointmentForm
-from medicalCenter_app.models import Appointment, Doctor, DoctorSpecialization, Service
+from medicalCenter_app.models import Appointment, Client, Doctor, DoctorSpecialization, Service
 
 
 def services(request):
@@ -47,6 +47,7 @@ def get_times(time_min, time_max):
         time_obj = (datetime.datetime.combine(datetime.date(1,1,1), time_obj) + step).time()
     return times
 
+
 @login_required 
 def service_appointment(request, service_id):
     if request.method == 'POST':
@@ -57,7 +58,11 @@ def service_appointment(request, service_id):
             appointment = form.save()
             temp = Appointment.objects.filter(doctor=appointment.doctor, date=appointment.date, time=time)
             if len(temp) == 0:
-                appointment.client = request.user.client
+                client = request.POST.get('user_pk')
+                if client is None   :
+                    appointment.client = request.user.client
+                else:
+                    appointment.client = Client.objects.get(pk=int(client))
                 appointment.service = Service.objects.get(pk=service_id)
                 appointment.save()
                 appointment.doctor.clients.add(appointment.client)

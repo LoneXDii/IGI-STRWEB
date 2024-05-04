@@ -177,8 +177,7 @@ def user_appointments(request):
             data = {'appointments' : appointments, 'doctor': is_doctor}
             return render(request, 'account/appointments.html', data)
         except:
-            raise Http404()
-        
+            raise Http404()    
 
 
 @login_required
