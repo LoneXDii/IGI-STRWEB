@@ -1,12 +1,3 @@
-01.05.2024
-
-complete base functionality (tasks for all variants) (coupons and vacancies)
-add filtration
-
+04.05.2024
 fix time (no users to one time) in appointmets
-
-
 add tests
-
-
-fix and imports in all files

@@ -30,6 +30,7 @@ class Client(models.Model):
     def __str__(self):
         return f"{self.surname} {self.name} {self.second_name}"
 
+
 class DoctorSpecialization(models.Model):
     name = models.CharField(max_length=40)
 
@@ -45,6 +46,13 @@ class Service(models.Model):
     def __str__(self):
         return f"{self.name} ({self.specialization_required.name})"    
 
+
+class Schedule(models.Model):
+    work_starts = models.TimeField()
+    work_ends= models.TimeField()
+
+    def __str__(self):
+        return f"{self.work_starts} - {self.work_ends}"
 
 class Doctor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
@@ -62,6 +70,7 @@ class Doctor(models.Model):
                                     )])
     image = models.ImageField(upload_to='imgs/avatars', default='default_avatar.png')
     specialization = models.ForeignKey(DoctorSpecialization, on_delete=models.CASCADE)
+    shcedule = models.ForeignKey(Schedule, on_delete=models.DO_NOTHING, null=True)
     clients = models.ManyToManyField(Client, blank=True)
 
     def __str__(self):
@@ -73,6 +82,7 @@ class Appointment(models.Model):
     date = models.DateField(validators=[MinValueValidator(datetime.date.today)])
     time = models.CharField(max_length=5, default="")
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
+    temp = models.TimeField(null=True) #input format 12:20
     client = models.ForeignKey(Client, on_delete=models.CASCADE, null=True)
     service = models.ForeignKey(Service, on_delete=models.CASCADE, null=True)
     is_active = models.BooleanField(default=True)

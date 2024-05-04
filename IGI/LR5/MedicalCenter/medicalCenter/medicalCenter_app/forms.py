@@ -18,6 +18,7 @@ class ProfileRegistrationForm(django.forms.ModelForm):
         widgets = {'birth_date': django.forms.DateInput(attrs={'class':'form-control', 'type':'date'}),
                    'image': django.forms.FileInput(attrs={'class':'form-control', 'required': False,})}
 
+
 class LoginForm(django.forms.Form):
     username = django.forms.CharField()
     password = django.forms.CharField(widget=django.forms.PasswordInput)
@@ -26,7 +27,7 @@ class LoginForm(django.forms.Form):
 class ServiceAppointmentForm(django.forms.ModelForm):
     class Meta:
         model = Appointment
-        fields = ('description', 'date', 'time', 'doctor')
+        fields = ('description', 'date', 'time', 'doctor', 'temp')
         widgets = {'date': django.forms.DateInput(attrs={'class':'form-control', 'type':'date'}),}
 
 
