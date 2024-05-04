@@ -10,6 +10,9 @@
         <label>{{service.name}}</label>
         <label>{{service.price}} BYN</label>        
         {{ form.as_p}}
+        {% if not timeok %}
+            <p>На данное время уже есть запись</p>
+        {% endif %}
         <p>
             <label>Time:</label>
             <select name="time">

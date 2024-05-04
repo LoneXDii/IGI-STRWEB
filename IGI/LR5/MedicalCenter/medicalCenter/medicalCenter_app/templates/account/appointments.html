@@ -13,7 +13,7 @@
                     <li>
                         <label>{{a.description}}</label>
                         <label>{{a.date}}</label>
-                        <label>{{a.time}}</label>
+                        <label>{{a.time.hour}}:{{a.time.minute}}{%if a.time.minute is 0 %}{{a.time.minute}}{% endif %}</label>
                         <label>{{a.service.name}}</label>
                         <label>{{a.service.price}}</label>
                         {% if doctor %}
