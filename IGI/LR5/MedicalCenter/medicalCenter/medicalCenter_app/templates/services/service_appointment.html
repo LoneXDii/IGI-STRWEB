@@ -5,17 +5,19 @@
     <meta charset="utf-8" />
 </head>
 <body>
-    <script>
-        function test(){
-            console.log('A')
-        }
-    </script>   
-    <p><input type="button" value='Test' onclick="test()"></p>
     <form method="post">
         {% csrf_token %}
         <label>{{service.name}}</label>
         <label>{{service.price}} BYN</label>        
         {{ form.as_p}}
+        <p>
+            <label>Time:</label>
+            <select name="time">
+                {% for t in time %}
+                    <option value="{{t}}">{{t}}</option>
+                {% endfor %}
+            </select>
+        </p>
         <button type="submit">Записаться</button>
     </form>
 </body>

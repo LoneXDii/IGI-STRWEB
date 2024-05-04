@@ -80,9 +80,8 @@ class Doctor(models.Model):
 class Appointment(models.Model):
     description = models.CharField(max_length=200)
     date = models.DateField(validators=[MinValueValidator(datetime.date.today)])
-    time = models.CharField(max_length=5, default="")
+    time = models.TimeField(null=True) #input format 12:20
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
-    temp = models.TimeField(null=True) #input format 12:20
     client = models.ForeignKey(Client, on_delete=models.CASCADE, null=True)
     service = models.ForeignKey(Service, on_delete=models.CASCADE, null=True)
     is_active = models.BooleanField(default=True)

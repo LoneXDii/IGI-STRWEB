@@ -1,3 +1,5 @@
+from datetime import timedelta
+import datetime
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
@@ -40,9 +42,10 @@ def services_details(request, id):
 def service_appointment(request, service_id):
     if request.method == 'POST':
         form = ServiceAppointmentForm(request.POST)
+        time = request.POST.get('time')
+        time = datetime.datetime.strptime(time, "%H:%M").time()
         if form.is_valid():
             appointment = form.save()
-            a = request.user.client
             appointment.client = request.user.client
             appointment.service = Service.objects.get(pk=service_id)
             appointment.save()
@@ -57,5 +60,13 @@ def service_appointment(request, service_id):
         service = Service.objects.get(pk=service_id)
         form = ServiceAppointmentForm()
         form.fields['doctor'].queryset = Doctor.objects.filter(specialization=service.specialization_required)
-        data = {'form': form, 'service': service}
+        time_min = Doctor.objects.first().shcedule.work_starts
+        time_max = Doctor.objects.first().shcedule.work_ends
+        time_obj = time_min
+        times = list()
+        step = timedelta(minutes=15)
+        while time_obj < time_max:
+            times.append(time_obj.strftime("%H:%M"))
+            time_obj = (datetime.datetime.combine(datetime.date(1,1,1), time_obj) + step).time()
+        data = {'form': form, 'service': service, 'time': times}
         return render(request, 'services/service_appointment.html', data)
