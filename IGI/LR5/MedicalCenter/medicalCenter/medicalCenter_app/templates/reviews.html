@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Отзывы</title>
-    <meta charset="utf-8" />
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Отзывы{% endblock title %}
+{% block header %}Отзывы{% endblock header %}
+{% block content %}
     {% if authorized %}
         <a href="{% url 'add_review'%}">Добавить отзыв</a>
     {% endif %}
@@ -28,5 +25,4 @@
             </li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock content %}

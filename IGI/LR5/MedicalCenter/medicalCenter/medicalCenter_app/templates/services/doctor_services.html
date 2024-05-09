@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Услуги</title>
-    <meta charset="utf-8" />
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Услуги{% endblock title %}
+{% block header %}Услуги{% endblock header %}
+{% block content %}
     <form method="GET" action="">
         <select name="sort_by" onchange="this.form.submit()">
             <option value="name" {% if request.GET.sort_by == 'name' %}selected{% endif %}>По имени</option>
@@ -25,5 +22,4 @@
             {% endfor %}
         </ul>
     </form>
-</body>
-</html>
+{% endblock content %}

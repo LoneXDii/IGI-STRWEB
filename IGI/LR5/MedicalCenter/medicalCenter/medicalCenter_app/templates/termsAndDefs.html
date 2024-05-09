@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Термины и определения</title>
-    <meta charset="utf-8" />
-</head>
-<body>
-    <h2>Термины и понятия</h2>
+{% extends "base.html" %}
+{% block title %}Термины и определения{% endblock title %}
+{% block header %}Термины и определения{% endblock header %}
+{% block content %}
     <ul>
         {% for t in terms %}
             <li>{{t.term}} - {{t.description}}</li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock content %}

@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>О компании</title>
-    <meta charset="utf-8" />
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}О компании{% endblock title %}
+{% block header %}О компании{% endblock header %}
+{% block content %}
     <h2>О нас</h2>
     <p>{{about.start}}</p>
     <h3>Наши преимущества</h3>
@@ -13,5 +10,4 @@
         <p>{{a.text}}</p>
     {% endfor %}
     <p>{{about.end}}</p>
-</body>
-</html>
+{% endblock content %}

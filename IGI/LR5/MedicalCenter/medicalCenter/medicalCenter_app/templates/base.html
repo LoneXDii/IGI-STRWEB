@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Default{% endblock title %}</title>
+    <meta charset="utf-8" />
+    <style>
+        .leftimg {
+            float:left;
+            margin: 7px 7px 7px 0;
+           }
+    </style>
+</head>
+<body>
+    <div>
+        <a href="{% url 'profile'%}">Профиль</a> |
+        <a href="{% url 'services'%}">Услуги</a> |
+        <a href="{% url 'about' %}">О компании</a> |
+        <a href="{% url 'news' %}">Новости</a> |
+        <a href="{% url 'terms' %}">Термины и определения</a> |
+        <a href="{% url 'contacts' %}">Контакты</a> |
+        <a href="{% url 'privacy' %}">Политика конфиденциальности</a> |
+        <a href="{% url 'vacancies' %}">Вакансии</a> |
+        <a href="{% url 'reviews' %}">Отзывы</a> |
+        <a href="{% url 'coupons' %}">Купоны</a> |
+        <a href="{% url 'jokes' %}">Анекдоты</a>
+        {% if request.user.is_superuser %}
+            | <a href="{% url 'statistics' %}">Статистика</a> |
+            <a href="{% url 'admin:index' %}">Админка</a>
+        {% endif %}
+        <h1>{% block header %}Default {% endblock header %}</h1>
+        <div>{% block content %}Default {% endblock content %}</div>
+        <div>MedicalCenter 2024. All rights reserved.</div>
+    <div>
+</body>
+</html>

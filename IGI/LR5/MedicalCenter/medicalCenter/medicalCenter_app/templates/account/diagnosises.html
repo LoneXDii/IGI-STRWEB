@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Диагнозы</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Диагнозы{% endblock title %}
+{% block header %}Диагнозы{% endblock header %}
+{% block content %}
     <ul>
         <li>
             <label>Фамилия:</label>
@@ -37,5 +34,4 @@
         {% endfor %}
         </ul></li>
     </ul>
-</body>
-</html>
+{% endblock content %}

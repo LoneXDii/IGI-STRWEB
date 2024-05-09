@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Контакты</title>
-    <meta charset="utf-8" />
-    <style>
-        .leftimg {
-            float:left;
-            margin: 7px 7px 7px 0;
-           }
-    </style>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Контакты{% endblock title %}
+{% block header %}Контакты{% endblock header %}
+{% block content %}
     {% for d in doctors %}
         <h2>{{d.surname}} {{d.name}} {{d.second_name}}</h2>
         <table width = "100%">
@@ -23,5 +14,4 @@
             </tr>
         </table>
     {% endfor %}
-</body>
-</html>
+{% endblock content %}

@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Специализации докторов</title>
-    <meta charset="utf-8" />
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Специализации докторов{% endblock title %}
+{% block header %}Специализации докторов{% endblock header %}
+{% block content %}
     <ul>
         {% for s in specializations %}
             <a href="{% url 'service_details' id=s.pk %}">
@@ -12,5 +9,4 @@
             </a>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock content %}

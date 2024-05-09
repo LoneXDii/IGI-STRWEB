@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Статистика</title>
-    <meta charset="utf-8" />
-</head>
-<body>
-    <h2>Статистика</h2>
+{% extends "base.html" %}
+{% block title %}Статистика{% endblock title %}
+{% block header %}Статистика{% endblock header %}
+{% block content %}
     <ul>
         <li>Заработано: {{recieved}} BYN</li>
         <li>Общая цена невыполненных записей: {{not_recieved}} BYN</li>
@@ -13,5 +9,4 @@
         <a href="{% url 'age_statistics' %}"><li>Статистика пользователей по возрастам</li></a>
         <a href="{% url 'by_user_stats' %}"><li>Статистика выручки по пользователям</li></a>
     </ul>
-</body>
-</html>
+{% endblock content %}

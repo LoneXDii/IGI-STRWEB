@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Купоны</title>
-    <meta charset="utf-8" />
-</head>
-<body>
-    <h2>Купоны</h2>
+{% extends "base.html" %}
+{% block title %}Купоны{% endblock title %}
+{% block header %}Купоны{% endblock header %}
+{% block content %}
     <h3>Актуальные купоны:</h3>
     {% for a in actual %}
         <p>{{a.coupon}} - {{a.name}}</p>
@@ -14,5 +10,4 @@
     {% for a in archive %}
         <p>{{a.coupon}} - {{a.name}}</p>
     {% endfor %}
-</body>
-</html>
+{% endblock content %}

@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Информация о враче</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Информация о враче{% endblock title %}
+{% block header %}Информация о враче{% endblock header %}
+{% block content %}
     <ul>
         <li>
             <img src="{{doctor.image.url}}" height="200" width="150">
@@ -42,5 +39,4 @@
             <label>{{doctor.specialization.name}}</label>
         </li>
     </ul>
-</body>
-</html>
+{% endblock content %}

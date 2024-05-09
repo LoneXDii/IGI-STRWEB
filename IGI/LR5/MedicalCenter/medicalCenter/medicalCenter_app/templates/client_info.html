@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Информация о клиенте</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Информация о клиенте{% endblock title %}
+{% block header %}Информация о клиенте{% endblock header %}
+{% block content %}
     <ul>
         <li>
             <img src="{{client.image.url}}" height="200" width="150">
@@ -41,5 +38,4 @@
             <li>Просмотреть диагнозы</li>
         </a>
     </ul>
-</body>
-</html>
+{% endblock content %}

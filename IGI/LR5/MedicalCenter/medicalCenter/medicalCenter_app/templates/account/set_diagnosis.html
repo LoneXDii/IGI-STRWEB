@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Поставить диагноз</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Поставить диагноз{% endblock title %}
+{% block header %}Поставить диагноз{% endblock header %}
+{% block content %}
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Поставить диагноз</button>
       </form>
-</body>
-</html>
+{% endblock content %}

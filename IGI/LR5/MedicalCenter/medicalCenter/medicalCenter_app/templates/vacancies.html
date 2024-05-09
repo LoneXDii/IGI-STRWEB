@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Вакансии</title>
-    <meta charset="utf-8" />
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Вакансии{% endblock title %}
+{% block header %}Вакансии{% endblock header %}
+{% block content %}
     <ul>
         {% for v in vacancies %}
             <li>
@@ -16,5 +13,4 @@
             </li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock content %}

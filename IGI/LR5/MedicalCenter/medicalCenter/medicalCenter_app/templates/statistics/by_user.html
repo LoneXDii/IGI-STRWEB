@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Статистика</title>
-    <meta charset="utf-8" />
-</head>
-<body>
-    <h2>Статистика по пользователям</h2>
+{% extends "base.html" %}
+{% block title %}Статистика по пользователям{% endblock title %}
+{% block header %}Статистика по пользователям{% endblock header %}
+{% block content %}
     <ul>
         {% for d in data %}
             <li>
@@ -16,5 +12,4 @@
             </li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock content %}

@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Новости</title>
-    <meta charset="utf-8" />
-    <style>
-        .leftimg {
-            float:left;
-            margin: 7px 7px 7px 0;
-           }
-    </style>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Новости{% endblock title %}
+{% block header %}Новости{% endblock header %}
+{% block content %}
     {% for n in news %}
         <h2>{{n.title}}</h2>
         <table width = "100%">
@@ -25,5 +16,4 @@
             </tr>
         </table>
     {% endfor %}
-</body>
-</html>
+{% endblock content %}
