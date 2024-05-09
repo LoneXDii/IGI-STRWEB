@@ -11,7 +11,6 @@
             {% for a in appointments %}
                 {% if a.is_active %}
                     <li>
-                        <label>{{a.description}}</label>
                         <label>{{a.date}}</label>
                         <label>{{a.time.hour}}:{{a.time.minute}}{%if a.time.minute is 0 %}{{a.time.minute}}{% endif %}</label>
                         <label>{{a.service.name}}</label>

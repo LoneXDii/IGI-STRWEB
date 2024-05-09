@@ -78,7 +78,6 @@ class Doctor(models.Model):
 
 
 class Appointment(models.Model):
-    description = models.CharField(max_length=200)
     date = models.DateField(validators=[MinValueValidator(datetime.date.today)])
     time = models.TimeField(null=True) #input format 12:20
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)

@@ -27,7 +27,7 @@ class LoginForm(django.forms.Form):
 class ServiceAppointmentForm(django.forms.ModelForm):
     class Meta:
         model = Appointment
-        fields = ('description', 'doctor', 'date')
+        fields = ('doctor', 'date')
         widgets = {'date': django.forms.DateInput(attrs={'class':'form-control', 'type':'date'}),}
 
 
