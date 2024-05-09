@@ -50,5 +50,6 @@ urlpatterns = [
     re_path(r'^clientInfo/diagnosises/(?P<client_id>\d+)/$', account_views.diagnosises, name='client_diagnosises'),
     re_path(r'^statistics/$', statistics_views.statistics, name='statistics'),
     re_path(r'^statistics/ageStats/$', statistics_views.age_statistics, name='age_statistics'),
+    re_path(r'^statistics/byUser/$', statistics_views.statistics_by_user, name='by_user_stats'),
     re_path(r'^jokes/$', api_views.jokes, name='jokes')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

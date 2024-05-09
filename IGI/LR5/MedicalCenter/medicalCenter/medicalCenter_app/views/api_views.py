@@ -60,5 +60,5 @@ def update_news():
 def news(request):
     update_news()
     news_data = News.objects.all()
-    data = {'news': news_data}
+    data = {'news': reversed(news_data)}
     return render(request, 'news.html', context=data)

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Статистика</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h2>Статистика по пользователям</h2>
+    <ul>
+        {% for d in data %}
+            <li>
+                <p>Пользователь: {{d.0.surname}} {{d.0.name}} {{d.0.second_name}}</p>
+                <p>Активные заказы на сумму: {{d.1}} BYN</p>
+                <p>Завершенные заказы на сумму: {{d.2}} BYN</p>
+                <p>Итого: {{d.3}} BYN</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,6 +1,7 @@
 import datetime
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
+from django.template.loaders import app_directories
 from medicalCenter_app.models import Appointment, Client
 import plotly.graph_objs as go
 
@@ -55,3 +56,29 @@ def age_statistics(request):
 
     chart = fig.to_html(full_html=False)
     return HttpResponse(chart)
+
+
+def statistics_by_user(request):
+    if not request.user.is_superuser:
+        raise Http404()
+    clients = Client.objects.all()
+    appointments = Appointment.objects.all()
+    sums_active = list()
+    sums_recieved = list()
+    sums_total = list()
+    for client in clients:
+        sum_active = 0
+        sum_recieved = 0
+        total_sum = 0
+        for appointment in appointments:
+            if appointment.client == client:
+                if appointment.is_active:
+                    sum_active += appointment.service.price
+                else:
+                    sum_recieved += appointment.service.price
+                total_sum += appointment.service.price
+        sums_active.append(sum_active)
+        sums_recieved.append(sum_recieved)
+        sums_total.append(total_sum)
+    data_couple = zip(clients, sums_active, sums_recieved, sums_total)
+    return render(request, 'statistics/by_user.html', {'data': data_couple})

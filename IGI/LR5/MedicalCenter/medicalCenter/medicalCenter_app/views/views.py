@@ -3,6 +3,7 @@ from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render
+from django.template.response import TemplateResponse
 from django.urls import reverse
 from django.utils import dateformat, timezone
 from medicalCenter_app.forms import ReviewForm
@@ -29,10 +30,8 @@ def coupons(request):
 def index(request):
     time = timezone.datetime.now()
     date = dateformat.format(time, 'd/m/Y')
-    calendar = LocaleHTMLCalendar(locale='Russian_Russia')
-    calendar = calendar.formatyear(time.year, width=4)
-    data = {'date': date, 'calendar': calendar}
-    return render(request, 'index.html', context=data)
+    data = {'date': date}
+    return TemplateResponse(request, 'index.html', context=data)
 
 def privacy(request):
     return render(request, 'privacy.html')
