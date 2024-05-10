@@ -23,6 +23,18 @@
             <a href="{% url 'admin:index' %}"><li>Админка</li></a>
         {% endif %}
     </ul>
+    <h2>{{ln.title}}</h2>
+        <table width = "100%">
+            <tr>
+                <p>
+                    <img src = "{{ln.image.url}}" height = "182" width = "325" class="leftimg">
+                    {{ln.description}}
+                </p>
+                <a href="{{ln.url}}">
+                    <p>Читать далее</p>
+                </a>
+            </tr>
+        </table>
     <table>
         <td>
             <h2>{{date}}</h2>

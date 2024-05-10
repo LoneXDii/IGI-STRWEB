@@ -7,7 +7,7 @@ from django.template.response import TemplateResponse
 from django.urls import reverse
 from django.utils import dateformat, timezone
 from medicalCenter_app.forms import ReviewForm
-from medicalCenter_app.models import  About, Client, Coupons, Diagnosis, Doctor, Review, Term, Vacancy
+from medicalCenter_app.models import  About, Client, Coupons, Diagnosis, Doctor, News, Review, Term, Vacancy
 
 
 def about(request):
@@ -30,7 +30,10 @@ def coupons(request):
 def index(request):
     time = timezone.datetime.now()
     date = dateformat.format(time, 'd/m/Y')
-    data = {'date': date}
+    
+    last_news = News.objects.all()
+    last_news = last_news[0]
+    data = {'date': date, "ln": last_news}
     return TemplateResponse(request, 'index.html', context=data)
 
 def privacy(request):

@@ -5,10 +5,8 @@ from django.core.files import File
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator, RegexValidator
 import datetime
-import django.utils.timezone
 import requests
 
-#look for help_text in model fields if needed
 
 class Client(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
