@@ -31,8 +31,7 @@ def index(request):
     time = timezone.datetime.now()
     date = dateformat.format(time, 'd/m/Y')
     
-    last_news = News.objects.all()
-    last_news = last_news[0]
+    last_news = News.objects.latest('id')
     data = {'date': date, "ln": last_news}
     return TemplateResponse(request, 'index.html', context=data)
 

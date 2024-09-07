@@ -53,8 +53,9 @@ def update_news():
             news_obj.description = article['description']
             news_obj.url = article['url']
             news_obj.image_url = article['urlToImage']
-            news_obj.save_image_from_url()
-            news_obj.save()
+            #news_obj.save_image_from_url()
+            if (not news_obj.image_url is None):
+                news_obj.save()
     return
 
 def news(request):

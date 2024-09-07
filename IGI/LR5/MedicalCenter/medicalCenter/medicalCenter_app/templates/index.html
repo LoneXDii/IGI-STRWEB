@@ -7,7 +7,7 @@
 </head>
 <body>
     <ul>
-        <a href="{% url 'profile'%}"<li>Профиль</li></a>
+        <a href="{% url 'profile'%}"><li>Профиль</li></a>
         <a href="{% url 'services'%}"><li>Услуги</li></a>
         <a href="{% url 'about' %}"><li>О компании</li></a>
         <a href="{% url 'news' %}"><li>Новости</li></a>
@@ -27,7 +27,7 @@
         <table width = "100%">
             <tr>
                 <p>
-                    <img src = "{{ln.image.url}}" height = "182" width = "325" class="leftimg">
+                    <img src = "{{ln.image_url}}" height = "182" width = "325" class="leftimg">
                     {{ln.description}}
                 </p>
                 <a href="{{ln.url}}">
