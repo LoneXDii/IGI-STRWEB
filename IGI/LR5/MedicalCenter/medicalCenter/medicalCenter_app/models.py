@@ -97,6 +97,7 @@ class Advantage(models.Model):
 
 
 class About(models.Model):
+    logo = models.ImageField(upload_to="imgs", default="MC_Logo.jpg")
     start = models.CharField(max_length=1000, default='')
     advantages = models.ManyToManyField(Advantage)
     end = models.CharField(max_length=1000, default='')

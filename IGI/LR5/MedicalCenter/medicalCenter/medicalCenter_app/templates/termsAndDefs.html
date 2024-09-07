@@ -4,7 +4,7 @@
 {% block content %}
     <ul>
         {% for t in terms %}
-            <li>{{t.term}} - {{t.description}}</li>
+            <li><dfn>{{t.term}}</dfn> - {{t.description}}</li>
         {% endfor %}
     </ul>
 {% endblock content %}

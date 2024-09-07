@@ -83,3 +83,6 @@ def client_info(request, id):
         return render(request, 'client_info.html', {'client': client, 'diagnosises': diagnosises})
     except:
         raise Http404()
+    
+def test(request):
+    return render(request, 'test.html')

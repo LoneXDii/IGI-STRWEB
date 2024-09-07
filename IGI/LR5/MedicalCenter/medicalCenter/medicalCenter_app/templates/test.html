@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Тест{% endblock title %}
+{% block header %}Тест{% endblock header %}
+{% block content %}
+    <h2>Листинг</h2>
+    <listing>
+        #include "iostream"
+
+        int main(){
+            std::cout << "Hello, World!";
+            return 0;
+        }
+    </listing>
+    <hr>
+
+    <h2>Сокращение</h2>
+    <abbr title="HyperText Markup Language">HTML</abbr>
+    <hr>
+
+    <h2>Определение</h2>
+    <p><dfn>HTML (Hypertext Markup Language)</dfn> - это код, который используется для структурирования и отображения веб-страницы и её контента.</p>
+    <hr>
+
+    <h2>Цитата</h2>
+    <blockquote>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
+        sed diem nonummy nibh euismod tincidunt ut lacreet dolore magna aliguam erat 
+        volutpat. Ut wisis enim ad minim veniam, quis nostrud exerci tution ullamcorper 
+        suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+    </blockquote>
+     Автор Цитаты
+    <hr>
+{% endblock content %}

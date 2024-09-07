@@ -3,6 +3,7 @@
 <head>
     <title>{% block title %}Default{% endblock title %}</title>
     <meta charset="utf-8" />
+    <link rel="shortcut icon" href="media/siteicon.png" type="image/png">
     <style>
         .leftimg {
             float:left;
@@ -23,7 +24,8 @@
         <a href="{% url 'vacancies' %}">Вакансии</a> |
         <a href="{% url 'reviews' %}">Отзывы</a> |
         <a href="{% url 'coupons' %}">Купоны</a> |
-        <a href="{% url 'jokes' %}">Анекдоты</a>
+        <a href="{% url 'jokes' %}">Анекдоты</a> |
+        <a href="{% url 'test' %}">Тест функций</a>
         {% if request.user.is_superuser %}
             | <a href="{% url 'statistics' %}">Статистика</a> |
             <a href="{% url 'admin:index' %}">Админка</a>
