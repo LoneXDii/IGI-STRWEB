@@ -1,9 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>{% block title %}Default{% endblock title %}</title>
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="media/siteicon.png" type="image/png">
+    <meta name="author" content="Pavlovich Vladislav gr.253505"/>
+    <meta name="description" content="The best medical center ever"/>
+    <link rel="icon" href="{% static 'media/siteicon.png' %}" type="image/png" />
     <style>
         .leftimg {
             float:left;
