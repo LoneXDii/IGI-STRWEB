@@ -34,8 +34,10 @@
             <label>Дата рождения:</label>
             <time datetime="{{client.birth_date}}">{{client.birth_date}}</time>
         </li>
-        <a href="{% url 'client_diagnosises' client_id=client.pk %}">
-            <li>Просмотреть диагнозы</li>
-        </a>
+        <li>
+            <a href="{% url 'client_diagnosises' client_id=client.pk %}">
+                Просмотреть диагнозы
+            </a>
+        </li>
     </ul>
 {% endblock content %}

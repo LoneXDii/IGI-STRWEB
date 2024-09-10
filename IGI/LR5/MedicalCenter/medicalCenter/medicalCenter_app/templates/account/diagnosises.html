@@ -30,7 +30,7 @@
             <a href="{% url 'doctor_info' id=d.doctor.pk %}">
                 <label>Поставил: {{d.doctor.surname}} {{d.doctor.name}} {{d.doctor.second_name}}</label>
             </a>
-            <li></li>
+            <hr/>
         {% endfor %}
         </ul></li>
     </ul>

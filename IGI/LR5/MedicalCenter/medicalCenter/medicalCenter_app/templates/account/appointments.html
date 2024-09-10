@@ -16,10 +16,10 @@
                             <a href="{% url 'client_info' id=a.client.pk %}">
                                 <label>Пациент</label>
                             </a>
-                            <button type="submit" name="close" value="{{a.pk}}">Закрыть запись</a>
+                            <button type="submit" name="close" value="{{a.pk}}">Закрыть запись</button>
                         {% else %}
                             <a href="{% url 'doctor_info' id=a.doctor.pk %}">
-                                <label>Доктор<label>
+                                <label>Доктор</label>
                             </a>
                             <button type="submit" name="del_button" value="{{a.pk}}">Отменить запись</button>
                         {% endif %}

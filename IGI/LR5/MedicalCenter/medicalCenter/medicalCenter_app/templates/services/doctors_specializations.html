@@ -4,9 +4,11 @@
 {% block content %}
     <ul>
         {% for s in specializations %}
-            <a href="{% url 'service_details' id=s.pk %}">
-                <li><label>{{s.name}}</label></li>
-            </a>
+            <li>
+                <a href="{% url 'service_details' id=s.pk %}">
+                    <label>{{s.name}}</label>
+                </a>
+            </li>
         {% endfor %}
     </ul>
 {% endblock content %}

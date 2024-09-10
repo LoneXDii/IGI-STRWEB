@@ -35,9 +35,11 @@
             <time datetime="{{profile.birth_date}}">{{profile.birth_date}}</time>
         </li>
         {% if not is_doctor%}
-            <a href="{% url 'client_diagnosises' client_id=profile.pk %}">
-                <li>Просмотреть диагнозы</li>
-            </a>
+            <li>
+                <a href="{% url 'client_diagnosises' client_id=profile.pk %}">
+                    Просмотреть диагнозы
+                </a>
+            </li>
         {% endif %}
         <a href="{% url 'user_appointments' %}">Посмотреть записи</a>
     </ul>

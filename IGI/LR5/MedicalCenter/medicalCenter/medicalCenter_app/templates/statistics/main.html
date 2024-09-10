@@ -6,7 +6,11 @@
         <li>Заработано: {{recieved}} BYN</li>
         <li>Общая цена невыполненных записей: {{not_recieved}} BYN</li>
         <li>Итоговая выручка: {{total}} BYN</li>
-        <a href="{% url 'age_statistics' %}"><li>Статистика пользователей по возрастам</li></a>
-        <a href="{% url 'by_user_stats' %}"><li>Статистика выручки по пользователям</li></a>
+        <li>
+            <a href="{% url 'age_statistics' %}">Статистика пользователей по возрастам</a>
+        </li>
+        <li>
+            <a href="{% url 'by_user_stats' %}">Статистика выручки по пользователям</a>
+        </li>
     </ul>
 {% endblock content %}
