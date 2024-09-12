@@ -4,7 +4,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
-from medicalCenter_app.forms import ServiceAppointmentForm
+from medicalCenter_app.forms import ServiceAppointmentForm, CartAddProductForm
 from medicalCenter_app.models import Appointment, Client, Doctor, DoctorSpecialization, Service
 
 
@@ -101,5 +101,6 @@ def service_appointment(request, service_id):
 def service_info(request, service_id):
     service = Service.objects.get(pk=service_id)
     doctors = Doctor.objects.filter(specialization=service.specialization_required)
-    data = {'service' : service, 'doctors' : doctors}
+    form = CartAddProductForm()
+    data = {'service' : service, 'doctors' : doctors, 'form' : form}
     return render(request, 'services/service_info.html', data)

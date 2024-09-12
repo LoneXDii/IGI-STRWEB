@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, re_path
 from medicalCenter_app.views import views
-from medicalCenter_app.views import account_views, services_views, statistics_views, api_views
+from medicalCenter_app.views import account_views, services_views, statistics_views, api_views, cart_views
 
 
 urlpatterns = [
@@ -53,5 +53,8 @@ urlpatterns = [
     re_path(r'^statistics/ageStats/$', statistics_views.age_statistics, name='age_statistics'),
     re_path(r'^statistics/byUser/$', statistics_views.statistics_by_user, name='by_user_stats'),
     re_path(r'^jokes/$', api_views.jokes, name='jokes'),
-    re_path(r'^test/$', views.test, name='test')
+    re_path(r'^test/$', views.test, name='test'),
+    re_path(r'^cart/add/(?P<service_id>\d+)/$', cart_views.cart_add, name='cart_add'),
+    re_path(r'^cart/remove/(?P<service_id>\d+)/$', cart_views.cart_remove, name='cart_remove'),
+    re_path(r'^cart/$', cart_views.cart_detail, name='cart_detail')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

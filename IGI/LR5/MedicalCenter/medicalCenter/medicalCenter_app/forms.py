@@ -41,3 +41,10 @@ class DiagnosisForm(django.forms.ModelForm):
     class Meta:
         model = Diagnosis
         fields = ('name',)
+
+
+PRODUCT_QUANTITY_CHOICES = [(i, str(i)) for i in range(1, 21)]
+
+class CartAddProductForm(django.forms.Form):
+    quantity = django.forms.TypedChoiceField(choices=PRODUCT_QUANTITY_CHOICES, coerce=int)
+    update = django.forms.BooleanField(required=False, initial=False, widget=django.forms.HiddenInput)
