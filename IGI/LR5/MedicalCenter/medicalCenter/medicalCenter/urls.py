@@ -35,6 +35,7 @@ urlpatterns = [
     re_path(r'^terms/$', views.terms_and_defs, name='terms'),
     re_path(r'^vacancies/$', views.vacancies, name='vacancies'),
     re_path(r'^services/appointment/(?P<service_id>\d+)/$', services_views.service_appointment, name='appointment'),
+    re_path(r'^services/info/(?P<service_id>\d+)/$', services_views.service_info, name='service_info'),
     re_path(r'^services/(?P<id>\d+)/$', services_views.services_details, name='service_details'),
     re_path(r'^services/$', services_views.services, name='services'),
     re_path(r'^accounts/register/$', account_views.register, name='register'),

@@ -13,7 +13,9 @@
         <ul>
             {% for s in services %}
                     <li>
-                        <label>{{s.name}}</label>
+                        <a href="{% url 'service_info' service_id=s.pk %}">
+                            {{s.name}}
+                        </a>
                         <label>{{s.price}} BYN</label>
                         {% if not doctor %}
                             <button type="submit" name="appointment" value="{{s.pk}}">Записаться</button>

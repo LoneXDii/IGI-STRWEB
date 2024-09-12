@@ -96,3 +96,10 @@ def service_appointment(request, service_id):
         timeok = True
         data = {'form': form, 'service': service, 'time': times, 'timeok': timeok}
         return render(request, 'services/service_appointment.html', data)
+    
+
+def service_info(request, service_id):
+    service = Service.objects.get(pk=service_id)
+    doctors = Doctor.objects.filter(specialization=service.specialization_required)
+    data = {'service' : service, 'doctors' : doctors}
+    return render(request, 'services/service_info.html', data)

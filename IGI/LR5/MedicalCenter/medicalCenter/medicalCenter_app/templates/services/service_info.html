@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Информация об услуге{% endblock title %}
+{% block header %}Информация об услуге{% endblock header %}
+{% block content %}
+    <h1>{{service.name}}</h1>
+    <h2>{{service.price}}BYN</h2>
+    <button type='submit'>Добавить в корзину</button>
+    <h2>Возможные врачи</h2>
+    <ul>
+        {% for d in doctors %}
+            <li>
+                <a href='{% url 'doctor_info' id=d.pk %}'>
+                    {{d.surname}} {{d.name}} {{d.second_name}}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
