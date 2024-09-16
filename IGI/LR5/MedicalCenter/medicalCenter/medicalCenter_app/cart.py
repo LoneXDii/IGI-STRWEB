@@ -21,6 +21,8 @@ class Cart(object):
             self.cart[service_id]['quantity'] = quantity
         else:
             self.cart[service_id]['quantity'] += quantity
+            if self.cart[service_id]['quantity'] <= 0:
+                del self.cart[service_id]
         self.save()
 
     

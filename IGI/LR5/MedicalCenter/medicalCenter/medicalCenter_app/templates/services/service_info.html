@@ -8,7 +8,7 @@
     <form action="{% url 'cart_add' service.pk %}" method="post">
         {{ form }}
         {% csrf_token %}
-        <input type="submit" value="Добавить в корзину">
+        <input type="submit" value="Добавить в корзину"/>
     </form>
 
     <h2>Возможные врачи</h2>

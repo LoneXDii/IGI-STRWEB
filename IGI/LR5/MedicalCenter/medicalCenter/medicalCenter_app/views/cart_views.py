@@ -18,6 +18,20 @@ def cart_add(request, service_id):
     return redirect('cart_detail')
 
 
+def cart_increment(request, service_id):
+    cart = Cart(request)
+    service = get_object_or_404(Service, id=service_id)
+    cart.add(service)
+    return redirect('cart_detail')
+
+
+def cart_decrement(request, service_id):
+    cart = Cart(request)
+    service = get_object_or_404(Service, id=service_id)
+    cart.add(service, -1)
+    return redirect('cart_detail')
+
+
 def cart_remove(request, service_id):
     cart = Cart(request)
     service = get_object_or_404(Service, id=service_id)
