@@ -58,5 +58,6 @@ urlpatterns = [
     re_path(r'^cart/remove/(?P<service_id>\d+)/$', cart_views.cart_remove, name='cart_remove'),
     re_path(r'^cart/inc/(?P<service_id>\d+)/$', cart_views.cart_increment, name='cart_inc'),
     re_path(r'^cart/dec/(?P<service_id>\d+)/$', cart_views.cart_decrement, name='cart_dec'),
+    re_path(r'^cart/order/$', services_views.cart_appointment, name='cart_appointment'),
     re_path(r'^cart/$', cart_views.cart_detail, name='cart_detail')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

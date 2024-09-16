@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Запись{% endblock title %}
+{% block header %}Запись{% endblock header %}
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {% for service in services %}
+            <p>
+                <label>{{service.name}}</label>
+                <label>{{service.price}} BYN</label>
+            </p> 
+        {% endfor %}       
+        {{ form.as_p}}
+        {% if not timeok %}
+            <p>На данное время уже есть запись</p>
+        {% endif %}
+        <p>
+            <label>Time:</label>
+            <select name="time">
+                {% for t in time %}
+                    <option value="{{t}}">{{t}}</option>
+                {% endfor %}
+            </select>
+        </p>
+        <button type="submit">Записаться</button>
+    </form>
+{% endblock content %}
