@@ -1,12 +1,14 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <title>{% block title %}Default{% endblock title %}</title>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Pavlovich Vladislav gr.253505"/>
     <meta name="description" content="The best medical center ever"/>
-    <link rel="icon" href="{% static 'media/siteicon.png' %}" type="image/png" />
+    <meta name="keywords" content="meta, html_lab">
+    <link rel="icon" href="{% static 'media/siteicon.png' %}" />
     <style>
         .leftimg {
             float:left;
@@ -14,28 +16,40 @@
            }
     </style>
 </head>
+
 <body>
-    <div>
-        <a href="{% url 'home'%}">Главная</a> |
-        <a href="{% url 'profile'%}">Профиль</a> |
-        <a href="{% url 'services'%}">Услуги</a> |
-        <a href="{% url 'about' %}">О компании</a> |
-        <a href="{% url 'news' %}">Новости</a> |
-        <a href="{% url 'terms' %}">Термины и определения</a> |
-        <a href="{% url 'contacts' %}">Контакты</a> |
-        <a href="{% url 'privacy' %}">Политика конфиденциальности</a> |
-        <a href="{% url 'vacancies' %}">Вакансии</a> |
-        <a href="{% url 'reviews' %}">Отзывы</a> |
-        <a href="{% url 'coupons' %}">Купоны</a> |
-        <a href="{% url 'jokes' %}">Анекдоты</a> |
-        <a href="{% url 'test' %}">Тест функций</a>
-        {% if request.user.is_superuser %}
-            | <a href="{% url 'statistics' %}">Статистика</a> |
-            <a href="{% url 'admin:index' %}">Админка</a>
-        {% endif %}
-        <h1>{% block header %}Default {% endblock header %}</h1>
-        <div>{% block content %}Default {% endblock content %}</div>
-        <div>MedicalCenter 2024. All rights reserved.</div>
-    </div>
+    <header>
+        <nav>
+            <a href="{% url 'home'%}">Главная</a> |
+            <a href="{% url 'profile'%}">Профиль</a> |
+            <a href="{% url 'cart_detail'%}">Корзина</a> |
+            <a href="{% url 'services'%}">Услуги</a> |
+            <a href="{% url 'about' %}">О компании</a> |
+            <a href="{% url 'news' %}">Новости</a> |
+            <a href="{% url 'terms' %}">FAQ</a> |
+            <a href="{% url 'contacts' %}">Контакты</a> |
+            <a href="{% url 'privacy' %}">Политика конфиденциальности</a> |
+            <a href="{% url 'vacancies' %}">Вакансии</a> |
+            <a href="{% url 'reviews' %}">Отзывы</a> |
+            <a href="{% url 'coupons' %}">Купоны</a> |
+            <a href="{% url 'jokes' %}">Анекдоты</a> |
+            <a href="{% url 'test' %}">Тест функций</a>
+            {% if request.user.is_superuser %}
+                | <a href="{% url 'statistics' %}">Статистика</a> |
+                <a href="{% url 'admin:index' %}">Админка</a>
+            {% endif %}
+        </nav>
+        <div>
+            <h1>{% block header %}Default {% endblock header %}</h1>
+        </div>
+    </header>
+    
+    <main>
+        {% block content %}Default {% endblock content %}
+    </main>
+
+    <footer>
+        MedicalCenter 2024. All rights reserved.
+    </footer>
 </body>
 </html>

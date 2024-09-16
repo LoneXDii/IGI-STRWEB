@@ -6,32 +6,38 @@
 {% endblock header %}
 {% block content %}
 {% load tz %}
-    <h2>Баннеры</h2>
-    <table width="100%">
-        <tr>
-            <td><img src = "media/adv_banner1.jpg" height="250" width="250"></td>
-            <td><img src = "media/adv_banner2.jpg" height="250" width="250"></td>
-            <td><img src = "media/adv_banner3.jpg" height="250" width="250"></td>
-            <td><img src = "media/adv_banner4.jpg" height="250" width="250"></td>
-        </tr>
-    </table>
-    <h2>{{ln.title}}</h2>  
-    <table width = "100%">
-        <tr>
-            <td>
-                <p>
-                    <img src = "{{ln.image_url}}" height = "182" width = "325" class="leftimg">
-                    {{ln.description}}
-                </p>
-                <a href="{{ln.url}}">
-                    <p>Читать далее</p>
-                </a>
-            </td>
-        </tr>
-    </table>
+    <section>
+        <h2>Баннеры</h2>
+        <table width="100%">
+            <tr>
+                <td><img src = "media/adv_banner1.jpg" height="250" width="250"></td>
+                <td><img src = "media/adv_banner2.jpg" height="250" width="250"></td>
+                <td><img src = "media/adv_banner3.jpg" height="250" width="250"></td>
+                <td><img src = "media/adv_banner4.jpg" height="250" width="250"></td>
+            </tr>
+        </table>
+    </section>
 
+    <section>
+        <h2>{{ln.title}}</h2>  
+        <table width = "100%">
+            <tr>
+                <td>
+                    <p>
+                        <img src = "{{ln.image_url}}" height = "182" width = "325" class="leftimg">
+                        {{ln.description}}
+                    </p>
+                    <a href="{{ln.url}}">
+                        <p>Читать далее</p>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </section>
 
-    <h2>{{date}}</h2>
-    {% get_current_timezone as TIME_ZONE %}
-	<p>Ваша временая зона: {{TIME_ZONE}}+3</p>
+    <section>
+        <h2>{{date}}</h2>
+        {% get_current_timezone as TIME_ZONE %}
+	    <p>Ваша временая зона: {{TIME_ZONE}}+3</p>
+    </section>
 {% endblock content %}

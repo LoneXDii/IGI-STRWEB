@@ -131,9 +131,9 @@ class News(models.Model):
 
 
 class Term(models.Model):
-    term = models.CharField(max_length=30)
-    description = models.CharField(max_length=200)
-
+    term = models.CharField(max_length=200)
+    description = models.CharField(max_length=1000)
+    date = models.DateField(default=datetime.date.today)
     def __str__(self):
         return self.term
 

@@ -1,13 +1,11 @@
 {% extends "base.html" %}
 {% block title %}Анекдоты{% endblock title %}
 {% block header %}Анекдоты{% endblock header %}
-{% block content %}
-    <ul>
-        {% for j in jokes %}
-            <li>
-                <p>{{j.setup}}</p>
-                <p>{{j.punchline}}</p>
-            </li>
-        {% endfor %}
-    </ul>
+{% block content %}    
+    {% for j in jokes %}
+        <section>
+            <dfn>{{j.setup}}</dfn>
+            <strong>{{j.punchline}}</strong>
+        </section>
+    {% endfor %}
 {% endblock content %}

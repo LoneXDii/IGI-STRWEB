@@ -2,27 +2,32 @@
 {% block title %}Отзывы{% endblock title %}
 {% block header %}Отзывы{% endblock header %}
 {% block content %}
-    {% if authorized %}
-        <a href="{% url 'add_review'%}">Добавить отзыв</a>
-    {% endif %}
-    <ul>
-        {% for review in reviews %}
-            <li>
-                <ul>
-                    <li> 
-                        <label>{{review.sender.surname}}</label>
-                        <label>{{review.sender.name}}</label>
-                        <label>{{review.sender.second_name}}</label>
-                    </li>
-                    <li>
-                        <label>{{review.mark}} stars</label>
-                        <label>{{review.date}}</label>
-                    </li>
-                    <li>
-                        <label>{{review.text}}</label>
-                    </li>
-                </ul>
-            </li>
-        {% endfor %}
-    </ul>
+    <section>
+        {% if authorized %}
+            <a href="{% url 'add_review'%}">Добавить отзыв</a>
+        {% endif %}
+    </section>
+
+    <section>
+        <ul>
+            {% for review in reviews %}
+                <li>
+                    <ul>
+                        <li> 
+                            <label>{{review.sender.surname}}</label>
+                            <label>{{review.sender.name}}</label>
+                            <label>{{review.sender.second_name}}</label>
+                        </li>
+                        <li>
+                            <label>{{review.mark}} stars</label>
+                            <label>{{review.date}}</label>
+                        </li>
+                        <li>
+                            <label>{{review.text}}</label>
+                        </li>
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
 {% endblock content %}

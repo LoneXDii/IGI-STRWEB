@@ -1,10 +1,13 @@
 {% extends "base.html" %}
-{% block title %}Термины и определения{% endblock title %}
-{% block header %}Термины и определения{% endblock header %}
+{% block title %}FAQ{% endblock title %}
+{% block header %}FAQ{% endblock header %}
 {% block content %}
-    <ul>
-        {% for t in terms %}
-            <li><dfn>{{t.term}}</dfn> - {{t.description}}</li>
-        {% endfor %}
-    </ul>
+    {% for t in terms %}
+        <details>
+            <summary>{{t.term}} {{t.date}}</summary>
+            <ul>
+                <li>{{t.description}}</li>
+            </ul>
+        </details>
+    {% endfor %}
 {% endblock content %}

@@ -3,6 +3,7 @@
 {% block header %}Запись{% endblock header %}
 {% block content %}
     <form method="post">
+        <section>
         {% csrf_token %}
         <label>{{service.name}}</label>
         <label>{{service.price}} BYN</label>        
@@ -10,14 +11,19 @@
         {% if not timeok %}
             <p>На данное время уже есть запись</p>
         {% endif %}
-        <p>
+        </section>
+
+        <section>
             <label>Time:</label>
             <select name="time">
                 {% for t in time %}
                     <option value="{{t}}">{{t}}</option>
                 {% endfor %}
             </select>
-        </p>
-        <button type="submit">Записаться</button>
+        </section>
+        
+        <section>
+            <button type="submit">Записаться</button>
+        </section>
     </form>
 {% endblock content %}

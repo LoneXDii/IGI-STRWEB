@@ -2,48 +2,53 @@
 {% block title %}Профиль{% endblock title %}
 {% block header %}Профиль{% endblock header %}
 {% block content %}
-    <ul>
-        <li>
-            <img src="{{profile.image.url}}" height="200" width="150">
-        </li>
-        <li>
-            <label>Фамилия:</label>
-            <label>{{profile.surname}}</label>
-        </li>
-        <li>
-            <label>Имя:</label>
-            <label>{{profile.name}}</label>
-        </li>
-        <li>
-            <label>Отчество:</label>
-            <label>{{profile.second_name}}</label>
-        </li>
-        <li>
-            <label>Элекронная почта:</label>
-            <label>{{profile.email}}</label>
-        </li>
-        <li>
-            <label>Адрес:</label>
-            <label>{{profile.adress}}</label>
-        </li>
-        <li>
-            <label>Номер телефона:</label>
-            <label>{{profile.phone_number}}</label>
-        </li>
-        <li>
-            <label>Дата рождения:</label>
-            <time datetime="{{profile.birth_date}}">{{profile.birth_date}}</time>
-        </li>
-        {% if not is_doctor%}
+    <section>
+        <ul>
             <li>
-                <a href="{% url 'client_diagnosises' client_id=profile.pk %}">
-                    Просмотреть диагнозы
-                </a>
+                <img src="{{profile.image.url}}" height="200" width="150">
             </li>
-        {% endif %}
-        <a href="{% url 'user_appointments' %}">Посмотреть записи</a>
-    </ul>
-    <a href="{% url 'logout'%}">Выйти из аккаунта</a>
-    <a href="{% url 'change_password'%}">Сменить пароль</a>
-    <a href="{% url 'edit_profile'%}">Редактировать профиль</a>
+            <li>
+                <label>Фамилия:</label>
+                <label>{{profile.surname}}</label>
+            </li>
+            <li>
+                <label>Имя:</label>
+                <label>{{profile.name}}</label>
+            </li>
+            <li>
+                <label>Отчество:</label>
+                <label>{{profile.second_name}}</label>
+            </li>
+            <li>
+                <label>Элекронная почта:</label>
+                <label>{{profile.email}}</label>
+            </li>
+            <li>
+                <label>Адрес:</label>
+                <label>{{profile.adress}}</label>
+            </li>
+            <li>
+                <label>Номер телефона:</label>
+                <label>{{profile.phone_number}}</label>
+            </li>
+            <li>
+                <label>Дата рождения:</label>
+                <time datetime="{{profile.birth_date}}">{{profile.birth_date}}</time>
+            </li>
+            {% if not is_doctor%}
+                <li>
+                    <a href="{% url 'client_diagnosises' client_id=profile.pk %}">
+                        Просмотреть диагнозы
+                    </a>
+                </li>
+            {% endif %}
+            <a href="{% url 'user_appointments' %}">Посмотреть записи</a>
+        </ul>
+    </section>
+
+    <nav>
+        <a href="{% url 'logout'%}">Выйти из аккаунта</a>
+        <a href="{% url 'change_password'%}">Сменить пароль</a>
+        <a href="{% url 'edit_profile'%}">Редактировать профиль</a>
+    </nav>
 {% endblock content %}

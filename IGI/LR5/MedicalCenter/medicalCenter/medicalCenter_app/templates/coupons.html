@@ -2,12 +2,17 @@
 {% block title %}Купоны{% endblock title %}
 {% block header %}Купоны{% endblock header %}
 {% block content %}
-    <h3>Актуальные купоны:</h3>
-    {% for a in actual %}
-        <p>{{a.coupon}} - {{a.name}}</p>
-    {% endfor %}
-    <h3>Архив:</h3>
-    {% for a in archive %}
-        <p>{{a.coupon}} - {{a.name}}</p>
-    {% endfor %}
+    <section>
+        <h3>Актуальные купоны:</h3>
+        {% for a in actual %}
+            <p>{{a.coupon}} - {{a.name}}</p>
+        {% endfor %}
+    </section>
+
+    <section>
+        <h3>Архив:</h3>
+        {% for a in archive %}
+            <p>{{a.coupon}} - {{a.name}}</p>
+        {% endfor %}
+    </section>
 {% endblock content %}
