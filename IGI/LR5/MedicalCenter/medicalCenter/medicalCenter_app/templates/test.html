@@ -38,4 +38,82 @@
          Автор Цитаты
     </section>
     <hr>
+
+    <section>
+        <h2>Пример таблицы</h2>
+        <table border="1" cellpadding="10" cellspacing="0">
+            <thead>
+                <tr>
+                    <th width="40" >Заголовок 1</th>
+                    <th  colspan="4" >Заголовок 2</th>
+                    <th>Заголовок 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>a</td>
+                    <td>1</td>
+                    <td>b</td>
+                    <td>2</td>
+                    <td>c</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>d</td>
+                    <td>4</td>
+                    <td>e</td>
+                    <td>5</td>
+                    <td>f</td>
+                    <td>6</td>
+                </tr>
+                <tr height="100" bgcolor="green" bordercolor="red">
+                    <td></td>
+                    <td></td>
+                    <td colspan="2" rowspan="1" align="center">Объединенная ячейка</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>    
+    </section>
+    <hr>
+
+    <section>
+        <h2>Пример ссылки для скачивания файла</h2>  
+        <a href="/media/MC_Logo.jpg" download>Скачать файл</a>
+    </section>
+    <hr>
+
+    <section>
+        <pre>
+            Жизнь — это река,
+            Течёт и бежит.
+            Не видно конца
+            В пучине дарит.
+        </pre>
+
+        <p>Это строка с потенциальным переводом строки в середине. И <wbr> какой-то текст для заполнения строки.</p>
+    </section>
 {% endblock content %}
