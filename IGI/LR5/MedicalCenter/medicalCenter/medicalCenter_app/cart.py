@@ -38,6 +38,14 @@ class Cart(object):
             self.save()
 
     
+    def clear(self):
+        service_ids = self.cart.keys()
+        for service_id in service_ids:
+            if service_id in self.cart:
+                del self.cart[service_id]
+                self.save()
+
+
     def __iter__(self):
         service_ids = self.cart.keys()
 

@@ -78,6 +78,7 @@ class Doctor(models.Model):
 class Appointment(models.Model):
     date = models.DateField(validators=[MinValueValidator(datetime.date.today)])
     time = models.TimeField(null=True) #input format 12:20
+    count = models.IntegerField(default=1)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     client = models.ForeignKey(Client, on_delete=models.CASCADE, null=True)
     service = models.ForeignKey(Service, on_delete=models.CASCADE, null=True)

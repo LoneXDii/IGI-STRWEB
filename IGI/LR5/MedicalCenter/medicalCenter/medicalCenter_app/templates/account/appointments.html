@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load mathfilters %}
 {% block title %}Записи{% endblock title %}
 {% block header %}Записи{% endblock header %}
 {% block content %}
@@ -11,7 +12,8 @@
                         <label>{{a.date}}</label>
                         <label>{{a.time.hour}}:{{a.time.minute}}{%if a.time.minute is 0 %}{{a.time.minute}}{% endif %}</label>
                         <label>{{a.service.name}}</label>
-                        <label>{{a.service.price}}</label>
+                        <label>x{{a.count}}</label>
+                        <label>{{a.service.price|mul:a.count}} BYN</label>
                         {% if doctor %}
                             <a href="{% url 'client_info' id=a.client.pk %}">
                                 <label>Пациент</label>

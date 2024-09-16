@@ -124,8 +124,10 @@ def cart_appointment(request):
                     app.date = appointment.date
                     app.service = service
                     app.time = time
+                    app.count = cart.cart[str(service.pk)]['quantity']
                     appointment_lst.append(app)
                 appointment.delete
+                cart.clear()
                 for app in appointment_lst:
                     if client is None   :
                         app.client = request.user.client
