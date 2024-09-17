@@ -86,3 +86,8 @@ def client_info(request, id):
     
 def test(request):
     return render(request, 'test.html')
+
+def sertificate(request):
+    response = render(request, 'sertificate.html')
+    response['X-Frame-Options'] = 'SAMEORIGIN'
+    return response
