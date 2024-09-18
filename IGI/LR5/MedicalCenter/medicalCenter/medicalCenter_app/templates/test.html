@@ -2,32 +2,44 @@
 {% block title %}Тест{% endblock title %}
 {% block header %}Тест{% endblock header %}
 {% block content %}
-    <section>
+    <nav>
+        <a href="#code">Листинг</a> |
+        <a href="#abbr">Сокращение</a> |
+        <a href="#dfn">Определение</a> |
+        <a href="#blockquote">Цитата</a> |
+        <a href="#table">Таблица</a> |
+        <a href="#dlink">Ссылка для скачивания</a> |
+        <a href="#pre">Тэг pre</a> |
+        <a href="#wbr">Тэг wbr</a> |
+        <a href="#inputs">Инпуты</a>
+    </nav>
+
+    <section id="code">
         <h2>Листинг</h2>
-        <listing>
+        <code>
             #include "iostream"
 
             int main(){
                 std::cout << "Hello, World!";
                 return 0;
             }
-        </listing>
+        </code>
     </section>
     <hr>
 
-    <section>
+    <section id="abbr">
         <h2>Сокращение</h2>
         <abbr title="HyperText Markup Language">HTML</abbr>
     </section>
     <hr>
 
-    <section>
+    <section id="dfn">
         <h2>Определение</h2>
-        <p><dfn>HTML (Hypertext Markup Language)</dfn> - это код, который используется для структурирования и отображения веб-страницы и её контента.</p>
+        <p><dfn title="Hypertext Markup Language">HTML</dfn> - это код, который используется для структурирования и отображения веб-страницы и её контента.</p>
     </section>
     <hr>
 
-    <section>
+    <section id="blockquote">
         <h2>Цитата</h2>
         <blockquote>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
@@ -39,7 +51,7 @@
     </section>
     <hr>
 
-    <section>
+    <section id="table">
         <h2>Пример таблицы</h2>
         <table border="1" cellpadding="10" cellspacing="0">
             <thead>
@@ -67,53 +79,71 @@
                     <td>6</td>
                 </tr>
                 <tr height="100" bgcolor="green" bordercolor="red">
-                    <td></td>
-                    <td></td>
+                    <td>a</td>
+                    <td>h</td>
                     <td colspan="2" rowspan="1" align="center">Объединенная ячейка</td>
-                    <td></td>
-                    <td></td>
+                    <td>g</td>
+                    <td>4</td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>5</td>
+                    <td>2</td>
+                    <td>g</td>
+                    <td>e</td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>7</td>
+                    <td>g</td>
+                    <td>s</td>
+                    <td>a</td>
+                    <td>q</td>
+                    <td>n</td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>3</td>
+                    <td>n</td>
+                    <td>a</td>
+                    <td>l</td>
+                    <td>3</td>
+                    <td>q</td>
                 </tr>
             </tbody>
         </table>    
     </section>
     <hr>
 
-    <section>
+    <section id="dlink">
         <h2>Пример ссылки для скачивания файла</h2>  
         <a href="/media/MC_Logo.jpg" download>Скачать файл</a>
     </section>
     <hr>
 
-    <section>
+    <section id="pre">
+        <h2>Пример предварительно форматированного текста</h2>
         <pre>
             Жизнь — это река,
             Течёт и бежит.
             Не видно конца
             В пучине дарит.
         </pre>
+    </section>
+    <hr>
 
-        <p>Это строка с потенциальным переводом строки в середине. И <wbr> какой-то текст для заполнения строки.</p>
+    <section id="wbr">
+        <h2>Пример ожидаемого переноса</h2>
+        <p dir="rtl">
+            метоксихлор<wbr>диэтиламино<wbr>метил<wbr>бутил<wbr>амино<wbr>акридин
+        </p>
+    </section>
+
+    <section id="inputs">
+        <p><input type="text"/></p>
+        <p><input type="password"/></p>
+        <p><input type="radio"/></p>
+        <p><input type="button"/></p>
+        <p><input type="email"/></p>
+        <p><input type="file"/></p>
+        <p><input type="hidden"/></p>
+        <p><input type="date"/></p>
     </section>
 {% endblock content %}

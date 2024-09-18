@@ -107,9 +107,8 @@ class About(models.Model):
 class News(models.Model):
     title = models.CharField(max_length=1000, default='')
     description = models.CharField(max_length=1000, default='')
+    content = models.CharField(max_length=10000, default="")
     url = models.URLField(max_length=1000, default='')
-    image = models.ImageField(upload_to='imgs/news_imgs', default='no_img.png')
-    image_url = models.URLField(max_length=1000, null=True)
 
     def save_image_from_url(self):
         if self.image_url is None:

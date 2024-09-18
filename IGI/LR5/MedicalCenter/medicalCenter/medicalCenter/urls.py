@@ -28,6 +28,7 @@ urlpatterns = [
     re_path(r'^about/$', views.about, name='about'),
     re_path(r'^contacts/$', views.contacts, name='contacts'),
     re_path(r'^coupons/$', views.coupons, name='coupons'),
+     re_path(r'^news/(?P<id>\d+)/$', api_views.new, name='new'),
     re_path(r'^news/$', api_views.news, name='news'),
     re_path(r'^privacy/$', views.privacy, name='privacy'),
     re_path(r'^reviews/$', views.reviews, name='reviews'),

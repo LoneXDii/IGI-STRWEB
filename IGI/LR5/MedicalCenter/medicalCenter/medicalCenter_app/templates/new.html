@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}{{new.title}}{% endblock title %}
+{% block header %}{{new.title}}{% endblock header %}
+{% block content %}
+    <section>
+        <table width = "100%">
+            <tr>
+                <td>
+                    <p>
+                        <img src = "{{new.url}}" height = "182" width = "325" class="leftimg">
+                        {{new.description}}
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section>
+        <p>{{new.content}}</p>
+    </section>
+{% endblock content %}

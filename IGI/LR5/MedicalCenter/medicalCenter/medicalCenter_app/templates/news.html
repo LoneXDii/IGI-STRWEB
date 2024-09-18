@@ -3,16 +3,16 @@
 {% block header %}Новости{% endblock header %}
 {% block content %}
     {% for n in news %}
-        <section>
-            <h2>{{n.title}}</h2>
+        <section itemscope itemtype="http://schema.org/NewsArticle">
+            <h2 itemprop="name">{{n.title}}</h2>
             <table width = "100%">
                 <tr>
                     <td>
                         <p>
-                            <img src = "{{n.image_url}}" height = "182" width = "325" class="leftimg">
+                            <img itemprop="image" src = "{{n.url}}" height = "182" width = "325" class="leftimg">
                             {{n.description}}
                         </p>
-                        <a href="{{n.url}}">
+                        <a itemprop="url" href="{% url 'new' id=n.pk %}">
                             <p>Читать далее</p>
                         </a>
                     </td>
