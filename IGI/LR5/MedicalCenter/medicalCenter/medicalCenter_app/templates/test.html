@@ -52,63 +52,41 @@
     <hr>
 
     <section id="table">
-        <h2>Пример таблицы</h2>
-        <table border="1" cellpadding="10" cellspacing="0">
+        <h2>Таблица</h2>
+        <table border="1">
+            <caption>Пример таблицы</caption>
             <thead>
                 <tr>
-                    <th width="40" >Заголовок 1</th>
-                    <th  colspan="4" >Заголовок 2</th>
-                    <th>Заголовок 3</th>
+                    <th id="category" rowspan="2">Категория</th>
+                    <th id="item" colspan="2">Товар</th>
+                    <th id="quantity" rowspan="2">Количество</th>
+                </tr>
+                <tr>
+                    <th id="name">Название</th>
+                    <th id="price">Цена</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>a</td>
-                    <td>1</td>
-                    <td>b</td>
-                    <td>2</td>
-                    <td>c</td>
-                    <td>3</td>
+                    <td headers="category">Фрукты</td>
+                    <td headers="item name">Яблоко</td>
+                    <td headers="item price">50</td>
+                    <td headers="quantity">10</td>
                 </tr>
                 <tr>
-                    <td>d</td>
-                    <td>4</td>
-                    <td>e</td>
-                    <td>5</td>
-                    <td>f</td>
-                    <td>6</td>
-                </tr>
-                <tr height="100" bgcolor="green" bordercolor="red">
-                    <td>a</td>
-                    <td>h</td>
-                    <td colspan="2" rowspan="1" align="center">Объединенная ячейка</td>
-                    <td>g</td>
-                    <td>4</td>
+                    <td headers="category">Фрукты</td>
+                    <td headers="item name">Банан</td>
+                    <td headers="item price">30</td>
+                    <td headers="quantity">15</td>
                 </tr>
                 <tr>
-                    <td>5</td>
-                    <td>2</td>
-                    <td>g</td>
-                    <td>e</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>g</td>
-                    <td>s</td>
-                    <td>a</td>
-                    <td>q</td>
-                    <td>n</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>n</td>
-                    <td>a</td>
-                    <td>l</td>
-                    <td>3</td>
-                    <td>q</td>
+                    <td headers="category">Овощи</td>
+                    <td headers="item name">Морковь</td>
+                    <td headers="item price">25</td>
+                    <td headers="quantity">20</td>
                 </tr>
             </tbody>
-        </table>    
+        </table>   
     </section>
     <hr>
 

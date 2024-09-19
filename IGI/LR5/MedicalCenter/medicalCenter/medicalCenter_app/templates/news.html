@@ -3,7 +3,7 @@
 {% block header %}Новости{% endblock header %}
 {% block content %}
     {% for n in news %}
-        <section itemscope itemtype="http://schema.org/NewsArticle">
+        <article itemscope itemtype="http://schema.org/NewsArticle">
             <h2 itemprop="name">{{n.title}}</h2>
             <table width = "100%">
                 <tr>
@@ -12,12 +12,12 @@
                             <img itemprop="image" src = "{{n.url}}" height = "182" width = "325" class="leftimg">
                             {{n.description}}
                         </p>
-                        <a itemprop="url" href="{% url 'new' id=n.pk %}">
+                        <a itemprop="url" href="{% url 'new' id=n.pk %}" target="_blank">
                             <p>Читать далее</p>
                         </a>
                     </td>
                 </tr>
             </table>
-        </section>
+        </article>
     {% endfor %}
 {% endblock content %}
