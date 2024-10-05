@@ -1,21 +1,23 @@
 {% extends "base.html" %}
+{% load static %} 
+{% block styles %}<link rel="stylesheet" type="text/css" href="{% static 'contactsStyles.css' %}">{% endblock styles %}
 {% block title %}Контакты{% endblock title %}
 {% block header %}Контакты{% endblock header %}
 {% block content %}
-    {% for d in doctors %}
-        <section>
-            <h2>{{d.surname}} {{d.name}} {{d.second_name}}</h2>
-            <table width = "100%">
-                <tr>
-                    <td>
-                        <img src = "{{d.image.url}}" height = "200" width = "150" class="leftimg">
+    <div class="doctor-list">
+        {% for d in doctors %}
+            <section class="doctor-card">
+                <div class="doctor-info">
+                    <img src="{{d.image.url}}" alt="{{d.name}} {{d.surname}}" class="doctor-image">
+                    <div class="personal-details">
+                        <h2>{{d.surname}} {{d.name}} {{d.second_name}}</h2>
                         <p>Дата рождения: {{d.birth_date}}</p>
                         <p>Телефон: {{d.phone_number}}</p>
-                        <p>Элекронная почта: {{d.email}}</p>
+                        <p>Электронная почта: {{d.email}}</p>
                         <p>Специальность: {{d.specialization.name}}</p>
-                    </td>
-                </tr>
-            </table>
-        </section>
-    {% endfor %}
+                    </div>
+                </div>
+            </section>
+        {% endfor %}
+    </div>
 {% endblock content %}

@@ -1,0 +1,31 @@
+.form-container {
+    max-width: 600px; 
+    margin: 0 auto; 
+    padding: 20px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    background-color: #d9dc80;
+    align-self: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.label {
+    font-weight: bold;
+    margin-top: 10px; 
+    display: block;
+}
+
+.error {
+    color: red; 
+}
+ 
+.form-control {
+    width: 50%;
+    height: 30px;
+    line-height: 30px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #F9FBAE;
+}

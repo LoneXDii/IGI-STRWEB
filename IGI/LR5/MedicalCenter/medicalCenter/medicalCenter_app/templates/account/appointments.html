@@ -1,32 +1,40 @@
 {% extends "base.html" %}
 {% load mathfilters %}
+{% load static %} 
+{% block styles %}<link rel="stylesheet" type="text/css" href="{% static 'profileStyles.css' %}">{% endblock styles %}
 {% block title %}Записи{% endblock title %}
 {% block header %}Записи{% endblock header %}
 {% block content %}
     <form method="post">
         {% csrf_token %}
-        <ul>
+        <ul class="appointments-list">
             {% for a in appointments %}
                 {% if a.is_active %}
-                    <li>
-                        <label>{{a.date}}</label>
-                        <label>{{a.time.hour}}:{{a.time.minute}}{%if a.time.minute is 0 %}{{a.time.minute}}{% endif %}</label>
-                        <label>{{a.service.name}}</label>
-                        <label>x{{a.count}}</label>
-                        <label>{{a.service.price|mul:a.count}} BYN</label>
-                        {% if doctor %}
-                            <a href="{% url 'client_info' id=a.client.pk %}">
-                                <label>Пациент</label>
-                            </a>
-                            <button type="submit" name="close" value="{{a.pk}}">Закрыть запись</button>
-                        {% else %}
-                            <a href="{% url 'doctor_info' id=a.doctor.pk %}">
-                                <label>Доктор</label>
-                            </a>
-                            <button type="submit" name="del_button" value="{{a.pk}}">Отменить запись</button>
-                        {% endif %}
+                    <li class="appointment-item">
+                        <div class="appointment-details">
+                            <label class="appointment-date">{{ a.date }}</label>
+                            <label class="appointment-time">
+                                {{ a.time.hour }}:{{ a.time.minute }}{% if a.time.minute is 0 %}{{ a.time.minute }}{% endif %}
+                            </label>
+                            <label class="appointment-service">{{ a.service.name }}</label>
+                            <label class="appointment-count">x{{ a.count }}</label>
+                            <label class="appointment-price">{{ a.service.price|mul:a.count }} BYN</label>
+                        </div>
+                        <div class="appointment-actions">
+                            {% if doctor %}
+                                <a href="{% url 'client_info' id=a.client.pk %}">
+                                    <label>Пациент</label>
+                                </a>
+                                <button type="submit" name="close" value="{{ a.pk }}">Закрыть запись</button>
+                            {% else %}
+                                <a href="{% url 'doctor_info' id=a.doctor.pk %}">
+                                    <label>Доктор</label>
+                                </a>
+                                <button type="submit" name="del_button" value="{{ a.pk }}">Отменить запись</button>
+                            {% endif %}
+                        </div>
                     </li>
-                {% endif %}       
+                {% endif %}
             {% endfor %}
         </ul>
     </form>

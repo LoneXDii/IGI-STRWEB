@@ -1,15 +1,17 @@
 {% extends "base.html" %}
+{% load static %} 
+{% block styles %}<link rel="stylesheet" type="text/css" href="{% static 'contactsStyles.css' %}">{% endblock styles %}
 {% block title %}Вакансии{% endblock title %}
 {% block header %}Вакансии{% endblock header %}
 {% block content %}
-    <ul>
+    <ul class="vacancy-list">
         {% for v in vacancies %}
-            <li>
-                <h2>{{v.name}}</h2>
-                <p>{{v.description}}</p>
-                <h3>Требования:</h3>
-                <p>{{v.requirements}}</p>
-                <p>Зарплата: {{v.salary}}BYN</p>
+            <li class="vacancy-item">
+                <h2 class="vacancy-name">{{ v.name }}</h2>
+                <p class="vacancy-description">{{ v.description }}</p>
+                <h3 class="vacancy-requirements-title">Требования:</h3>
+                <p class="vacancy-requirements">{{ v.requirements }}</p>
+                <p class="vacancy-salary">Зарплата: {{ v.salary }} BYN</p>
             </li>
         {% endfor %}
     </ul>

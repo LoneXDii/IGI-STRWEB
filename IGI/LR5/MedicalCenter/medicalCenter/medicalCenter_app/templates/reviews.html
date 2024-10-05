@@ -1,31 +1,29 @@
 {% extends "base.html" %}
+{% load static %} 
+{% block styles %}<link rel="stylesheet" type="text/css" href="{% static 'reviewStyles.css' %}">{% endblock styles %}
 {% block title %}Отзывы{% endblock title %}
 {% block header %}Отзывы{% endblock header %}
 {% block content %}
-    <section>
+    <section class="reviews-section">
         {% if authorized %}
-            <a href="{% url 'add_review'%}">Добавить отзыв</a>
+            <a href="{% url 'add_review' %}" class="add-review-button">Добавить отзыв</a>
         {% endif %}
-    </section>
-
-    <section>
-        <ul>
+        
+        <h2>Отзывы</h2>
+        
+        <ul class="reviews-list">
             {% for review in reviews %}
-                <li>
-                    <ul>
-                        <li> 
-                            <label>{{review.sender.surname}}</label>
-                            <label>{{review.sender.name}}</label>
-                            <label>{{review.sender.second_name}}</label>
-                        </li>
-                        <li>
-                            <label>{{review.mark}} stars</label>
-                            <label>{{review.date}}</label>
-                        </li>
-                        <li>
-                            <label>{{review.text}}</label>
-                        </li>
-                    </ul>
+                <li class="review-item">
+                    <div class="review-header">
+                        <span class="review-sender">
+                            {{ review.sender.surname }} {{ review.sender.name }} {{ review.sender.second_name }}
+                        </span>
+                        <span class="review-mark">{{ review.mark }} stars</span>
+                        <span class="review-date">{{ review.date }}</span>
+                    </div>
+                    <div class="review-text">
+                        <p>{{ review.text }}</p>
+                    </div>
                 </li>
             {% endfor %}
         </ul>

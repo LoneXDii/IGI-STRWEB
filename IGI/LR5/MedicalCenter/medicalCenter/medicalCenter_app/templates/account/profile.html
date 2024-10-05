@@ -1,54 +1,56 @@
 {% extends "base.html" %}
+{% load static %} 
+{% block styles %}<link rel="stylesheet" type="text/css" href="{% static 'profileStyles.css' %}">{% endblock styles %}
 {% block title %}Профиль{% endblock title %}
 {% block header %}Профиль{% endblock header %}
 {% block content %}
-    <section>
-        <ul>
-            <li>
-                <img src="{{profile.image.url}}" height="200" width="150">
-            </li>
+    <section class="profile-section">
+        <div class="profile-image">
+            <img src="{{profile.image.url}}" alt="Профильное изображение" height="200" width="150">
+        </div>
+        <ul class="profile-info">
             <li>
                 <label>Фамилия:</label>
-                <label>{{profile.surname}}</label>
+                <span>{{profile.surname}}</span>
             </li>
             <li>
                 <label>Имя:</label>
-                <label>{{profile.name}}</label>
+                <span>{{profile.name}}</span>
             </li>
             <li>
                 <label>Отчество:</label>
-                <label>{{profile.second_name}}</label>
+                <span>{{profile.second_name}}</span>
             </li>
             <li>
-                <label>Элекронная почта:</label>
-                <label>{{profile.email}}</label>
+                <label>Электронная почта:</label>
+                <span>{{profile.email}}</span>
             </li>
             <li>
                 <label>Адрес:</label>
-                <label>{{profile.adress}}</label>
+                <span>{{profile.adress}}</span>
             </li>
             <li>
                 <label>Номер телефона:</label>
-                <label>{{profile.phone_number}}</label>
+                <span>{{profile.phone_number}}</span>
             </li>
             <li>
                 <label>Дата рождения:</label>
                 <time datetime="{{profile.birth_date}}">{{profile.birth_date}}</time>
             </li>
-            {% if not is_doctor%}
+            {% if not is_doctor %}
                 <li>
-                    <a href="{% url 'client_diagnosises' client_id=profile.pk %}">
-                        Просмотреть диагнозы
-                    </a>
+                    <a href="{% url 'client_diagnosises' client_id=profile.pk %}">Просмотреть диагнозы</a>
                 </li>
             {% endif %}
-            <a href="{% url 'user_appointments' %}">Посмотреть записи</a>
+            <li>
+                <a href="{% url 'user_appointments' %}">Посмотреть записи</a>
+            </li>
         </ul>
     </section>
 
-    <nav>
-        <a href="{% url 'logout'%}">Выйти из аккаунта</a>
-        <a href="{% url 'change_password'%}">Сменить пароль</a>
-        <a href="{% url 'edit_profile'%}">Редактировать профиль</a>
+    <nav class="profile-nav">
+        <a href="{% url 'logout' %}">Выйти из аккаунта</a>
+        <a href="{% url 'change_password' %}">Сменить пароль</a>
+        <a href="{% url 'edit_profile' %}">Редактировать профиль</a>
     </nav>
 {% endblock content %}

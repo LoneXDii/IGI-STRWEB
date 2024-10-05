@@ -1,0 +1,78 @@
+ .reviews-section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #d9dc80; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.add-review-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #3D9970; 
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.add-review-button:hover {
+    background-color: #2C7054; 
+}
+
+.reviews-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.review-item {
+    background-color: #F9FBAE; 
+    border: 1px solid #3D9970; 
+    border-radius: 8px; 
+    padding: 15px; 
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s ease;
+}
+
+.review-item:hover {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); 
+}
+
+.review-item:last-child {
+    border-bottom: none;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.review-sender {
+    font-weight: bold;
+    color: #333;
+    margin-right: auto;
+}
+
+.review-mark {
+    color: #FFD700;
+    margin-left: auto; 
+}
+
+.review-date {
+    font-size: 0.9em;
+    color: #999;
+    margin-left: 15px; 
+}
+
+.review-text {
+    margin-top: 10px;
+}
+
+.review-text p {
+    margin: 0;
+    line-height: 1.6;
+    color: #333;
+}

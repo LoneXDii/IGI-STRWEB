@@ -7,49 +7,43 @@
         <figcaption>Главная</figcaption>
         <p><img src = "/media/MC_Logo.jpg" height="100" width="100"></p>
     </figure>
-    <section>
+    <section class="banners-section">
         <h2>Баннеры</h2>
-        <table width="100%">
-            <tr>
-                <td><img src = "media/adv_banner1.jpg" height="250" width="250"></td>
-                <td><img src = "media/adv_banner2.jpg" height="250" width="250"></td>
-                <td><img src = "media/adv_banner3.jpg" height="250" width="250"></td>
-                <td><img src = "media/adv_banner4.jpg" height="250" width="250"></td>
-            </tr>
-        </table>
+        <div class="banners-container">
+            <img src="media/adv_banner1.jpg" alt="Баннер 1" class="banner-item">
+            <img src="media/adv_banner2.jpg" alt="Баннер 2" class="banner-item">
+            <img src="media/adv_banner3.jpg" alt="Баннер 3" class="banner-item">
+            <img src="media/adv_banner4.jpg" alt="Баннер 4" class="banner-item">
+        </div>
     </section>
 
-    <section>
+    <section class="partners-section">
         <h2>Наши Партнеры</h2>
-        <ul>
-            <li><a href="https://www.invitro.ru" target="_blank">Лаборатория «Инвитро»</a></li>
-            <li><a href="https://www.pfizer.com" target="_blank">Фармкомпания «Pfizer»</a></li>
-            <li><a href="https://www.rgs.ru" target="_blank">Страховая компания «Росгосстрах»</a></li>
-            <li><a href="https://www.sechenov.ru" target="_blank">Медицинский университет имени Сеченова</a></li>
-            <li><a href="https://www.philips.ru/healthcare" target="_blank">Медицинское оборудование «Philips Healthcare»</a></li>
-            <li><a href="https://www.366.ru" target="_blank">Аптека «36.6»</a></li>
-            <li><a href="https://www.dr-r.ru" target="_blank">Клиника «Доктор Рядом»</a></li>
-            <li><a href="https://www.podari-zhizn.ru" target="_blank">Благотворительный фонд «Подари жизнь»</a></li>
-            <li><a href="https://www.gemotest.ru" target="_blank">Центр диагностики «Гемотест»</a></li>
-            <li><a href="https://www.vtbins.ru" target="_blank">Медицинская страховая компания «ВТБ Страхование»</a></li>
+        <ul class="partners-list">
+            <li class="partner-item"><a class="partner-link" href="https://www.invitro.ru" target="_blank">Лаборатория «Инвитро»</a></li>
+            <li class="partner-item"><a class="partner-link" href="https://www.pfizer.com" target="_blank">Фармкомпания «Pfizer»</a></li>
+            <li class="partner-item"><a class="partner-link" href="https://www.rgs.ru" target="_blank">Страховая компания «Росгосстрах»</a></li>
+            <li class="partner-item"><a class="partner-link" href="https://www.sechenov.ru" target="_blank">Медицинский университет имени Сеченова</a></li>
+            <li class="partner-item"><a class="partner-link" href="https://www.philips.ru/healthcare" target="_blank">Медицинское оборудование «Philips Healthcare»</a></li>
+            <li class="partner-item"><a class="partner-link" href="https://www.366.ru" target="_blank">Аптека «36.6»</a></li>
+            <li class="partner-item"><a class="partner-link" href="https://www.dr-r.ru" target="_blank">Клиника «Доктор Рядом»</a></li>
+            <li class="partner-item"><a class="partner-link" href="https://www.podari-zhizn.ru" target="_blank">Благотворительный фонд «Подари жизнь»</a></li>
+            <li class="partner-item"><a class="partner-link" href="https://www.gemotest.ru" target="_blank">Центр диагностики «Гемотест»</a></li>
+            <li class="partner-item"><a class="partner-link" href="https://www.vtbins.ru" target="_blank">Медицинская страховая компания «ВТБ Страхование»</a></li>
         </ul>
     </section>
 
-    <section>
-        <h2>{{ln.title}}</h2>  
-        <table width = "100%">
-            <tr>
-                <td>
-                    <p>
-                        <img src = "{{ln.url}}" height = "182" width = "325" class="leftimg">
-                        {{ln.description}}
-                    </p>
-                    <a href='{% url 'new' id=ln.pk %}' target="_blank">
-                        <p>Читать далее</p>
-                    </a>
-                </td>
-            </tr>
-        </table>
+    <section class="index_new_section"> 
+        <h2 class="index_new_title">{{ln.title}}</h2> 
+        <div class="index_new_container">
+          <img src="{{ln.url}}" height="182" width="325" class="index_new_image" alt="News Image"> 
+          <div class="index_new_content">
+            <p class="index_new_description">{{ln.description}}</p> 
+            <a href='{% url 'new' id=ln.pk %}' target="_blank" class="index_new_read_more"> 
+              <p>Читать далее</p> 
+            </a>
+          </div>
+        </div>
     </section>
 
     <section>

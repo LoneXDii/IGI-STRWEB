@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_cleanup.apps.CleanupConfig',
     'medicalCenter_app',
-    'mathfilters'
+    'mathfilters',
+    'widget_tweaks'
 ]
 
 MIDDLEWARE = [

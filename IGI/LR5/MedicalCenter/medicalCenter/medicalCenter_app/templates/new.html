@@ -1,20 +1,16 @@
 {% extends "base.html" %}
+{% load static %} 
+{% block styles %}<link rel="stylesheet" type="text/css" href="{% static 'newsStyles.css' %}">{% endblock styles %}
 {% block title %}{{new.title}}{% endblock title %}
 {% block header %}{{new.title}}{% endblock header %}
 {% block content %}
-    <section>
-        <table width = "100%">
-            <tr>
-                <td>
-                    <p>
-                        <img src = "{{new.url}}" height = "182" width = "325" class="leftimg">
-                        {{new.description}}
-                    </p>
-                </td>
-            </tr>
-        </table>
-    </section>
-    <section>
-        <p>{{new.content}}</p>
+    <section class="new-container">
+        <article class="new-item">
+            <img src="{{new.url}}" alt="News Image" class="new-image">
+            <div class="new-content">
+                <h2 class="new-title">{{new.description}}</h2>
+                <p>{{new.content}}</p>
+            </div>
+        </article>
     </section>
 {% endblock content %}

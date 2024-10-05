@@ -1,38 +1,48 @@
 {% extends "base.html" %}
+{% load static %} 
+{% block styles %}<link rel="stylesheet" type="text/css" href="{% static 'profileStyles.css' %}">{% endblock styles %}
 {% block title %}Диагнозы{% endblock title %}
 {% block header %}Диагнозы{% endblock header %}
 {% block content %}
-    <ul>
-        <li>
-            <label>Фамилия:</label>
-            <label>{{client.surname}}</label>
-        </li>
-        <li>
-            <label>Имя:</label>
-            <label>{{client.name}}</label>
-        </li>
-        <li>
-            <label>Отчество:</label>
-            <label>{{client.second_name}}</label>
-        </li>
-        <li>
-            <label>Дата рождения:</label>
-            <time datetime="{{client.birth_date}}">{{client.birth_date}}</time>
-        </li>
-        <li>Диагнозы:</li>
-        
-        <li><ul>
-        {% for d in diagnosises%}
-            <li><label>{{d.name}}</label></li>
+    <div class="client-info">
+        <h2>Информация о клиенте</h2>
+        <ul>
             <li>
-                <label>Поставлен:</label>
-                <time datetime="{{d.setting_date}}">{{d.setting_date}}</time>
+                <label>Фамилия:</label>
+                <label>{{client.surname}}</label>
+            </li>
             <li>
-            <a href="{% url 'doctor_info' id=d.doctor.pk %}">
-                <label>Поставил: {{d.doctor.surname}} {{d.doctor.name}} {{d.doctor.second_name}}</label>
-            </a>
-            <hr/>
-        {% endfor %}
-        </ul></li>
-    </ul>
+                <label>Имя:</label>
+                <label>{{client.name}}</label>
+            </li>
+            <li>
+                <label>Отчество:</label>
+                <label>{{client.second_name}}</label>
+            </li>
+            <li>
+                <label>Дата рождения:</label>
+                <time datetime="{{client.birth_date}}">{{client.birth_date}}</time>
+            </li>
+            <li>
+                <label>Диагнозы:</label>
+            </li>
+        </ul>
+        <ul class="diagnosis-list">
+            {% for d in diagnosises %}
+                <li class="diagnosis">
+                    <label>{{d.name}}</label>
+                    <div>
+                        <label>Поставлен:</label> 
+                        <time datetime="{{d.setting_date}}">{{d.setting_date}}</time>
+                    </div>
+                    <div>
+                        <a href="{% url 'doctor_info' id=d.doctor.pk %}">
+                            <label>Поставил: {{d.doctor.surname}} {{d.doctor.name}} {{d.doctor.second_name}}</label>
+                        </a>
+                    </div>
+                    <hr/>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock content %}

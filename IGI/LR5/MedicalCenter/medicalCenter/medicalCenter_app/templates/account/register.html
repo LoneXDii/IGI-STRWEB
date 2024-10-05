@@ -1,11 +1,15 @@
 {% extends "base.html" %}
+{% load static %} 
+{% block styles %}<link rel="stylesheet" type="text/css" href="{% static 'formStyles.css' %}">{% endblock styles %}
 {% block title %}Регистрация{% endblock title %}
 {% block header %}Регистрация{% endblock header %}
 {% block content %}
+  <div class="form-container" style='background-color: #d9dc80;'>
     <form method="post" enctype='multipart/form-data'>
         {% csrf_token %}
         {{ user_form.as_p }}
         {{ profile_form.as_p }}
         <button type="submit">Зарегистрироваться</button>
-      </form>
+    </form>
+  </div>
 {% endblock content %}

@@ -10,7 +10,8 @@
     <meta name="description" content="The best medical center ever"/>
     <meta name="keywords" content="meta, html_lab">
     <link rel="icon" href='/media/siteicon.png' />
-    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'baseStyles.css' %}">
+    {% block styles %}{% endblock styles %}
 </head>
 
 <body>
@@ -53,11 +54,11 @@
             </ul>
         </nav>
         <div>
-            <h1>{% block header %}Default {% endblock header %}</h1>
+            {% block header %}Default {% endblock header %}
         </div>
     </header>
 
-    <main>
+    <main class>
         {% block content %}Default {% endblock content %}
     </main>
 

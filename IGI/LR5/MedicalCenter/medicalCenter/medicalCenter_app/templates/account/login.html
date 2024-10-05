@@ -1,11 +1,22 @@
 {% extends "base.html" %}
+{% load static %} 
+{% block styles %}<link rel="stylesheet" type="text/css" href="{% static 'formStyles.css' %}">{% endblock styles %}
 {% block title %}Login{% endblock title %}
 {% block header %}Login{% endblock header %}
 {% block content %}
+  <div class="form-container">
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        <div>
+            {{ form.username.label_tag }}
+            {{ form.username }}
+        </div>
+        <div>
+            {{ form.password.label_tag }}
+            {{ form.password }}
+        </div>
         <button type="submit">Войти</button>
         <a href="{% url 'register'%}">Зарегистрироваться</a>
-      </form>
+    </form>
+  </div>
 {% endblock content %}

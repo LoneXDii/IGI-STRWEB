@@ -1,0 +1,121 @@
+.news-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.news-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #F0F0F0;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    flex: 1 1 calc(30% - 20px); 
+    max-width: calc(30% - 20px); 
+    box-sizing: border-box;
+    position:relative;
+    padding-bottom:50px;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.news-card h2 {
+    font-size: 1.5em;
+    margin: 16px;
+    color: #333;
+}
+
+.news-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; 
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.news-card p {
+    margin: 16px;
+    font-size: 1em;
+    color: #555;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+    max-height: 5em; 
+    line-height: 1.5em; 
+}
+
+.news-card .read-more {
+    margin: 16px;
+    background-color: #2C7054;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    position:absolute;
+    bottom:0;
+}
+
+.news-card .read-more:hover {
+    background-color: #FFD700;
+    color: #2C7054;
+}
+
+.new-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.new-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 15px;
+    flex: 1 1 calc(33% - 20px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.new-item:hover {
+    transform: scale(1.02);
+}
+
+.new-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 4px;
+}
+
+.new-title {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.new-content p {
+    -webkit-column-width: 200px;
+    -moz-column-width: 200px;
+    column-width: 200px;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-gap: 30px;
+    -moz-column-gap: 30px;
+    column-gap: 30px;
+    -webkit-column-rule: 1px solid #ccc;
+    -moz-column-rule: 1px solid #ccc;
+    column-rule: 1px solid #ccc;
+}
