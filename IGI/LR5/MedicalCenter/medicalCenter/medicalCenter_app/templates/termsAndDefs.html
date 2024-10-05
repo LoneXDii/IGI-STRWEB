@@ -5,9 +5,7 @@
     {% for t in terms %}
         <details>
             <summary>{{t.term}} {{t.date}}</summary>
-            <ul>
-                <li>{{t.description}}</li>
-            </ul>
+            {{t.description}}
         </details>
     {% endfor %}
 {% endblock content %}
