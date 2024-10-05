@@ -1,13 +1,12 @@
 {% extends "base.html" %}
 {% block title %}Главная{% endblock title %}
-{% block header %}
+{% block header %}Главная{% endblock header %}
+{% block content %}
+{% load tz %}
     <figure>
         <figcaption>Главная</figcaption>
         <p><img src = "/media/MC_Logo.jpg" height="100" width="100"></p>
     </figure>
-{% endblock header %}
-{% block content %}
-{% load tz %}
     <section>
         <h2>Баннеры</h2>
         <table width="100%">
