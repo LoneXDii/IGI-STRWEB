@@ -1,42 +1,46 @@
 {% extends "base.html" %}
+{% load static %} 
+{% block styles %}<link rel="stylesheet" type="text/css" href="{% static 'profileStyles.css' %}">{% endblock styles %}
 {% block title %}Информация о враче{% endblock title %}
 {% block header %}Информация о враче{% endblock header %}
 {% block content %}
-    <ul>
-        <li>
+    <section class="profile-section">
+        <div class="profile-image">
             <img src="{{doctor.image.url}}" height="200" width="150">
-        </li>
-        <li>
-            <label>Фамилия:</label>
-            <label>{{doctor.surname}}</label>
-        </li>
-        <li>
-            <label>Имя:</label>
-            <label>{{doctor.name}}</label>
-        </li>
-        <li>
-            <label>Отчество:</label>
-            <label>{{doctor.second_name}}</label>
-        </li>
-        <li>
-            <label>Элекронная почта:</label>
-            <label>{{doctor.email}}</label>
-        </li>
-        <li>
-            <label>Адрес:</label>
-            <label>{{doctor.adress}}</label>
-        </li>
-        <li>
-            <label>Номер телефона:</label>
-            <label>{{doctor.phone_number}}</label>
-        </li>
-        <li>
-            <label>Дата рождения:</label>
-            <time datetime="{{doctor.birth_date}}">{{doctor.birth_date}}</time>
-        </li>
-        <li>
-            <label>Специализация:</label>
-            <label>{{doctor.specialization.name}}</label>
-        </li>
-    </ul>
+        </div>
+        <ul class="profile-info">
+            <li>
+                <label>Фамилия:</label>
+                <label>{{doctor.surname}}</label>
+            </li>
+            <li>
+                <label>Имя:</label>
+                <label>{{doctor.name}}</label>
+            </li>
+            <li>
+                <label>Отчество:</label>
+                <label>{{doctor.second_name}}</label>
+            </li>
+            <li>
+                <label>Элекронная почта:</label>
+                <label>{{doctor.email}}</label>
+            </li>
+            <li>
+                <label>Адрес:</label>
+                <label>{{doctor.adress}}</label>
+            </li>
+            <li>
+                <label>Номер телефона:</label>
+                <label>{{doctor.phone_number}}</label>
+            </li>
+            <li>
+                <label>Дата рождения:</label>
+                <time datetime="{{doctor.birth_date}}">{{doctor.birth_date}}</time>
+            </li>
+            <li>
+                <label>Специализация:</label>
+                <label>{{doctor.specialization.name}}</label>
+            </li>
+        </ul>
+    </section>
 {% endblock content %}

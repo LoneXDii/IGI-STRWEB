@@ -2,9 +2,9 @@
     max-width: 600px; 
     margin: 0 auto; 
     padding: 20px; 
-    border: 1px solid #ccc; 
+    border: 1px solid var(--color-main-header); 
     border-radius: 5px; 
-    background-color: #d9dc80;
+    background-color: var(--color-secondary-background);
     align-self: center;
     margin-top: 20px;
     margin-bottom: 50px;
@@ -14,18 +14,20 @@
     font-weight: bold;
     margin-top: 10px; 
     display: block;
+    color: var(--color-text);
 }
 
 .error {
-    color: red; 
+    color: red;
 }
- 
+
 .form-control {
     width: 50%;
     height: 30px;
     line-height: 30px;
     margin: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--color-main-header);
     border-radius: 4px;
-    background-color: #F9FBAE;
+    background-color: var(--color-secondary-background);
+    color: var(--color-text);
 }

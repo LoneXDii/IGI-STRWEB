@@ -1,39 +1,47 @@
 {% extends "base.html" %}
+{% load static %} 
+{% block styles %}<link rel="stylesheet" type="text/css" href="{% static 'cartStyles.css' %}">{% endblock styles %}
 {% block title %}Корзина{% endblock title %}
 {% block header %}Корзина{% endblock header %}
 {% block content %}
-    <table class="cart">
-        <thead>
-        <tr>
-            <th>Услуга</th>
-            <th>Количество</th>
-            <th>Удалить</th>
-            <th>Цена за услугу</th>
-            <th>Общая цена</th>
-        </tr>
-        </thead>
-        <tbody>
-            {% for item in cart %}
-                {% with service=item.service %}
-                    <tr>
-                        <td>{{ service.name }}</td>
-                        <td>{{ item.quantity }}</td>
-                        <td><a href="{% url "cart_remove" service.id%}">Удалить</a></td>
-                        <td class="num">{{ item.price }}BYN</td>
-                        <td class="num">{{ item.total_price }}BYN</td>
-                        <td><a href="{% url "cart_inc" service.id%}">+</a></td>
-                        <td><a href="{% url "cart_dec" service.id%}">-</a></td>
-                    </tr>
-                {% endwith %}
-            {% endfor %}
-            <tr class="total">
-                <td>Итого</td>
-                <td colspan="4"></td>
-                <td class="num">{{ cart.get_total_price }}BYN</td>
-            </tr>
-        </tbody>
-    </table>
-    {% if cart.get_total_price != 0%}
-        <a href="{% url "cart_appointment"%}">Оформить заказ</a>
-    {% endif %}
+    <div style="text-align: center;">
+        <table class="cart">
+            <caption>Корзина заказов</caption>
+            <thead>
+                <tr>
+                    <th>Услуга</th>
+                    <th>Количество</th>
+                    <th>Удалить</th>
+                    <th>Цена за услугу</th>
+                    <th>Общая цена</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart %}
+                    {% with service=item.service %}
+                        <tr>
+                            <td>{{ service.name }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td><a href="{% url 'cart_remove' service.id %}" class="button">Удалить</a></td>
+                            <td class="num">{{ item.price }}BYN</td>
+                            <td class="num">{{ item.total_price }}BYN</td>
+                            <td><a href="{% url 'cart_inc' service.id %}" class="button">+</a></td>
+                            <td><a href="{% url 'cart_dec' service.id %}" class="button">-</a></td>
+                        </tr>
+                    {% endwith %}
+                {% endfor %}
+                <tr class="total">
+                    <td>Итого</td>
+                    <td colspan="4"></td>
+                    <td class="num">{{ cart.get_total_price }}BYN</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        {% if cart.get_total_price != 0%}
+            <a href="{% url "cart_appointment"%}" class="button">Оформить заказ</a>
+        {% endif %}
+    </div>
 {% endblock content %}

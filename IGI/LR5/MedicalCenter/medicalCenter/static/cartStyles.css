@@ -1,0 +1,50 @@
+.cart {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: var(--color-secondary-background);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid var(--color-main-header); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart caption {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--color-main-header);
+    padding: 10px;
+    background-color: var(--color-secondary-background);
+    border-bottom: 2px solid var(--color-main-header);
+    text-align: center;
+}
+
+
+.cart th, .cart td {
+    padding: 12px;
+    text-align: center;
+}
+
+.cart th {
+    background-color: var(--color-main-header);
+    color: var(--color-text);
+}
+
+.cart td {
+    background-color: var(--color-secondary-background);
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-main-header);
+}
+
+.cart tr:nth-child(even) td {
+    background-color: var(--color-main-background);
+}
+
+.cart tr.total {
+    font-weight: bold;
+    background-color: var(--color-main-header);
+}
+
+.cart .num {
+    font-weight: bold;
+}

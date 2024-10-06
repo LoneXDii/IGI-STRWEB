@@ -9,17 +9,17 @@
 .news-card {
     display: flex;
     flex-direction: column;
-    background-color: #F0F0F0;
-    border: 1px solid #e0e0e0;
+    background-color: var(--color-secondary-background);
+    border: 1px solid var(--color-main-header);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
-    flex: 1 1 calc(30% - 20px); 
-    max-width: calc(30% - 20px); 
+    flex: 1 1 calc(30% - 20px);
+    max-width: calc(30% - 20px);
     box-sizing: border-box;
-    position:relative;
-    padding-bottom:50px;
+    position: relative;
+    padding-bottom: 50px;
 }
 
 .news-card:hover {
@@ -30,43 +30,43 @@
 .news-card h2 {
     font-size: 1.5em;
     margin: 16px;
-    color: #333;
+    color: var(--color-main-header);
 }
 
 .news-card img {
     width: 100%;
     height: 200px;
-    object-fit: cover; 
-    border-bottom: 1px solid #e0e0e0;
+    object-fit: cover;
+    border-bottom: 1px solid var(--color-secondary-background);
 }
 
 .news-card p {
     margin: 16px;
     font-size: 1em;
-    color: #555;
+    color: var(--color-text);
     flex-grow: 1;
     overflow: hidden;
-    text-overflow: ellipsis; 
-    white-space: nowrap; 
-    max-height: 5em; 
-    line-height: 1.5em; 
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-height: 5em;
+    line-height: 1.5em;
 }
 
 .news-card .read-more {
     margin: 16px;
-    background-color: #2C7054;
+    background-color: var(--color-secondary-header);
     color: white;
     padding: 10px 15px;
     border-radius: 4px;
     text-decoration: none;
     transition: background-color 0.3s;
-    position:absolute;
-    bottom:0;
+    position: absolute;
+    bottom: 0;
 }
 
 .news-card .read-more:hover {
-    background-color: #FFD700;
-    color: #2C7054;
+    background-color: var(--color-main-header);
+    color: var(--color-secondary-background);
 }
 
 .new-container {
@@ -79,8 +79,8 @@
 }
 
 .new-item {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    background-color: var(--color-secondary-background);
+    border: 1px solid var(--color-main-header);
     border-radius: 8px;
     margin: 10px;
     padding: 15px;
@@ -103,6 +103,7 @@
 .new-title {
     font-size: 1.5em;
     margin: 10px 0;
+    color: var(--color-main-header);
 }
 
 .new-content p {
@@ -115,7 +116,8 @@
     -webkit-column-gap: 30px;
     -moz-column-gap: 30px;
     column-gap: 30px;
-    -webkit-column-rule: 1px solid #ccc;
-    -moz-column-rule: 1px solid #ccc;
-    column-rule: 1px solid #ccc;
+    -webkit-column-rule: 1px solid var(--color-secondary-background);
+    -moz-column-rule: 1px solid var(--color-secondary-background);
+    column-rule: 1px solid var(--color-secondary-background);
+    color: var(--color-text);
 }

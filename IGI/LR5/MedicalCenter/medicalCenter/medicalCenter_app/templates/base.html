@@ -18,36 +18,36 @@
     <header>
         <nav>
             <ul>
-                <li><a href="{% url 'home'%}">Главная</a></li>
+                <li><a href="{% url 'home'%}" class='nav-item'>Главная</a></li>
                 <li>
-                    <a href="#">Профиль</a>
+                    <a href="#" class='nav-item'>Профиль</a>
                     <ul>
-                        <li><a href="{% url 'profile'%}">Аккаунт</a></li>
-                        <li><a href="{% url 'cart_detail'%}">Корзина</a></li>
+                        <li><a href="{% url 'profile'%}" class='nav-item'>Аккаунт</a></li>
+                        <li><a href="{% url 'cart_detail'%}" class='nav-item'>Корзина</a></li>
                     </ul>
                 </li>
-                <li><a href="{% url 'services'%}">Услуги</a></li>
+                <li><a href="{% url 'services'%}" class='nav-item'>Услуги</a></li>
                 <li>
-                    <a href="#">О компании</a>
+                    <a href="#" class='nav-item'>О компании</a>
                     <ul>
-                        <li><a href="{% url 'about' %}">О компании</a></li>
-                        <li><a href="{% url 'terms' %}">FAQ</a></li>
-                        <li><a href="{% url 'contacts' %}">Контакты</a></li>
-                        <li><a href="{% url 'vacancies' %}">Вакансии</a></li>
+                        <li><a href="{% url 'about' %}" class='nav-item'>О компании</a></li>
+                        <li><a href="{% url 'terms' %}" class='nav-item'>FAQ</a></li>
+                        <li><a href="{% url 'contacts' %}" class='nav-item'>Контакты</a></li>
+                        <li><a href="{% url 'vacancies' %}" class='nav-item'>Вакансии</a></li>
                     </ul>
                 </li>
-                <li><a href="{% url 'news' %}">Новости</a></li>     
-                <li><a href="{% url 'privacy' %}">Политика конфиденциальности</a></li>
-                <li><a href="{% url 'reviews' %}">Отзывы</a></li>
-                <li><a href="{% url 'coupons' %}">Купоны</a></li>
-                <li><a href="{% url 'jokes' %}">Анекдоты</a></li>
-                <li><a href="{% url 'test' %}">Тест функций</a></li>
+                <li><a href="{% url 'news' %}" class='nav-item'>Новости</a></li>     
+                <li><a href="{% url 'privacy' %}" class='nav-item'>Политика конфиденциальности</a></li>
+                <li><a href="{% url 'reviews' %}" class='nav-item'>Отзывы</a></li>
+                <li><a href="{% url 'coupons' %}" class='nav-item'>Купоны</a></li>
+                <li><a href="{% url 'jokes' %}" class='nav-item'>Анекдоты</a></li>
+                <li><a href="{% url 'test' %}" class='nav-item'>Тест функций</a></li>
                 {% if request.user.is_superuser %}
                 <li>
-                    <a href="#">Администрирование</a>
+                    <a href="#" class='nav-item'>Администрирование</a>
                     <ul>
-                        <li><a href="{% url 'admin:index' %}">Админка</a></li>
-                        <li><a href="{% url 'statistics' %}">Статистика</a></li>
+                        <li><a href="{% url 'admin:index' %}" class='nav-item'>Админка</a></li>
+                        <li><a href="{% url 'statistics' %}" class='nav-item'>Статистика</a></li>
                     </ul>
                 </li>
                 {% endif %}

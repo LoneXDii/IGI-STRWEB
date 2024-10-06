@@ -4,7 +4,7 @@
 {% block title %}Регистрация{% endblock title %}
 {% block header %}Регистрация{% endblock header %}
 {% block content %}
-  <div class="form-container" style='background-color: #d9dc80;'>
+  <div class="form-container">
     <form method="post" enctype='multipart/form-data'>
         {% csrf_token %}
         {{ user_form.as_p }}
