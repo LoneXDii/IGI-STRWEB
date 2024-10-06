@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load static %} 
+{% block styles %}<link rel="stylesheet" type="text/css" href="{% static 'loader.css' %}">{% endblock styles %}
 {% block title %}Главная{% endblock title %}
 {% block header %}Главная{% endblock header %}
 {% block content %}
@@ -47,6 +49,8 @@
           </div>
         </div>
     </section>
+
+    <div class="loader"></div>
 
     <section>
         <h2>{{date}}</h2>

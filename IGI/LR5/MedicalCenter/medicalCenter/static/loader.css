@@ -1,0 +1,21 @@
+.loader {
+    width: 35px;
+    aspect-ratio: 1;
+    --d1: no-repeat radial-gradient(farthest-side,blue 94%,#0000);
+    --d2: no-repeat radial-gradient(farthest-side,green 94%,#0000);
+    --d3: no-repeat radial-gradient(farthest-side,red 94%,#0000);
+    --d4: no-repeat radial-gradient(farthest-side,orange 94%,#0000);
+    background:
+      var(--d1) 0    0,
+      var(--d2) 100% 0,
+      var(--d3) 100% 100%,
+      var(--d4) 0    100%;
+    background-size: 40% 40%;
+    animation: load 2s infinite; 
+  }
+  @keyframes load {
+    25% {background-position:  100%  0   ,100% 100%,0    100%,0 0}
+    50% {background-position:  100%  100%,0    100%,0    0   ,100% 0}
+    75% {background-position:  0     100%,0    0   ,100% 0   ,100% 100%}
+    100% {background-position: 0     0   ,100% 0   ,100% 100%,0    100%}
+  }
