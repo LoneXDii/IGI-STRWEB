@@ -1,21 +1,23 @@
 {% extends "base.html" %}
+{% load static %} 
+{% block styles %}<link rel="stylesheet" type="text/css" href="{% static 'formStyles.css' %}">{% endblock styles %}
 {% block title %}Запись{% endblock title %}
 {% block header %}Запись{% endblock header %}
 {% block content %}
-    <form method="post">
+    <form method="post" class='form-container'>
         <section>
         {% csrf_token %}
         <label>{{service.name}}</label>
         <label>{{service.price}} BYN</label>        
         {{ form.as_p}}
         {% if not timeok %}
-            <p>На данное время уже есть запись</p>
+            <p class='error'>На данное время уже есть запись</p>
         {% endif %}
         </section>
 
         <section>
             <label>Time:</label>
-            <select name="time">
+            <select name="time" class='form-control'>
                 {% for t in time %}
                     <option value="{{t}}">{{t}}</option>
                 {% endfor %}

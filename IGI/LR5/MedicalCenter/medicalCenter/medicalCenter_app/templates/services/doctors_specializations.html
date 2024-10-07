@@ -2,13 +2,15 @@
 {% block title %}Специализации докторов{% endblock title %}
 {% block header %}Специализации докторов{% endblock header %}
 {% block content %}
-    <ul>
-        {% for s in specializations %}
-            <li>
+    <div class='list-section'>
+        <ul>
+            {% for s in specializations %}
                 <a href="{% url 'service_details' id=s.pk %}">
-                    <label>{{s.name}}</label>
+                    <li>
+                        <label>{{s.name}}</label>
+                    </li>
                 </a>
-            </li>
-        {% endfor %}
-    </ul>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock content %}

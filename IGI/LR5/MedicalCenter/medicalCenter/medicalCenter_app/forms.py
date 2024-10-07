@@ -44,7 +44,8 @@ class ServiceAppointmentForm(django.forms.ModelForm):
     class Meta:
         model = Appointment
         fields = ('doctor', 'date')
-        widgets = {'date': django.forms.DateInput(attrs={'class':'form-control', 'type':'date'}),}
+        widgets = {'date': django.forms.DateInput(attrs={'class':'form-control', 'type':'date'}),
+                   'doctor': django.forms.Select(attrs={'class':'form-control'})}
 
 
 class ReviewForm(django.forms.ModelForm):
@@ -62,5 +63,8 @@ class DiagnosisForm(django.forms.ModelForm):
 PRODUCT_QUANTITY_CHOICES = [(i, str(i)) for i in range(1, 21)]
 
 class CartAddProductForm(django.forms.Form):
-    quantity = django.forms.TypedChoiceField(choices=PRODUCT_QUANTITY_CHOICES, coerce=int)
+    quantity = django.forms.TypedChoiceField(
+        choices=PRODUCT_QUANTITY_CHOICES, 
+        coerce=int,
+        widget=django.forms.Select(attrs={'class': 'form-control'}))
     update = django.forms.BooleanField(required=False, initial=False, widget=django.forms.HiddenInput)

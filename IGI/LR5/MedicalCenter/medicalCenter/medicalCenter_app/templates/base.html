@@ -11,6 +11,9 @@
     <meta name="keywords" content="meta, html_lab">
     <link rel="icon" href='/media/siteicon.png' />
     <link rel="stylesheet" type="text/css" href="{% static 'baseStyles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'listStyles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'formStyles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'loader.css' %}">
     {% block styles %}{% endblock styles %}
 </head>
 
@@ -54,16 +57,16 @@
             </ul>
         </nav>
         <div>
-            {% block header %}Default {% endblock header %}
+            <h1>{% block header %}Default {% endblock header %}</h1>
         </div>
     </header>
 
-    <main class>
+    <main>
         {% block content %}Default {% endblock content %}
     </main>
 
     <footer>
-        MedicalCenter 2024. All rights reserved.
+        HealthWell 2024. All rights reserved.
     </footer>
 </body>
 </html>

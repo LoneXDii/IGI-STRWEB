@@ -85,7 +85,7 @@
 }
 
 .diagnosis {
-    background-color: var(--color-main-header);
+    background-color: var(--color-main-background);
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 15px;
@@ -95,6 +95,7 @@
 
 .diagnosis:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
 }
 
 .diagnosis label {
@@ -126,6 +127,7 @@
 
 .appointment-item:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
 }
 
 .appointment-details {

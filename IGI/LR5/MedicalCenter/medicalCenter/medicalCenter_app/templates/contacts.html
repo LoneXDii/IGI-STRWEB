@@ -7,16 +7,18 @@
     <div class="doctor-list">
         {% for d in doctors %}
             <section class="doctor-card">
-                <div class="doctor-info">
-                    <img src="{{d.image.url}}" alt="{{d.name}} {{d.surname}}" class="doctor-image">
-                    <div class="personal-details">
-                        <h2>{{d.surname}} {{d.name}} {{d.second_name}}</h2>
-                        <p>Дата рождения: {{d.birth_date}}</p>
-                        <p>Телефон: {{d.phone_number}}</p>
-                        <p>Электронная почта: {{d.email}}</p>
-                        <p>Специальность: {{d.specialization.name}}</p>
+                <a href='{% url 'doctor_info' id=d.pk %}' style="text-decoration: none;">
+                    <div class="doctor-info">
+                        <img src="{{d.image.url}}" alt="{{d.name}} {{d.surname}}" class="doctor-image">
+                        <div class="personal-details">
+                            <h2>{{d.surname}} {{d.name}} {{d.second_name}}</h2>
+                            <p>Дата рождения: {{d.birth_date}}</p>
+                            <p>Телефон: {{d.phone_number}}</p>
+                            <p>Электронная почта: {{d.email}}</p>
+                            <p>Специальность: {{d.specialization.name}}</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </section>
         {% endfor %}
     </div>
