@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load static %} 
+{% block styles %}<link rel="stylesheet" type="text/css" href="{% static 'sertificate.css' %}">{% endblock styles %}
 {% block title %}О компании{% endblock title %}
 {% block header %}О компании{% endblock header %}
 {% block content %}
@@ -30,5 +32,30 @@
         <p>{{about.end}}</p>
     </section>
 
-    <iframe width='50%' height='50%' src="{% url 'sertificate' %}"
+    <section class="sertificate">
+        <div class="sert-head">
+            <h1>ЕДИНЫЙ РЕЕСТР МЕДЦЕНТРОВ</h1>
+            <h2>СВИДЕТЕЛЬСТВО</h2>
+            <p>о внесении сведений</p>
+        </div>
+        <div class="sert-date-place">
+            <p>г. Минск</p>
+            <p>17 июня 2017</p>
+        </div>
+        
+        <div class="sert-info">
+            <strong>Общество с ограниченной ответственностью "HeathWell"</strong>
+            <p>(ИНН 7731340252)</p>
+            <h3>Регистрационный номер: 8241</h3>
+        </div>
+        
+        <div class="sert-footer">
+            <div class="author">
+                <p>Иванов И.И.</p>
+                <p>Директор Ассоциации "МЕДРЕЕСТР"</p>
+            </div>
+            <img src="/media/podpis.png"/>
+        </div>
+    </section>
+    <div style="position: absolute; top: 1900px; z-index: -11;"><h1 style="color: #2C3E50;">1</h1></div>
 {% endblock content %}
