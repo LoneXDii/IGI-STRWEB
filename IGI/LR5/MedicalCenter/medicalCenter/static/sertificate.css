@@ -1,6 +1,6 @@
 .sertificate {
     position: absolute;
-    top: 1300px;
+    top: 1400px;
     border: 10px solid #40c4c8;
     border-image: url(borderimg.png) 23 round round;
     -moz-border-image: url(borderimg.png) 23 round round;

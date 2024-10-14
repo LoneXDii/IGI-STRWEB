@@ -84,6 +84,62 @@ header nav ul li ul li {
     width: 150px;
 }
 
+@media only screen and (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    header nav ul li {
+        margin-bottom: 10px;
+    }
+
+    .nav-item {
+        padding: 8px 15px;
+    }
+
+    header nav ul li ul {
+        position: static;
+        display: none;
+        background-color: var(--color-secondary-background);
+        padding: 10px 0;
+        box-shadow: none;
+    }
+
+    header nav ul li:hover ul {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    header nav ul {
+        flex-direction: row;
+    }
+
+    header nav ul li {
+        margin-bottom: 0px;
+    }
+
+    .nav-item {
+        padding: 10px 15px;
+    }
+
+    header nav ul li ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--color-secondary-background);
+        padding: 10px 0;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    }
+
+    header nav ul li:hover ul {
+        display: block;
+    }
+}
+
 main {
     margin: 20px 100px;
     background-color: var(--color-main-background);
@@ -357,6 +413,38 @@ strong {
 ul {
     list-style-type: disc;
     margin-left: 20px;
+}
+
+q::before {
+    content: open-quote;
+}
+
+q::after {
+    content: close-quote;
+}
+
+q[lang="en"]::before {
+    content: '“';
+}
+
+q[lang="en"]::after {
+    content: '”';
+}
+
+q[lang="de"]::before {
+    content: '„';
+}
+
+q[lang="de"]::after {
+    content: '“';
+}
+
+q[lang="ru"]::before {
+    content: '«';
+}
+
+q[lang="ru"]::after {
+    content: '»';
 }
 
 @font-face {

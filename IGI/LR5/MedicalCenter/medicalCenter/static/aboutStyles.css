@@ -1,0 +1,52 @@
+.about {  
+    background-color: var(--color-secondary-background);
+    padding: 20px;
+    color: var(--color-text);
+}
+
+.about p{
+    text-indent: 20px;
+    line-height: 1.2;
+    font-variant: small-caps;
+}
+
+.about p::first-letter {
+    color: red;
+    font-size: 150%; /* Необязательно, можно добавить другие стили */
+}
+
+.about p::selection{
+    background-color: var(--color-main-header);
+    color: #333;
+}
+
+.about h2, h3, h4{
+    text-transform: uppercase;
+}
+
+.about h2{
+    color: var(--color-main-header)
+}
+
+.about h3, h4{
+    color: var(--color-secondary-header)
+}
+
+.about ul{
+    list-style-type: '\25b6';
+}
+
+img{
+    transform: rotate(30deg);
+}
+
+video {
+    width: 480px; 
+    height: 364px;
+    height: auto; 
+    display: block; 
+    margin: 0 auto; 
+    border-radius: 10px; 
+    margin-bottom: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}

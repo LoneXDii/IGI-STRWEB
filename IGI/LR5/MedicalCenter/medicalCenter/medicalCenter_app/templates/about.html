@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load static %} 
-{% block styles %}<link rel="stylesheet" type="text/css" href="{% static 'sertificate.css' %}">{% endblock styles %}
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'sertificate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'aboutStyles.css' %}">
+{% endblock styles %}
 {% block title %}О компании{% endblock title %}
 {% block header %}О компании{% endblock header %}
 {% block content %}
@@ -9,26 +12,24 @@
             <img src = "/media/MC_Logo.jpg" height="100" width="100">
         </div>
         <div>
-            <video width="480" height="364" controls>
+            <video controls>
                 <source src="/media/video.mp4" type="video/mp4"/>
             </video>
         </div>
     </section>
 
-    <section>
+    <section class='about'>
         <h2>О нас</h2>
         <p>{{about.start}}</p>
-    </section>
-
-    <section>
-    <h3>Наши преимущества</h3>
-        {% for a in advantages %}
-            <h4>{{a.header}}</h4>
-            <p>{{a.text}}</p>
-        {% endfor %}
-    </section>
-    
-    <section>
+        <h3>Наши преимущества:</h3>
+        <ul>
+            {% for a in advantages %}
+                <li>
+                    <h4>{{a.header}}</h4>
+                    <p>{{a.text}}</p>
+                </li>
+            {% endfor %}
+        </ul>
         <p>{{about.end}}</p>
     </section>
 
@@ -57,5 +58,5 @@
             <img src="/media/podpis.png"/>
         </div>
     </section>
-    <div style="position: absolute; top: 1900px; z-index: -11;"><h1 style="color: #2C3E50;">1</h1></div>
+    <div style="position: absolute; top: 2000px; z-index: -11;"><h1 style="color: #2C3E50;">1</h1></div>
 {% endblock content %}
