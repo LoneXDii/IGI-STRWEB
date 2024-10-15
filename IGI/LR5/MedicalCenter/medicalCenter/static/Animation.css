@@ -1,0 +1,277 @@
+:root {
+    --a-sec: 3s;
+    --a-sec2: 6s;
+    --a-deg: 50deg;
+    --a-deg2: 30deg;
+    --a-deg3: 40deg;
+    --a-deg-bad-leg: 20deg;
+}
+
+.anim-container {
+    margin: 100px 0px 100px 100px;
+    width: 500px;
+    height: 400px;
+    transform-origin: center;
+    overflow: visible;
+    border: 2px solid black;
+    background-color: white;
+    transform: scale(1.3);
+    background-color: rgb(52, 134, 182);
+}
+
+.anim-ground {
+    stroke: rgb(37, 32, 27);
+    stroke-width: 1px;
+    fill: rgb(75, 70, 66);
+}
+  
+.anim-house {
+    stroke: brown;
+    stroke-width: 1px;
+    fill: rgb(216, 144, 62);
+}
+  
+.anim-window {
+    height: 50px;
+}
+
+.anim-cross {
+    height: 30px;
+}
+
+.anim-roof {
+    stroke: rgb(78, 48, 12);
+    stroke-width: 1px;
+    fill: rgb(78, 48, 12);
+}
+
+.anim-man-nok {
+    stroke: black;
+    stroke-width: 1px;
+    fill: rgb(63, 63, 63);
+    scale: 1 1;
+    animation: man-go-nok var(--a-sec2) linear forwards;
+}
+  
+@keyframes man-go-nok {
+    0% {
+        transform: translateX(0px);
+    }
+    100% {
+        transform: translateX(150px);
+    }
+}
+
+.anim-stroke-hand{
+    stroke: black;
+    stroke-width: 1px;
+    fill: none;
+    animation: stroke-hand-go-nok var(--a-sec2) linear forwards;
+}
+
+@keyframes stroke-hand-go-nok{
+    0% {
+        transform: rotate(0deg) translateX(0px);
+        transform-origin: 80px 255px;
+    }
+
+    20% {
+        transform: rotate(var(--a-deg2)) translate(30px);
+    }
+
+    40% {
+        transform: rotate(0deg) translate(60px);
+    }
+
+    60% {
+        transform: rotate(var(--a-deg2)) translate(90px);
+    }
+
+    80% {
+        transform: rotate(0deg) translate(120px);
+    }
+
+    100% {
+        transform: rotate(var(--a-deg2)) translate(150px);
+        transform-origin: 230px 255px;
+    }
+}
+
+.anim-left-leg-nok {
+    stroke: black;
+    stroke-width: 1px;
+    fill: none;
+    animation: left-leg-go-nok var(--a-sec2) linear forwards;
+}
+  
+@keyframes left-leg-go-nok {
+    0% {
+        transform: rotate(0deg) translateX(0px);
+        transform-origin: 80px 270px;
+    }
+
+    20% {
+        transform: rotate(calc(var(--a-deg) * -1)) translate(30px);
+    }
+
+    40% {
+        transform: rotate(0deg) translate(60px);
+    }
+
+    60% {
+        transform: rotate(calc(var(--a-deg) * -1)) translate(90px);
+    }
+
+    80% {
+        transform: rotate(0deg) translate(120px);
+    }
+
+    100% {
+        transform: rotate(calc(var(--a-deg) * -1)) translate(150px);
+        transform-origin: 230px 270px;
+    }
+}
+  
+.anim-right-leg-nok {
+    stroke: black;
+    stroke-width: 1px;
+    fill: none;
+    animation: right-leg-go-nok calc(var(--a-sec2)) linear forwards;
+}
+
+@keyframes right-leg-go-nok {
+    0% {
+        transform: rotate(var(--a-deg-bad-leg)) translateX(0px);
+        transform-origin: 80px 270px;
+    }
+
+    20% {
+        transform: rotate(var(--a-deg3)) translate(30px);
+    }
+
+    40% {
+        transform: rotate(var(--a-deg-bad-leg)) translate(60px);
+    }
+
+    60% {
+        transform: rotate(var(--a-deg3)) translate(90px);
+    }
+
+    80% {
+        transform: rotate(var(--a-deg-bad-leg)) translate(120px);
+    }
+
+    100% {
+        transform: rotate(var(--a-deg3)) translate(150px);
+        transform-origin: 230px 270px;
+    }
+}
+/**/
+.anim-man-ok {
+    stroke: black;
+    stroke-width: 1px;
+    fill: rgb(63, 63, 63);
+    scale: 1 1;
+    animation: man-go-ok var(--a-sec) linear forwards;
+    animation-delay: var(--a-sec2); 
+}
+  
+@keyframes man-go-ok {
+    0% {
+        transform: translateX(0px);
+    }
+    100% {
+        transform: translateX(150px);
+    }
+}
+
+.anim-left-leg-ok {
+    stroke: black;
+    stroke-width: 1px;
+    fill: none;
+    animation: left-leg-go-ok var(--a-sec) linear forwards;
+    animation-delay: var(--a-sec2); 
+}
+  
+@keyframes left-leg-go-ok {
+    0% {
+        transform: rotate(0deg) translateX(0px);
+        transform-origin: 310px 270px;
+    }
+
+    20% {
+        transform: rotate(calc(var(--a-deg) * -1)) translate(30px);
+    }
+
+    40% {
+        transform: rotate(0deg) translate(60px);
+    }
+
+    60% {
+        transform: rotate(calc(var(--a-deg) * -1)) translate(90px);
+    }
+
+    80% {
+        transform: rotate(0deg) translate(120px);
+    }
+
+    100% {
+        transform: rotate(calc(var(--a-deg) * -1)) translate(150px);
+        transform-origin: 460px 270px;
+    }
+}
+  
+.anim-right-leg-ok {
+    stroke: black;
+    stroke-width: 1px;
+    fill: none;
+    animation: right-leg-go-ok calc(var(--a-sec)) linear forwards;
+    animation-delay: var(--a-sec2); 
+}
+
+@keyframes right-leg-go-ok {
+    0% {
+        transform: rotate(0deg) translateX(0px);
+        transform-origin: 310px 270px;
+    }
+
+    20% {
+        transform: rotate(var(--a-deg)) translate(30px);
+    }
+
+    40% {
+        transform: rotate(0deg) translate(60px);
+    }
+
+    60% {
+        transform: rotate(var(--a-deg)) translate(90px);
+    }
+
+    80% {
+        transform: rotate(0deg) translate(120px);
+    }
+
+    100% {
+        transform: rotate(var(--a-deg)) translate(150px);
+        transform-origin: 460px 270px;
+    }
+}
+
+.anim-logo {
+    height: 20px;
+    opacity: 0;
+    transform-origin: 230px 243px;
+    animation: logo-appear 1s forwards;
+    animation-delay: calc(var(--a-sec) + var(--a-sec2) - 0.5s); 
+    z-index: 0;
+}
+  
+@keyframes logo-appear {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      transform: scale(12);
+      opacity: 1;
+    }
+}

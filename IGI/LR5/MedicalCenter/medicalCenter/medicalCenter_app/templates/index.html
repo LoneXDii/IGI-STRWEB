@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load static %} 
+{% block styles %}<link rel="stylesheet" type="text/css" href="{% static 'Animation.css' %}">{% endblock styles %}
 {% block title %}Главная{% endblock title %}
 {% block header %}Главная{% endblock header %}
 {% block content %}
@@ -7,6 +9,53 @@
         <p><img src = "/media/MC_Logo.jpg" height="100" width="100"></p>
         <figcaption>HealthWell</figcaption>
     </figure>
+    
+    <svg class="anim-container">
+        <path
+            class="anim-ground"
+            d="M 0,280 l 500,0 l 0,120 l -500,0 l 0,-120 Z"
+        />
+
+        <path
+            class="anim-man-nok"
+            d="
+            M 80,270 l 0,-18
+            M 80,255 l -7,16
+            M 80,252 A 6,6 0 0,0 80,240 A 6,6 0 0,0 80,252 z"
+        />
+
+        <path 
+            class="anim-stroke-hand" 
+            d="
+                M 80,255 l 16,7
+                M 96,262 l 0, 22"/>
+        <path class="anim-left-leg-nok" d="M 80,270 l -8,16" />
+        <path class="anim-right-leg-nok" d="M 80,270 l 8,16" />
+
+        <path
+            class="anim-man-ok"
+            d="
+            M 310,270 l 0,-18
+            M 310,255 l -7,16
+            M 310,255 l 7,16
+            M 310,252 A 6,6 0 0,0 310,240 A 6,6 0 0,0 310,252 z"
+        />
+
+        <path class="anim-left-leg-ok" d="M 310,270 l -8,16" />
+        <path class="anim-right-leg-ok" d="M 310,270 l 8,16" />
+
+        <path
+            class="anim-house"
+            d="M 175,290 l 150,0 l 0,-100 l -150,0 l 0,100 Z"
+        />
+
+        <path class="anim-roof" d="M 155,190 l 190,0 l -95,-60 Z" />
+
+        <image x='225' y='210' href="{% static 'animationImages/window.png'%}" class="anim-window" />
+        <image x='235' y='150' href="{% static 'animationImages/med-cross.png'%}" class="anim-cross" />
+
+        <image x='220' y='230' href="/media/MC_Logo.jpg" class='anim-logo'/>
+    </svg>
     
     <section class="flex-container">
         <section class="banners-section">

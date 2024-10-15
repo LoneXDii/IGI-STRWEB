@@ -12,7 +12,7 @@
 
 .about p::first-letter {
     color: red;
-    font-size: 150%; /* Необязательно, можно добавить другие стили */
+    font-size: 150%; 
 }
 
 .about p::selection{
