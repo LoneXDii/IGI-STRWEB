@@ -23,6 +23,29 @@
     </section>
 
     <section>
+        <h2>Даты prototypes</h2>
+        <form id="dateForm">
+            <input type="number" name="day" placeholder="День" required min="1" max="31">
+            <input type="number" name="month" placeholder="Месяц" required min="1" max="12">
+            <input type="number" name="year" placeholder="Год" required>
+            <button type="submit">Добавить дату</button>
+        </form>
+        <div id="datesList"></div>
+    </section>
+
+    <section>
+        <h2>Даты class/extends</h2>
+        <form id="dateFormClass">
+            <input type="number" name="day" placeholder="День" required min="1" max="31">
+            <input type="number" name="month" placeholder="Месяц" required min="1" max="12">
+            <input type="number" name="year" placeholder="Год" required>
+            <button type="submit">Добавить дату</button>
+        </form>
+        <div id="datesListClass"></div>
+        <div id="outputClass"></div>
+    </section>
+
+    <section>
         <h2>Настройки стилей</h2>
         <label>
             <input type="checkbox" id="toggleStyleOptions"> Показать настройки стиля
@@ -161,4 +184,6 @@
     <script src="{% static "scripts/mychart.js" %}"></script>
     <script src="{% static "scripts/ageChecker.js" %}"></script>
     <script src="{% static "scripts/pageOptions.js" %}"></script>
+    <script src="{% static "scripts/datesOnClasses.js" %}"></script>
+    <script src="{% static "scripts/datesOnPrototypes.js" %}"></script>
 {% endblock content %}
