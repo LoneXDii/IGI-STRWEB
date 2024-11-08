@@ -43,7 +43,7 @@
                 <li><a href="{% url 'privacy' %}" class='nav-item'>Политика конфиденциальности</a></li>
                 <li><a href="{% url 'reviews' %}" class='nav-item'>Отзывы</a></li>
                 <li><a href="{% url 'coupons' %}" class='nav-item'>Купоны</a></li>
-                <li><a href="{% url 'jokes' %}" class='nav-item'>Анекдоты</a></li>
+                {% comment %} <li><a href="{% url 'jokes' %}" class='nav-item'>Анекдоты</a></li> {% endcomment %}
                 <li><a href="{% url 'test' %}" class='nav-item'>Тест функций</a></li>
                 {% if request.user.is_superuser %}
                 <li>
@@ -54,6 +54,7 @@
                     </ul>
                 </li>
                 {% endif %}
+                <li><div id="countdown">Загрузка таймера...</div></li>
             </ul>
         </nav>
         <div>
@@ -69,4 +70,5 @@
         HealthWell 2024. All rights reserved.
     </footer>
 </body>
+<script src="{% static "scripts/timer.js" %}"></script>
 </html>
