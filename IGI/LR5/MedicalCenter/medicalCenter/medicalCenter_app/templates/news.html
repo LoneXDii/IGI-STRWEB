@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load static %} 
-{% block styles %}<link rel="stylesheet" type="text/css" href="{% static 'newsStyles.css' %}">{% endblock styles %}
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'newsStyles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'paginationStyles.css' %}">
+{% endblock styles %}
 {% block title %}Новости{% endblock title %}
 {% block header %}Новости{% endblock header %}
 {% block content %}
@@ -14,4 +17,10 @@
             </article>
         {% endfor %}
     </article>
+    <div class="pagination">
+        <button id="prev" class="page-button" disabled>Назад</button>
+        <div id="page-buttons"></div>
+        <button id="next" class="page-button">Вперед</button>
+    </div>
+    <script src="{% static "scripts/newsPagination.js" %}"></script>
 {% endblock content %}
