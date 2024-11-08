@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load static %} 
-{% block styles %}<link rel="stylesheet" type="text/css" href="{% static 'Animation.css' %}">{% endblock styles %}
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Animation.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'slider.css' %}">
+{% endblock styles %}
 {% block title %}Главная{% endblock title %}
 {% block header %}Главная{% endblock header %}
 {% block content %}
@@ -60,12 +63,51 @@
     <section class="flex-container">
         <section class="banners-section">
             <h2>Баннеры</h2>
-            <div class="banners-container">
-                <img src="media/adv_banner1.jpg" alt="Баннер 1" class="banner-item">
-                <img src="media/adv_banner2.jpg" alt="Баннер 2" class="banner-item">
-                <img src="media/adv_banner3.jpg" alt="Баннер 3" class="banner-item">
-                <img src="media/adv_banner4.jpg" alt="Баннер 4" class="banner-item">
+            <div class="slider">
+                <div class="slider-wrapper">
+                    <div class="slide"><a href="{% url "news" %}"><span class="counter"></span><img src="{{ 'media/adv_banner1.jpg' }}" alt="Image 1"><span class="image-text">Text for ban1</span></a></div>
+                    <div class="slide"><a href="{% url "about" %}"><span class="counter"></span><img src="{{ 'media/adv_banner2.jpg' }}" alt="Image 2"><span class="image-text">Text for ban2</span></a></div>
+                    <div class="slide"><a href="{% url "vacancies" %}"><span class="counter"></span><img src="{{ 'media/adv_banner3.jpg' }}" alt="Image 3"><span class="image-text">Text for ban3</span></a></div>
+                </div>
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+                <div class="pag">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
             </div>
+
+            {% if user.is_superuser %}
+                <form id="sliderSettings">
+                <h2>Настройки слайдера</h2>
+            
+                <label>
+                  <input type="checkbox" id="allowCycle" checked> Разрешить цикличность прокрутки
+                </label><br>
+            
+                <label>
+                  <input type="checkbox" id="showArrows" checked> Показать стрелки
+                </label><br>
+            
+                <label>
+                  <input type="checkbox" id="showPagination" checked> Показать пагинатор
+                </label><br>
+            
+                <label>
+                  <input type="checkbox" id="allowAutoScroll" checked> Разрешить автопрокрутку
+                </label><br>
+            
+                <label>
+                  <input type="checkbox" id="allowHoverPause" checked> Останавливать прокрутку при наведении курсора
+                </label><br>
+            
+                <label for="autoScrollTime">Время автопрокрутки (в секундах):</label>
+                <input type="number" id="autoScrollTime" value="5" min="1"><br>
+            
+                <button type="button" id="applySettings">Применить</button>
+              </form>
+            {% endif %}
         </section>
 
         <section class="partners-section">
@@ -104,4 +146,5 @@
         {% get_current_timezone as TIME_ZONE %}
 	    <p>Ваша временая зона: {{TIME_ZONE}}+3</p>
     </section>
+    <script src="{% static "scripts/slider.js" %}"></script>
 {% endblock content %}
