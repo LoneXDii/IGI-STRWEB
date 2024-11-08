@@ -65,9 +65,27 @@
             <h2>Баннеры</h2>
             <div class="slider">
                 <div class="slider-wrapper">
-                    <div class="slide"><a href="{% url "news" %}"><span class="counter"></span><img src="{{ 'media/adv_banner1.jpg' }}" alt="Image 1"><span class="image-text">Text for ban1</span></a></div>
-                    <div class="slide"><a href="{% url "about" %}"><span class="counter"></span><img src="{{ 'media/adv_banner2.jpg' }}" alt="Image 2"><span class="image-text">Text for ban2</span></a></div>
-                    <div class="slide"><a href="{% url "vacancies" %}"><span class="counter"></span><img src="{{ 'media/adv_banner3.jpg' }}" alt="Image 3"><span class="image-text">Text for ban3</span></a></div>
+                    <div class="slide">
+                      <a href="{% url "news" %}">
+                        <span class="counter"></span>
+                        <img src="{{ 'media/adv_banner1.jpg' }}" alt="Image 1">
+                        <span class="image-text">Text for ban1</span>
+                      </a>
+                    </div>
+                    <div class="slide">
+                      <a href="{% url "about" %}">
+                        <span class="counter"></span>
+                        <img src="{{ 'media/adv_banner2.jpg' }}" alt="Image 2">
+                        <span class="image-text">Text for ban2</span>
+                      </a>
+                    </div>
+                    <div class="slide">
+                      <a href="{% url "vacancies" %}">
+                        <span class="counter"></span>
+                        <img src="{{ 'media/adv_banner3.jpg' }}" alt="Image 3">
+                        <span class="image-text">Text for ban3</span>
+                      </a>
+                    </div>
                 </div>
                 <button class="prev">&#10094;</button>
                 <button class="next">&#10095;</button>
