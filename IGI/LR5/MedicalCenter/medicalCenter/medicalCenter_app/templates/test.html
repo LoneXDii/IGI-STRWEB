@@ -23,6 +23,14 @@
     </section>
 
     <section>
+        <h2>Настройки стилей</h2>
+        <label>
+            <input type="checkbox" id="toggleStyleOptions"> Показать настройки стиля
+        </label>
+        <div id="styleOptionsContainer"></div>
+    </section>
+
+    <section>
         <h2>График</h2>
         <canvas id="myChart" width="400" height="200"></canvas>
     </section>
@@ -152,4 +160,5 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
     <script src="{% static "scripts/mychart.js" %}"></script>
     <script src="{% static "scripts/ageChecker.js" %}"></script>
+    <script src="{% static "scripts/pageOptions.js" %}"></script>
 {% endblock content %}
