@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% load static %} 
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'doorsAnim.css' %}">
+{% endblock styles %}
 {% block title %}Тест{% endblock title %}
 {% block header %}Тест{% endblock header %}
 {% block content %}
@@ -15,168 +18,177 @@
         <a href="#inputs">Инпуты</a>
     </nav>
 
-    <section>
-        <h2>Проверка возраста</h2>
-        <input type="date" id="birthDate"/>
-        <p id="message"></p>
-        <button id="ageBtn">Проверить возраст</button>
-    </section>
+    <div class="door-frame">
+        <div class="door-container">
+            <div class="door left-door"></div>
+            <div class="door right-door"></div>
+        </div>
+    </div>
 
-    <section>
-        <h2>Даты prototypes</h2>
-        <form id="dateForm">
-            <input type="number" name="day" placeholder="День" required min="1" max="31">
-            <input type="number" name="month" placeholder="Месяц" required min="1" max="12">
-            <input type="number" name="year" placeholder="Год" required>
-            <button type="submit">Добавить дату</button>
-        </form>
-        <div id="datesList"></div>
-    </section>
+    <section class="zindex-fix">
+        <section>
+            <h2>Проверка возраста</h2>
+            <input type="date" id="birthDate"/>
+            <p id="message"></p>
+            <button id="ageBtn">Проверить возраст</button>
+        </section>
 
-    <section>
-        <h2>Даты class/extends</h2>
-        <form id="dateFormClass">
-            <input type="number" name="day" placeholder="День" required min="1" max="31">
-            <input type="number" name="month" placeholder="Месяц" required min="1" max="12">
-            <input type="number" name="year" placeholder="Год" required>
-            <button type="submit">Добавить дату</button>
-        </form>
-        <div id="datesListClass"></div>
-        <div id="outputClass"></div>
-    </section>
+        <section>
+            <h2>Даты prototypes</h2>
+            <form id="dateForm">
+                <input type="number" name="day" placeholder="День" required min="1" max="31">
+                <input type="number" name="month" placeholder="Месяц" required min="1" max="12">
+                <input type="number" name="year" placeholder="Год" required>
+                <button type="submit">Добавить дату</button>
+            </form>
+            <div id="datesList"></div>
+        </section>
 
-    <section>
-        <h2>Настройки стилей</h2>
-        <label>
-            <input type="checkbox" id="toggleStyleOptions"> Показать настройки стиля
-        </label>
-        <div id="styleOptionsContainer"></div>
-    </section>
+        <section>
+            <h2>Даты class/extends</h2>
+            <form id="dateFormClass">
+                <input type="number" name="day" placeholder="День" required min="1" max="31">
+                <input type="number" name="month" placeholder="Месяц" required min="1" max="12">
+                <input type="number" name="year" placeholder="Год" required>
+                <button type="submit">Добавить дату</button>
+            </form>
+            <div id="datesListClass"></div>
+            <div id="outputClass"></div>
+        </section>
 
-    <section>
-        <h2>График</h2>
-        <canvas id="myChart" width="400" height="200"></canvas>
-    </section>
+        <section>
+            <h2>Настройки стилей</h2>
+            <label>
+                <input type="checkbox" id="toggleStyleOptions"> Показать настройки стиля
+            </label>
+            <div id="styleOptionsContainer"></div>
+        </section>
 
-    <section id="code">
-        <h2>Листинг</h2>
-        <code><pre>
-            #include "iostream"
+        <section>
+            <h2>График</h2>
+            <canvas id="myChart" width="400" height="200"></canvas>
+        </section>
 
-            int main(){
-                std::cout << "Hello, World!";
-                return 0;
-            }
-        </pre></code>
-    </section>
-    <hr>
+        <section id="code">
+            <h2>Листинг</h2>
+            <code><pre>
+                #include "iostream"
 
-    <section id="abbr">
-        <h2>Сокращение</h2>
-        <abbr title="HyperText Markup Language">HTML</abbr>
-    </section>
-    <hr>
+                int main(){
+                    std::cout << "Hello, World!";
+                    return 0;
+                }
+            </pre></code>
+        </section>
+        <hr>
 
-    <section id="dfn">
-        <h2>Определение</h2>
-        <p><dfn title="Hypertext Markup Language">HTML</dfn> - это код, который используется для структурирования и отображения веб-страницы и её контента.</p>
-    </section>
-    <hr>
+        <section id="abbr">
+            <h2>Сокращение</h2>
+            <abbr title="HyperText Markup Language">HTML</abbr>
+        </section>
+        <hr>
 
-    <section id="blockquote">
-        <h2>Цитата</h2>
-        <blockquote>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
-            sed diem nonummy nibh euismod tincidunt ut lacreet dolore magna aliguam erat 
-            volutpat. Ut wisis enim ad minim veniam, quis nostrud exerci tution ullamcorper 
-            suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-        </blockquote>
-         Автор Цитаты
-        <br>
-        <q lang="ru">Это цитата на русском</q>
-        <br>
-        <q lang="en">This is a quote in English</q>
-        <br>
-        <q lang="de">Dies ist ein Zitat auf Deutsch</q>
-    </section>
-    <hr>
+        <section id="dfn">
+            <h2>Определение</h2>
+            <p><dfn title="Hypertext Markup Language">HTML</dfn> - это код, который используется для структурирования и отображения веб-страницы и её контента.</p>
+        </section>
+        <hr>
 
-    <section id="table">
-        <h2>Таблица</h2>
-        <table border="1">
-            <caption>Пример таблицы</caption>
-            <thead>
-                <tr>
-                    <th id="category" rowspan="2">Категория</th>
-                    <th id="item" colspan="2">Товар</th>
-                    <th id="quantity" rowspan="2">Количество</th>
-                </tr>
-                <tr>
-                    <th id="name">Название</th>
-                    <th id="price">Цена</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td headers="category">Фрукты</td>
-                    <td headers="item name">Яблоко</td>
-                    <td headers="item price">50</td>
-                    <td headers="quantity">10</td>
-                </tr>
-                <tr>
-                    <td headers="category">Фрукты</td>
-                    <td headers="item name">Банан</td>
-                    <td headers="item price">30</td>
-                    <td headers="quantity">15</td>
-                </tr>
-                <tr>
-                    <td headers="category">Овощи</td>
-                    <td headers="item name">Морковь</td>
-                    <td headers="item price">25</td>
-                    <td headers="quantity">20</td>
-                </tr>
-            </tbody>
-        </table>   
-    </section>
-    <hr>
+        <section id="blockquote">
+            <h2>Цитата</h2>
+            <blockquote>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
+                sed diem nonummy nibh euismod tincidunt ut lacreet dolore magna aliguam erat 
+                volutpat. Ut wisis enim ad minim veniam, quis nostrud exerci tution ullamcorper 
+                suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+            </blockquote>
+            Автор Цитаты
+            <br>
+            <q lang="ru">Это цитата на русском</q>
+            <br>
+            <q lang="en">This is a quote in English</q>
+            <br>
+            <q lang="de">Dies ist ein Zitat auf Deutsch</q>
+        </section>
+        <hr>
 
-    <section id="dlink">
-        <h2>Пример ссылки для скачивания файла</h2>  
-        <a href="/media/MC_Logo.jpg" download>Скачать файл</a>
-    </section>
-    <hr>
+        <section id="table">
+            <h2>Таблица</h2>
+            <table border="1">
+                <caption>Пример таблицы</caption>
+                <thead>
+                    <tr>
+                        <th id="category" rowspan="2">Категория</th>
+                        <th id="item" colspan="2">Товар</th>
+                        <th id="quantity" rowspan="2">Количество</th>
+                    </tr>
+                    <tr>
+                        <th id="name">Название</th>
+                        <th id="price">Цена</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td headers="category">Фрукты</td>
+                        <td headers="item name">Яблоко</td>
+                        <td headers="item price">50</td>
+                        <td headers="quantity">10</td>
+                    </tr>
+                    <tr>
+                        <td headers="category">Фрукты</td>
+                        <td headers="item name">Банан</td>
+                        <td headers="item price">30</td>
+                        <td headers="quantity">15</td>
+                    </tr>
+                    <tr>
+                        <td headers="category">Овощи</td>
+                        <td headers="item name">Морковь</td>
+                        <td headers="item price">25</td>
+                        <td headers="quantity">20</td>
+                    </tr>
+                </tbody>
+            </table>   
+        </section>
+        <hr>
 
-    <section id="pre">
-        <h2>Пример предварительно форматированного текста</h2>
-        <pre>
-            Жизнь — это река,
-            Течёт и бежит.
-            Не видно конца
-            В пучине дарит.
-        </pre>
-    </section>
-    <hr>
+        <section id="dlink">
+            <h2>Пример ссылки для скачивания файла</h2>  
+            <a href="/media/MC_Logo.jpg" download>Скачать файл</a>
+        </section>
+        <hr>
 
-    <section id="wbr">
-        <h2>Пример ожидаемого переноса</h2>
-        <p dir="rtl">
-            метоксихлор<wbr>диэтиламино<wbr>метил<wbr>бутил<wbr>амино<wbr>акридин
-        </p>
-    </section>
-    <hr>
+        <section id="pre">
+            <h2>Пример предварительно форматированного текста</h2>
+            <pre>
+                Жизнь — это река,
+                Течёт и бежит.
+                Не видно конца
+                В пучине дарит.
+            </pre>
+        </section>
+        <hr>
 
-    <section id="inputs">
-        <h2>Инпуты</h2>
-        <p><input type="text"/></p>
-        <p><input type="password"/></p>
-        <p><input type="radio" name="r"/></p>
-        <p><input type="radio" name="r"/></p>
-        <p><input type="radio" name="r"/></p>
-        <p><input type="button"/></p>
-        <p><input type="email"/></p>
-        <p><input type="file"/></p>
-        <p><input type="hidden"/></p>
-        <p><input type="date"/></p>
+        <section id="wbr">
+            <h2>Пример ожидаемого переноса</h2>
+            <p dir="rtl">
+                метоксихлор<wbr>диэтиламино<wbr>метил<wbr>бутил<wbr>амино<wbr>акридин
+            </p>
+        </section>
+        <hr>
+
+        <section id="inputs">
+            <h2>Инпуты</h2>
+            <p><input type="text"/></p>
+            <p><input type="password"/></p>
+            <p><input type="radio" name="r"/></p>
+            <p><input type="radio" name="r"/></p>
+            <p><input type="radio" name="r"/></p>
+            <p><input type="button"/></p>
+            <p><input type="email"/></p>
+            <p><input type="file"/></p>
+            <p><input type="hidden"/></p>
+            <p><input type="date"/></p>
+        </section>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -186,4 +198,5 @@
     <script src="{% static "scripts/pageOptions.js" %}"></script>
     <script src="{% static "scripts/datesOnClasses.js" %}"></script>
     <script src="{% static "scripts/datesOnPrototypes.js" %}"></script>
+    <script src="{% static "scripts/doorsOpen.js" %}"></script>
 {% endblock content %}

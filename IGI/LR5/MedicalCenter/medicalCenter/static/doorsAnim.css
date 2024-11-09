@@ -1,0 +1,49 @@
+.door-frame {
+    position: fixed;
+    top: 0;
+    left: 0; 
+    width: 100vw; 
+    height: 100vh; 
+    background-image: url('hospital-background.jpg'); 
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.door-container {
+    position: fixed;
+    top: 75%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    width: 470px; 
+    height: 800px; 
+    overflow: hidden;
+}
+
+.door {
+    position: absolute;
+    top: 0;
+    width: 50%; 
+    height: 100%;
+    background-size: cover; 
+    background-position: center; 
+    /* transition: transform 0.5s ease;  */
+}
+
+.left-door {
+    left: 0;
+    transform-origin: left;
+    background-image: url('left-door.jpg'); 
+}
+
+.right-door {
+    right: 0;
+    transform-origin: right;
+    background-image: url('right-door.jpg'); 
+}
+
+.zindex-fix{
+    position: relative;
+    z-index: 5;
+}
