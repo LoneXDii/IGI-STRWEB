@@ -7,7 +7,7 @@ from django.template.response import TemplateResponse
 from django.urls import reverse
 from django.utils import dateformat, timezone
 from medicalCenter_app.forms import ReviewForm
-from medicalCenter_app.models import  About, Client, Coupons, Diagnosis, Doctor, News, Review, Term, Vacancy
+from medicalCenter_app.models import  About, Client, Coupons, Diagnosis, Doctor, DoctorSpecialization, News, Review, Term, Vacancy
 
 
 def about(request):
@@ -17,7 +17,11 @@ def about(request):
     return render(request, 'about.html', context=data)
 
 def contacts(request):
-    doctors = Doctor.objects.all()
+    doctors = list(Doctor.objects.all().values('id', 'name', 'surname', 'second_name', 'specialization', 'birth_date', 'email', 'phone_number', 'image'))
+    for doctor in doctors:
+        doctor['specialization'] = DoctorSpecialization.objects.get(pk=int(doctor['specialization'])).name
+        doctor['image'] = Doctor.objects.get(pk=int(doctor['id'])).image.url
+        doctor['id'] = str(doctor['id'])
     data = {'doctors': doctors}
     return render(request, 'contacts.html', context=data)
 

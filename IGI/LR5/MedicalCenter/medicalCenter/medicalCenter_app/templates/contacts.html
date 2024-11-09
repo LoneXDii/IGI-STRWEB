@@ -1,10 +1,90 @@
 {% extends "base.html" %}
 {% load static %} 
-{% block styles %}<link rel="stylesheet" type="text/css" href="{% static 'contactsStyles.css' %}">{% endblock styles %}
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'contactsStyles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'loader.css' %}">
+{% endblock styles %}
 {% block title %}Контакты{% endblock title %}
 {% block header %}Контакты{% endblock header %}
 {% block content %}
-    <div class="doctor-list">
+    <section style="margin-bottom: 50px;">
+        <h1>Наш персонал</h1>
+        
+        <button id="addEmployeeBtn">Добавить сотрудника</button>
+
+        <div class="form-container" id="employeeFormContainer">
+            <h3>Добавить сотрудника</h3>
+            <form id="employeeForm">
+                <label for="last_name">Фамилия:</label>
+                <input type="text" id="last_name" name="last_name" required><br><br>
+
+                <label for="first_name">Имя:</label>
+                <input type="text" id="first_name" name="first_name" required><br><br>
+
+                <label for="surname">Отчество:</label>
+                <input type="text" id="surname" name="surname" required><br><br>
+                
+                <label for="photo">Фото:</label>
+                <input type="file" id="photo" name="photo" accept="image/*"><br><br>
+
+                <label for="jobDescription">Описание работы:</label>
+                <textarea id="jobDescription" name="jobDescription" required></textarea><br><br>
+
+                <label for="url">URL:</label>
+                <input type="text" id="url" name="url" required><br><br>
+
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" required><br><br>
+
+                <label for="email">Почта:</label>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <button disabled id="submitBtn" type="submit">Добавить</button>
+            </form>
+
+            <p id="urlMessage" class="error-message">Неверный формат URL</p>
+            <p id="phoneMessage" class="error-message">Неверный формат номера телефона</p>
+            <p id="successMessage" class="success-message">Все данные введены корректно!</p>
+        </div>
+
+        <div id="searcher">
+            <input type="text" id="search-input" placeholder="Введите текст для поиска">
+            <button id="search-button">Найти</button>
+        </div>
+
+        <div class="loader" id="preloader"></div>
+
+        <table id="employee-list">
+            <thead>
+                <tr>
+                    <th data-column="image" data-order="desc">Фото</th>
+                    <th data-column="last_name" data-order="desc">Фамилия</th>
+                    <th data-column="first_name" data-order="desc">Имя</th>
+                    <th data-column="surname" data-order="desc">Отчество</th>
+                    <th data-column="position" data-order="desc">Должность</th>
+                    <th data-column="date_joined" data-order="desc">Дата рождения</th>
+                    <th data-column="email" data-order="desc">Почта</th>
+                    <th data-column="phone" data-order="desc">Телефон</th>
+                    <th data-column="checkbox" data-order="desc">Премия</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <button id="bonusButton">Премировать</button>
+
+        <div class="pagination">
+            <button id="prevBtn">Предыдущая</button>
+            <span id="pageInfo">Страница 1</span>
+            <button id="nextBtn">Следующая</button>
+        </div>
+
+        <div id="employee-details" style="margin-top: 20px; font-weight: bold;"></div>
+
+        <div id="bonusInfo"></div>
+    </section>
+    {% comment %} <div class="doctor-list">
         {% for d in doctors %}
             <section class="doctor-card">
                 <a href='{% url 'doctor_info' id=d.pk %}' style="text-decoration: none;">
@@ -21,5 +101,8 @@
                 </a>
             </section>
         {% endfor %}
-    </div>
+    </div> {% endcomment %}
+    <script id="employees-data" type="application/json">{{ doctors|json_script:"employeesData" }}</script>
+    <script src="{% static "scripts/staffScripts.js" %}"></script>
+    <script src="{% static "scripts/staffOrdering.js" %}"></script>
 {% endblock content %}
