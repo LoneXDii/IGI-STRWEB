@@ -1,3 +1,16 @@
+const toggleScroller = document.getElementById('scroller');
+toggleScroller.style.display = 'block'
+
+const toggleDoors = document.getElementById('toggleDoors');
+
+toggleDoors.addEventListener('change', function() {
+    if (this.checked) {
+        toggleScroller.style.display = 'none';
+    } else {
+        toggleScroller.style.display = 'block';  
+    }
+});
+
 window.addEventListener('scroll', () => {
     const scrollPosition = window.scrollY;
     const maxScroll = document.body.scrollHeight - window.innerHeight;
