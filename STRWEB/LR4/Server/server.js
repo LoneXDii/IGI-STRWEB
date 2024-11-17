@@ -1,7 +1,9 @@
+require("express-async-errors");
 const express = require("express");
 const mongoose = require("mongoose");
 const port = 3001;
 const routes = require("./routes/index");
+const exceptionMiddleware = require("./middleware/exceptionsMiddleware");
 
 main().catch((err) => console.log(err));
 
@@ -11,6 +13,7 @@ async function main() {
 
     app.use(express.json());
     app.use("/api", routes);
+    app.use(exceptionMiddleware);
   
     app.listen(port, () => {
       console.log(`Server is listening on port: ${port}`);

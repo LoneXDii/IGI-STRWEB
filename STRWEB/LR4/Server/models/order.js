@@ -15,6 +15,9 @@ let Order = new Schema({
     },
     total_price:{
         type: Number
+    },
+    is_active:{
+        type: Boolean
     }
 });
 
