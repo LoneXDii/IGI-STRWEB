@@ -19,6 +19,10 @@ let User = new Schema({
     role: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Role'
+    },
+    doctor: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Doctor'
     }
 });
 

@@ -1,10 +1,16 @@
 const express = require("express");
 const router = express.Router();
+const passport = require('passport');
 
 const Specialization = require("../models/specialization");
 
-router.post("/", async (req, res) => {
+router.post("/", passport.authenticate('jwt', { session: false }), async (req, res) => {
     try {
+        if (req.user.role.normalized_name !== "admin"){
+            res.status(403).json({ message: "You have no access to do this" });
+            return;
+        }
+
         const specialization = new Specialization(req.body);
         await specialization.save();     
         res.status(201).json(specialization);
@@ -32,8 +38,13 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", passport.authenticate('jwt', { session: false }), async (req, res) => {
     try {
+        if (req.user.role.normalized_name !== "admin"){
+            res.status(403).json({ message: "You have no access to do this" });
+            return;
+        }
+
         await Specialization.deleteOne({ _id: req.params.id });
         res.status(204).send();
     } catch(err) {
@@ -41,8 +52,13 @@ router.delete("/:id", async (req, res) => {
     }
 });
 
-router.patch("/:id", async (req, res) => {
+router.patch("/:id", passport.authenticate('jwt', { session: false }), async (req, res) => {
     try {
+        if (req.user.role.normalized_name !== "admin"){
+            res.status(403).json({ message: "You have no access to do this" });
+            return;
+        }
+        
         const specialization = await Specialization.findOne({ _id: req.params.id });
 
         if (req.body.name) {

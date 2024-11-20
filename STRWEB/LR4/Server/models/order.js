@@ -18,6 +18,9 @@ let Order = new Schema({
     },
     is_active:{
         type: Boolean
+    },
+    user_id:{
+        type: String
     }
 });
 

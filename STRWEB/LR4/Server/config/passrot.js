@@ -9,7 +9,7 @@ const opts = {
 module.exports = (passport) => {
     passport.use(new Strategy(opts, async (jwt_payload, done) => {
         try {
-            const user = await User.findById(jwt_payload.id);
+            const user = await User.findById(jwt_payload.id).populate('role').populate('doctor');
             if (user) {
                 return done(null, user);
             }

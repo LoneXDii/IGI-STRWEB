@@ -8,16 +8,14 @@ const Role = require('../models/role');
 
 router.post('/register', async (req, res) => {
     const user = new User(req.body);
-
-    //set default customer role here
-
+    user.role = '673e3c3f4659e4d7e316cd32';
     await user.save();
     res.status(201).json({ message: 'User registered' });
 });
 
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email }).populate('role');
 
     if (!user || !(await user.comparePassword(password))) {
         return res.status(401).json({ message: 'Invalid credentials' });
@@ -27,7 +25,8 @@ router.post('/login', async (req, res) => {
         { 
             id: user._id,
             avatar: user.avatar_url,
-            email: user.email 
+            email: user.email,
+            role: user.role.normalized_name
         }, 
         'secret', { expiresIn: '1h' });
 

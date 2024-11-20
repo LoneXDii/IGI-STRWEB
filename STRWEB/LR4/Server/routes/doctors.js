@@ -1,11 +1,17 @@
 const express = require("express");
 const router = express.Router();
+const passport = require('passport');
 
 const Doctor = require("../models/doctor");
 const Specialization = require("../models/specialization");
 
-router.post('/', async (req, res) => {
+router.post('/', passport.authenticate('jwt', { session: false }), async (req, res) => {
     try {
+        if (req.user.role.normalized_name !== "admin"){
+            res.status(403).json({ message: "You have no access to do this" });
+            return;
+        }
+        
         const doctor = new Doctor(req.body);
         const specialization = await Specialization.findById(doctor.specialization);
 
@@ -44,8 +50,13 @@ router.get("/specialization/:id", async (req, res) => {
     }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", passport.authenticate('jwt', { session: false }), async (req, res) => {
     try {
+        if (req.user.role.normalized_name !== "admin"){
+            res.status(403).json({ message: "You have no access to do this" });
+            return;
+        }
+        
         await Doctor.deleteOne({ _id: req.params.id });
         res.status(204).send();
     } catch(err) {
@@ -53,8 +64,13 @@ router.delete("/:id", async (req, res) => {
     }
 });
 
-router.patch("/:id", async (req, res) => {
+router.patch("/:id", passport.authenticate('jwt', { session: false }), async (req, res) => {
     try {
+        if (req.user.role.normalized_name !== "admin"){
+            res.status(403).json({ message: "You have no access to do this" });
+            return;
+        }
+        
         const doctor = await Doctor.findOne({ _id: req.params.id });
     
         if (req.body.first_name) {
