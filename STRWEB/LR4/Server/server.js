@@ -7,6 +7,9 @@ const exceptionMiddleware = require("./middleware/exceptionsMiddleware");
 const passport = require('passport');
 const passportConfig = require('./config/passrot');
 
+const authRouter = require('./routes/oauth');
+const googleRouter = require('./routes/google');
+
 main().catch((err) => console.log(err));
 
 async function main() {
@@ -21,6 +24,8 @@ async function main() {
     });
 
     app.use("/api", routes);
+    app.use('/oauth', authRouter);
+    app.use('/google', googleRouter);
     app.use(exceptionMiddleware);
   
     app.listen(port, () => {
