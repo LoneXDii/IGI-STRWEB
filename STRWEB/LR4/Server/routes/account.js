@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const User = require('../models/user');
 const Role = require('../models/role');
@@ -28,7 +30,8 @@ router.post('/login', async (req, res) => {
             email: user.email,
             role: user.role.normalized_name
         }, 
-        'secret', { expiresIn: '1h' });
+        process.env.JWT_SECRET, 
+        { expiresIn: '1h' });
 
     res.status(200).json({ token });
 });

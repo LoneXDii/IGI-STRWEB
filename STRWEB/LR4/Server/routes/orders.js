@@ -27,7 +27,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), async (req, r
             order.total_price += service.price;
         }
 
-        order.user_id = req.user.role._id;
+        order.user_id = req.user._id;
 
         await order.save();
         res.status(201).json(order);
