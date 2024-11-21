@@ -6,6 +6,7 @@ const routes = require("./routes/index");
 const exceptionMiddleware = require("./middleware/exceptionsMiddleware");
 const passport = require('passport');
 const passportConfig = require('./config/passrot');
+const cors = require('cors');
 
 const authRouter = require('./routes/oauth');
 const googleRouter = require('./routes/google');
@@ -18,6 +19,7 @@ async function main() {
     app.use(passport.initialize());
     await mongoose.connect("mongodb://127.0.0.1:27017/expressdb");
     app.use(express.json());
+    app.use(cors());
 
     app.get('/protected', passport.authenticate('jwt', { session: false }), (req, res) => {
       res.json({ message: 'This is a protected route', user: req.user });
