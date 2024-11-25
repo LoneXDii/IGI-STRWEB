@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Specializations from './components/specializations/Specializations';
+import Services from './components/services/Services';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/specializations",
     element: <Specializations />,
+  },
+  {
+    path: "/services/:id",
+    element: <Services />,
   }
 ]);
 

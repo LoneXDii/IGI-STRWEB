@@ -1,0 +1,23 @@
+.specializations {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.specializations li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+}
+
+.specializations li:hover {
+    background-color: #e9e9e9;
+}
+
+.specializations h2 {
+    font-size: 1.5em;
+    margin: 0;
+}

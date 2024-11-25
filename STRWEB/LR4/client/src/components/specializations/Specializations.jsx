@@ -26,7 +26,6 @@ function Specializations() {
         items = <p>Loading...</p>;
     }
     else{
-        console.log('aboba');
         items = <SpecializationsList data={specializations} />
     }
 
