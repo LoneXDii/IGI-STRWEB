@@ -17,6 +17,7 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
+    console.log(email);
     const user = await User.findOne({ email }).populate('role');
 
     if (!user || !(await user.comparePassword(password))) {

@@ -19,7 +19,13 @@ async function main() {
     app.use(passport.initialize());
     await mongoose.connect("mongodb://127.0.0.1:27017/expressdb");
     app.use(express.json());
-    app.use(cors());
+
+    const corsOptions = {
+      origin: ['http://localhost:3000', 'http://127.0.0.1:3000'],
+      methods: ['GET', 'POST', 'PUT', 'DELETE'],
+      credentials: true,
+  };
+    app.use(cors(corsOptions));
 
     app.get('/protected', passport.authenticate('jwt', { session: false }), (req, res) => {
       res.json({ message: 'This is a protected route', user: req.user });

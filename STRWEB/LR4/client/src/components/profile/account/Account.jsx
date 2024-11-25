@@ -1,6 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-function Account({changeState}){
+function Account({ changeState }) {
+    const [decodedPayload, setDecodedPayload] = useState(null);
+
     useEffect(() => {
         const token = localStorage.getItem('JWT');
         if (!token) {
@@ -9,12 +11,12 @@ function Account({changeState}){
         }
 
         const parts = token.split('.');
-
         const payload = parts[1];
-        let decodedPayload;
 
         try {
-            decodedPayload = JSON.parse(atob(payload.replace(/-/g, '+').replace(/_/g, '/')));
+            const decoded = JSON.parse(atob(payload.replace(/-/g, '+').replace(/_/g, '/')));
+            setDecodedPayload(decoded);
+            console.log(decoded);
         } catch (e) {
             changeState('login');
             return;
@@ -26,10 +28,14 @@ function Account({changeState}){
         changeState('login');
     }
 
-    return(
+    return (
         <div>
             <h1>Аккаунт</h1>
-            <h3>Email: decodedPayload.email</h3>
+            {decodedPayload ? (
+                <h3>Email: {decodedPayload.email}</h3>
+            ) : (
+                <h3>Загрузка...</h3>
+            )}
             <button onClick={handleButtonClick}>Выйти</button>
         </div>
     );

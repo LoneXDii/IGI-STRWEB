@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Specializations from './components/specializations/Specializations';
 import Services from './components/services/Services';
 import Profile from './components/profile/Profile';
+import GoogleAuthCallback from './components/profile/loginAndRegister/items/GoogleAuthCallback';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <Profile />,
+  },
+  {
+    path: "/oauth",
+    element: <GoogleAuthCallback/>,
   }
 ]);
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../../Profile.css";
+import GoogleAuthButton from "./GoogleAuthButton";
 
 function TabsSection({state, changeState}){
     const [loginButton, setLoginButton] = useState('');
@@ -24,6 +25,9 @@ function TabsSection({state, changeState}){
             <li>
                 <button  className={registerButton}
                     onClick={() => changeState('register')}>Зарегистрироваться</button>
+            </li>
+            <li>
+                <GoogleAuthButton />
             </li>
         </ul>
     )

@@ -15,7 +15,7 @@ async function getUserData(access_token){
 router.get('/', async function(req, res, next){
     const code = req.query.code;
     try{
-        const redirectUrl = 'http://127.0.0.1:3001/oauth';
+        const redirectUrl = 'http://127.0.0.1:3000/oauth';
 
         const oAuth2Client = new OAuth2Client(
             process.env.CLIENT_ID,
@@ -31,7 +31,7 @@ router.get('/', async function(req, res, next){
         const token = jwt.sign(
             { 
                 id: data.sub,
-                name: data.name,
+                email: data.name,
                 type: 'google',
                 role: 'customer',
                 avatar: data.picture
