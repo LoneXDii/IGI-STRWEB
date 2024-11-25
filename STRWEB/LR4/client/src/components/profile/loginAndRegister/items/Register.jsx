@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../../Profile.css";
 
-function Register(changeState){
+function Register({changeState}){
     const [emailError, setEmailError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
     const [repeatPasswordError, setRepeatPasswordError] = useState(false);

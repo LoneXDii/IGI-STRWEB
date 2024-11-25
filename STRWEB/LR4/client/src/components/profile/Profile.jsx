@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navigation from "../navigation/Navigation";
 import LoginAndRegister from "./loginAndRegister/LoginAndRegister";
 import "./Profile.css";
+import Account from "./account/Account";
 
 function Profile(){
     const [tab, setTab] = useState('account');
@@ -17,6 +18,7 @@ function Profile(){
             <Navigation />
             <div className="profile-container">
                 {tab !== 'account' && <LoginAndRegister state={tab} changeState={setTab} />}
+                {tab === 'account' && <Account changeState={setTab}/>}
             </div>
         </div>
     );
