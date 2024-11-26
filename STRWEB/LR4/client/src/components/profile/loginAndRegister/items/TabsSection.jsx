@@ -19,12 +19,18 @@ function TabsSection({state, changeState}){
     return(
         <ul className="button-container">
             <li>
-                <button className={loginButton}
-                    onClick={() => changeState('login')}>Войти</button>
+                <button onClick={() => changeState('login')}
+                    className={state === 'login' ? 'disabled-button' : 'enabled-button'}
+                    >
+                    Войти
+                </button>
             </li>
             <li>
-                <button  className={registerButton}
-                    onClick={() => changeState('register')}>Зарегистрироваться</button>
+                <button  onClick={() => changeState('register')}
+                    className={state === 'register' ? 'disabled-button' : 'enabled-button'}
+                    >
+                    Зарегистрироваться
+                </button>
             </li>
             <li>
                 <GoogleAuthButton />
