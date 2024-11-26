@@ -13,7 +13,7 @@ function Service({name, price, _id}){
     }, []); 
 
     function handleOnClick(){
-
+        navigate(`/order/${_id}`)
     };
 
     return(

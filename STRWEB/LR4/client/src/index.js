@@ -8,6 +8,7 @@ import Specializations from './components/specializations/Specializations';
 import Services from './components/services/Services';
 import Profile from './components/profile/Profile';
 import GoogleAuthCallback from './components/profile/loginAndRegister/items/GoogleAuthCallback';
+import Order from './components/order/Order';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/oauth",
     element: <GoogleAuthCallback/>,
+  },
+  {
+    path: "/order/:id",
+    element: <Order/>,
   }
 ]);
 

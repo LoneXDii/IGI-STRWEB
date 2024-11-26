@@ -1,4 +1,5 @@
 import React from 'react';
+import "../../Profile.css";
 
 function GoogleAuthButton() {
     const handleLogin = async () => {
@@ -13,7 +14,7 @@ function GoogleAuthButton() {
     };
 
     return (
-        <button onClick={handleLogin}>
+        <button onClick={handleLogin} className='enabled-button'>
             Войти через Google
         </button>
     );

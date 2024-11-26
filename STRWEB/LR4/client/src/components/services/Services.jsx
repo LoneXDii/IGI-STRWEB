@@ -15,7 +15,7 @@ function Services(){
         setLoading(true);
         const response = await fetch(`http://localhost:3001/api/services/specialization/${id}`);
         const data = await response.json();
-        console.log(data);
+
         setServices(data);
         setLoading(false);
     },[]);
