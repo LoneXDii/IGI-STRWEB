@@ -5,6 +5,7 @@ function Register({changeState}){
     const [emailError, setEmailError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
     const [repeatPasswordError, setRepeatPasswordError] = useState(false);
+    const [imageFile, setImageFile] = useState(null)
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -40,6 +41,10 @@ function Register({changeState}){
         setRepeatPasswordError(!isOk);
     }    
 
+    function handleImageSelect(event){
+        setImageFile(event.target.files[0])
+    }
+
     async function handleButtonClick(){
         try{
             let isEmailOk = emailPattern.test(email);
@@ -54,18 +59,23 @@ function Register({changeState}){
                 return
             }
 
+            const formData = new FormData();
+            formData.append('email', email);
+            formData.append('password', password);
+
+            if(imageFile){
+                formData.append('image', imageFile);
+            }
+
+            let response = await fetch('http://localhost:3001/api/account/register', {
+                method: 'POST',
+                body: formData,
+            });
+
             const user = {
                 email: email,
                 password: password
             };
-
-            let response = await fetch('http://localhost:3001/api/account/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(user),
-            });
 
             response = await fetch('http://localhost:3001/api/account/login', {
                 method: 'POST',
@@ -102,7 +112,7 @@ function Register({changeState}){
                 value={email} onChange={handleEmailChange}
                 style={{border: emailError ? '2px solid red' : null}}/>
 
-            <label>Password</label>
+            <label>Пароль</label>
             {passwordError && (
                 <div role="alert">
                     Пожалуйста, введите корректный пароль
@@ -111,10 +121,13 @@ function Register({changeState}){
                    value={password} onChange={handlePasswordChange}
                    style={{border: passwordError ? '2px solid red' : null}}/>
 
-            <label>Repeat password</label>
+            <label>Повторите пароль</label>
             <input placeholder="password" type="password"
                     value={repeatPassword} onChange={handleRepeatPasswordChange}
                     style={{border: repeatPasswordError ? '2px solid red' : null}}/>
+
+            <label>Аватар:</label>
+            <input type="file" name="image" accept="image/*" onChange={handleImageSelect} />
 
             <button onClick={() => handleButtonClick()}>
                Зарегистрироваться

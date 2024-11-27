@@ -18,6 +18,7 @@ async function main() {
     passportConfig(passport);
     app.use(passport.initialize());
     await mongoose.connect("mongodb://127.0.0.1:27017/expressdb");
+    app.use(express.urlencoded({ extended: true }));
     app.use(express.json());
 
     const corsOptions = {

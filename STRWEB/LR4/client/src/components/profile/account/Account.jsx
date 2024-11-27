@@ -80,6 +80,11 @@ function Account({ changeState }) {
         <div>
             <h1>Аккаунт</h1>
             {decodedPayload ? (
+                <img src={decodedPayload.avatar}/>
+            ) : (
+                <h3>Загрузка...</h3>
+            )}
+            {decodedPayload ? (
                 <h3>Email: {decodedPayload.email}</h3>
             ) : (
                 <h3>Загрузка...</h3>
