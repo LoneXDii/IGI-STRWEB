@@ -1,5 +1,6 @@
 import React from "react";
 import Order from "./Order";
+import "../../Profile.css";
 
 function OrdersList(orders){
     const items = orders.orders.map(o => <Order key={o._id} {...o}/>)
