@@ -83,7 +83,7 @@ function Order(){
             <div className="container">
                 {serviceInfo}
                 {selector}
-                <button onClick={handleOnClick}>Записаться</button>
+                <button onClick={handleOnClick} className="button">Записаться</button>
             </div>
         </div>
     );

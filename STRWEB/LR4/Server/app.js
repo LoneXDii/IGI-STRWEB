@@ -23,9 +23,9 @@ async function main() {
 
     const corsOptions = {
       origin: ['http://localhost:3000', 'http://127.0.0.1:3000'],
-      methods: ['GET', 'POST', 'PUT', 'DELETE'],
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
       credentials: true,
-  };
+    };
     app.use(cors(corsOptions));
 
     app.get('/protected', passport.authenticate('jwt', { session: false }), (req, res) => {

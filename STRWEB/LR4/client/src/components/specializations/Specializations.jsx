@@ -32,7 +32,9 @@ function Specializations() {
     return (
         <div>
             <Navigation />
-            {items}
+            <div className='container'>
+                {items}
+            </div>
         </div>
     );
 };

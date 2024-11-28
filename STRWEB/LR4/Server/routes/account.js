@@ -15,8 +15,7 @@ router.post('/register', upload.single('image') ,async (req, res) => {
     const guid = guidCreator();
     container = await containerClient();
     let imageUrl;
-    console.log(req.body);
-    console.log(req.file);
+
     if(req.file){
         const contentType = req.file.mimetype;
 

@@ -2,6 +2,8 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
+    width: 100%;
+    max-width: 600px;
 }
 
 .services li {
@@ -12,6 +14,7 @@
     margin-bottom: 15px;
     display: flex;
     align-items: center;
+    width: 100%; 
 }
 
 .services li:hover {
@@ -24,7 +27,7 @@
     margin-right: 10px;
 }
 
-.enabled-button {
+.services .enabled-button {
     background-color: #007BFF;
     color: white;
     border: none;
@@ -34,11 +37,11 @@
     transition: background-color 0.3s;
 }
 
-.enabled-button:hover {
+.services .enabled-button:hover {
     background-color: #0056b3;
 }
 
-.disabled-button {
+.services .disabled-button {
     background-color: #e0e0e0;
     color: #a0a0a0; 
     border: none;
@@ -49,6 +52,6 @@
     transition: opacity 0.3s;
 }
 
-.disabled-button:hover {
+.services .disabled-button:hover {
     background-color: #e0e0e0;
 }

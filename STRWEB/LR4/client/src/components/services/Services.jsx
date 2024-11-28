@@ -34,7 +34,9 @@ function Services(){
     return(
         <div>
             <Navigation/>
-            {items}
+            <div className='container'>
+                {items}
+            </div>
         </div>
     );
 }

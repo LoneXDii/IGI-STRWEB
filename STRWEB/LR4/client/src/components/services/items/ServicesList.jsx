@@ -7,7 +7,7 @@ function ServicesList(data){
 
     return(
         <div>
-            <ul className="services ">
+            <ul className="services">
                 {items}
             </ul>
         </div>

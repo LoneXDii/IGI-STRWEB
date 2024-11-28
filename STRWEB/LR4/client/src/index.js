@@ -9,6 +9,9 @@ import Services from './components/services/Services';
 import Profile from './components/profile/Profile';
 import GoogleAuthCallback from './components/profile/loginAndRegister/items/GoogleAuthCallback';
 import Order from './components/order/Order';
+import Admin from './components/admin/Admin';
+import DoctorInfo from './components/admin/doctors/items/DoctorInfo';
+import EditDoctor from './components/admin/doctors/items/EditDoctor';
 
 const router = createBrowserRouter([
   {
@@ -34,7 +37,19 @@ const router = createBrowserRouter([
   {
     path: "/order/:id",
     element: <Order/>,
-  }
+  },
+  {
+    path: "/admin",
+    element: <Admin/>,
+  },
+  {
+    path: "/admin/doctor/:id",
+    element: <DoctorInfo/>
+  },
+  {
+    path: "/admin/doctor/update/:id",
+    element: <EditDoctor/>
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
