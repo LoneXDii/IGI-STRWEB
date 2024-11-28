@@ -15,7 +15,7 @@ function Profile(){
 
     return(
         <div>
-            <Navigation />
+            <Navigation tab={tab}/>
             <div className="profile-container">
                 {tab !== 'account' && <LoginAndRegister state={tab} changeState={setTab} />}
                 {tab === 'account' && <Account changeState={setTab}/>}

@@ -124,3 +124,9 @@ input {
     color: #e74c3c;
     font-weight: bold;
 }
+
+img {
+    width: 200px; 
+    height: 200px; 
+    object-fit: cover; 
+}

@@ -95,11 +95,13 @@ function Register({changeState}){
         catch (error){
             console.log(error.response.status);
         }
+    }
 
-        if(isRedirrectToProfile){
+    useEffect(() => {
+        if (isRedirrectToProfile) {
             changeState('account');
         }
-    }
+    }, [isRedirrectToProfile, changeState]);
 
     return(
         <div>

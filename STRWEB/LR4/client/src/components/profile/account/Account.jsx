@@ -5,6 +5,7 @@ function Account({ changeState }) {
     const [decodedPayload, setDecodedPayload] = useState(null);
     const [activeOrders, setActiveOrders] = useState([]);
     const [oldOrders, setOldOrders] = useState([]);
+    const [role, setRole] = useState(null);
 
     const [loading, setLoading] = useState(false);
 
@@ -55,7 +56,7 @@ function Account({ changeState }) {
         try {
             const decoded = JSON.parse(atob(payload.replace(/-/g, '+').replace(/_/g, '/')));
             setDecodedPayload(decoded);
-            console.log(decoded);
+            setRole(decoded.role);
         } catch (e) {
             changeState('login');
             return;
@@ -76,11 +77,13 @@ function Account({ changeState }) {
         old = <OrdersList orders={oldOrders}/>
     }
 
+    const defaultImage = '/noimage.png';
+
     return (
         <div>
             <h1>Аккаунт</h1>
             {decodedPayload ? (
-                <img src={decodedPayload.avatar}/>
+                <img src={decodedPayload.avatar || defaultImage}/>
             ) : (
                 <h3>Загрузка...</h3>
             )}
@@ -89,11 +92,23 @@ function Account({ changeState }) {
             ) : (
                 <h3>Загрузка...</h3>
             )}
+            {role ? (
+                <h3>Роль: {role}</h3>
+            ) : (
+                <h3>Загрузка...</h3>
+            )}
             <button onClick={handleButtonClick}>Выйти</button>
-            <h2>Активные записи:</h2>
-            {active}
-            <h2>Завершенные записи:</h2>
-            {old}
+            {role !== 'admin' ? (
+                <div>
+                    <h2>Активные записи:</h2>
+                    {active}
+                    <h2>Завершенные записи:</h2>
+                    {old}
+                </div>
+            ) : (
+                <h3></h3>
+            )}
+            
         </div>
     );
 }
