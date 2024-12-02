@@ -13,6 +13,7 @@ import Admin from './components/admin/Admin';
 import DoctorInfo from './components/admin/doctors/items/DoctorInfo';
 import EditDoctor from './components/admin/doctors/items/EditDoctor';
 import CreateDoctor from './components/admin/doctors/items/CreateDoctor';
+import News from './components/news/News';
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
     path: "/admin/doctor/create",
     element: <CreateDoctor/>
   },
+  {
+    path: "/news",
+    element: <News/>
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

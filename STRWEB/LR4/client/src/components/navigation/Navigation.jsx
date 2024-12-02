@@ -23,6 +23,7 @@ function Navigation({tab}) {
                 <li><a href="/">Главная</a></li>
                 <li><a href="/specializations">Услуги</a></li>
                 <li><a href="/profile">Профиль</a></li>
+                <li><a href="/news">Новости</a></li>
                 {admin && <li><a href="/admin">Админка</a></li>}
             </ul>
         </nav>
