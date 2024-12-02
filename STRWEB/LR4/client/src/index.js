@@ -12,6 +12,7 @@ import Order from './components/order/Order';
 import Admin from './components/admin/Admin';
 import DoctorInfo from './components/admin/doctors/items/DoctorInfo';
 import EditDoctor from './components/admin/doctors/items/EditDoctor';
+import CreateDoctor from './components/admin/doctors/items/CreateDoctor';
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
   {
     path: "/admin/doctor/update/:id",
     element: <EditDoctor/>
+  },
+  {
+    path: "/admin/doctor/create",
+    element: <CreateDoctor/>
   },
 ]);
 

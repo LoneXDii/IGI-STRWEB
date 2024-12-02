@@ -50,7 +50,8 @@ body {
 }
 
 .form-container input[type="text"],
-.form-container input[type="file"] {
+.form-container input[type="file"],
+.form-container select {
     width: calc(100% - 20px);
     padding: 10px;
     margin-top: 5px;

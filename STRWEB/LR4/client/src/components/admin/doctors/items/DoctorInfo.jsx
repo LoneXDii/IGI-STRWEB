@@ -37,6 +37,7 @@ const DoctorInfo = () => {
             <div className="doctor-info">
                 <h2>Информация о докторе</h2>
                 <img src={doctor.image_url || '/noimage.png'} alt={`${doctor.first_name} ${doctor.last_name}`} />
+                <p><strong>Специальность:</strong> {doctor.specialization.name}</p>
                 <p><strong>Фамилия:</strong> {doctor.surname}</p>
                 <p><strong>Имя:</strong> {doctor.first_name}</p>
                 <p><strong>Отчество:</strong> {doctor.last_name}</p>

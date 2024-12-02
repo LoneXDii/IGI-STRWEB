@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "../Doctors.css";
 import Navigation from "../../../navigation/Navigation";
+import DoctorForm from './DoctorForm';
 
 const EditDoctor = () => {
     const { id } = useParams();
@@ -34,18 +35,6 @@ const EditDoctor = () => {
     useEffect(() => {
         fetchDoctor();
     }, [fetchDoctor]);
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
-    };
-
-    const handleFileChange = (e) => {
-        setImageFile(e.target.files[0]);
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -86,53 +75,11 @@ const EditDoctor = () => {
             <Navigation />
             <div className="form-container">
                 <form onSubmit={handleSubmit}>
-                    <div>
-                        <label>
-                            Фамилия:
-                            <input
-                                type="text"
-                                name="surname"
-                                value={formData.surname}
-                                onChange={handleChange}
-                                required
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Имя:
-                            <input
-                                type="text"
-                                name="first_name"
-                                value={formData.first_name}
-                                onChange={handleChange}
-                                required
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Отчество:
-                            <input
-                                type="text"
-                                name="last_name"
-                                value={formData.last_name}
-                                onChange={handleChange}
-                                required
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Фото:
-                            <input
-                                type="file"
-                                name="image"
-                                accept="image/*"
-                                onChange={handleFileChange}
-                            />
-                        </label>
-                    </div>
+                    <DoctorForm
+                        formData={formData}
+                        setFormData={setFormData}
+                        setImageFile={setImageFile}
+                    />
                     <button type="submit">Сохранить изменения</button>
                 </form>
             </div>

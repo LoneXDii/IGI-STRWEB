@@ -29,7 +29,7 @@ function Order({_id, services, doctor}){
     return(
         <li className="order-item">
             <h3>{services[0].name} ({spec}) {services[0].price} BYN</h3>
-            <h3>{doctor.surname} {doctor.first_name} {doctor.last_name}</h3>
+            {doctor && <h3>{doctor.surname} {doctor.first_name} {doctor.last_name}</h3>}
         </li>
     );
 }
